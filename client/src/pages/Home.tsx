@@ -256,9 +256,9 @@ export default function Home() {
             <div className="flex-1">
               <h3 className="text-lg font-bold text-slate-900 mb-2">Responsible Gaming Commitment</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
-                Elite Squad Sports is committed to promoting responsible gaming. Our platform is strictly for users 18+ years of age. 
-                This game involves an element of financial risk and may be addictive. Please play responsibly and at your own risk.
-                We do not allow users from Andhra Pradesh, Assam, Nagaland, Odisha, Sikkim, and Telangana to participate in pay-to-play contests.
+                Elite Squad Sports is a 100% free-to-play community platform. There are no entry fees, no cash prizes, and no real money involvement.
+                Our platform is strictly for entertainment and educational purposes. Users must be 18+ years of age to participate.
+                We encourage all users to play responsibly and maintain a healthy balance between gaming and daily life.
               </p>
             </div>
             <Link href="/responsible-gaming">

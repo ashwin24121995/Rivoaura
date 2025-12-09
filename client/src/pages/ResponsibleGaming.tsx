@@ -8,7 +8,7 @@ export default function ResponsibleGaming() {
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Responsible Gaming</h1>
         <p className="text-slate-600 max-w-2xl mx-auto">
-          Elite Squad Sports is purely for entertainment. We are deeply committed to ensuring that our users play responsibly and within their means.
+          Elite Squad Sports is a 100% free-to-play community platform. We are committed to ensuring a fun, safe, and balanced gaming experience for all our users.
         </p>
       </div>
 
@@ -22,7 +22,7 @@ export default function ResponsibleGaming() {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-slate-600">
-              Control your gameplay by setting daily or monthly deposit and time limits.
+              Control your gameplay by setting daily or weekly time limits to maintain a healthy balance.
             </p>
           </CardContent>
         </Card>
@@ -60,11 +60,11 @@ export default function ResponsibleGaming() {
         <section className="bg-slate-50 p-8 rounded-xl border border-slate-200">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Commitment</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
-            Fantasy sports involves an element of financial risk and may be addictive. We encourage all our users to play responsibly. Please remember that this is a game of skill meant for entertainment purposes only.
+            While Elite Squad Sports is completely free and involves no financial risk, excessive gaming can impact your daily life. We encourage all users to play responsibly and treat this platform as a fun recreational activity.
           </p>
           <ul className="list-disc pl-6 space-y-2 text-slate-700">
-            <li>Never play with money you cannot afford to lose.</li>
-            <li>Do not chase losses.</li>
+            <li>Prioritize your personal and professional responsibilities over gaming.</li>
+            <li>Take regular breaks to rest and recharge.</li>
             <li>Balance your gaming time with other activities.</li>
             <li>Do not play when you are upset, tired, or under the influence.</li>
           </ul>
@@ -75,13 +75,13 @@ export default function ResponsibleGaming() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">Deposit Limits</CardTitle>
+                <CardTitle className="text-lg">Screen Time Limits</CardTitle>
               </CardHeader>
               <CardContent>
                 <p className="text-sm text-slate-600 mb-4">
-                  Restrict the amount you can deposit within a specific timeframe (Daily, Weekly, Monthly).
+                  Restrict the amount of time you spend on the platform (Daily, Weekly).
                 </p>
-                <Button variant="outline" className="w-full">Set Deposit Limits</Button>
+                <Button variant="outline" className="w-full">Set Time Limits</Button>
               </CardContent>
             </Card>
             <Card>
