@@ -16,30 +16,93 @@ import Register from "./pages/Register";
 import PointSystem from "./pages/PointSystem";
 import HowToPlay from "./pages/HowToPlay";
 import AboutUs from "./pages/AboutUs";
+import CreateTeam from "./pages/CreateTeam";
+import Contests from "./pages/Contests";
 import Layout from "./components/Layout";
 
 
 function Router() {
   return (
-    <Layout>
-      <Switch>
-        <Route path={"/"} component={Home} />
-        <Route path={"/tournaments"} component={Tournaments} />
-        <Route path={"/community"} component={Community} />
-        <Route path={"/login"} component={Login} />
-        <Route path={"/register"} component={Register} />
-        <Route path={"/point-system"} component={PointSystem} />
-        <Route path={"/how-to-play"} component={HowToPlay} />
-        <Route path={"/about-us"} component={AboutUs} />
-        <Route path={"/terms"} component={Terms} />
-        <Route path={"/privacy"} component={Privacy} />
-        <Route path={"/fair-play"} component={FairPlay} />
-        <Route path={"/responsible-gaming"} component={ResponsibleGaming} />
-        <Route path={"/404"} component={NotFound} />
-        {/* Final fallback route */}
-        <Route component={NotFound} />
-      </Switch>
-    </Layout>
+    <Switch>
+      {/* Pages with Layout */}
+      <Route path="/">
+        <Layout>
+          <Home />
+        </Layout>
+      </Route>
+      <Route path="/tournaments">
+        <Layout>
+          <Tournaments />
+        </Layout>
+      </Route>
+      <Route path="/community">
+        <Layout>
+          <Community />
+        </Layout>
+      </Route>
+      <Route path="/login">
+        <Layout>
+          <Login />
+        </Layout>
+      </Route>
+      <Route path="/register">
+        <Layout>
+          <Register />
+        </Layout>
+      </Route>
+      <Route path="/point-system">
+        <Layout>
+          <PointSystem />
+        </Layout>
+      </Route>
+      <Route path="/how-to-play">
+        <Layout>
+          <HowToPlay />
+        </Layout>
+      </Route>
+      <Route path="/about-us">
+        <Layout>
+          <AboutUs />
+        </Layout>
+      </Route>
+      <Route path="/terms">
+        <Layout>
+          <Terms />
+        </Layout>
+      </Route>
+      <Route path="/privacy">
+        <Layout>
+          <Privacy />
+        </Layout>
+      </Route>
+      <Route path="/fair-play">
+        <Layout>
+          <FairPlay />
+        </Layout>
+      </Route>
+      <Route path="/responsible-gaming">
+        <Layout>
+          <ResponsibleGaming />
+        </Layout>
+      </Route>
+
+      {/* Pages WITHOUT Layout (Fullscreen Apps) */}
+      <Route path="/create-team/:matchId" component={CreateTeam} />
+      <Route path="/contests/:matchId" component={Contests} />
+
+      <Route path="/404">
+        <Layout>
+          <NotFound />
+        </Layout>
+      </Route>
+      
+      {/* Final fallback route */}
+      <Route>
+        <Layout>
+          <NotFound />
+        </Layout>
+      </Route>
+    </Switch>
   );
 }
 

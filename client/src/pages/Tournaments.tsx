@@ -1,137 +1,185 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Trophy, Clock, Users, Calendar, ChevronRight } from "lucide-react";
+import { Clock, Trophy, ChevronRight } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Tournaments() {
-  const tournaments = [
+  const matches = [
     {
       id: 1,
-      title: "Mega Cricket Championship",
-      status: "Live",
+      series: "India Tour of Australia 2025",
+      team1: "IND",
+      team1Name: "India",
+      team1Flag: "🇮🇳",
+      team2: "AUS",
+      team2Name: "Australia",
+      team2Flag: "🇦🇺",
       type: "T20",
-      entry: "Free",
-      prizePool: "10,000 Points",
-      participants: "12,450/15,000",
-      timeLeft: "2h 15m",
-      image: "/images/hero-real-stadium.jpg"
+      startTime: "2h 15m",
+      prizePool: "Mega Contest",
+      status: "Open"
     },
     {
       id: 2,
-      title: "Weekend Warriors League",
-      status: "Upcoming",
+      series: "England Tour of New Zealand",
+      team1: "ENG",
+      team1Name: "England",
+      team1Flag: "🇬🇧",
+      team2: "NZ",
+      team2Name: "New Zealand",
+      team2Flag: "🇳🇿",
       type: "ODI",
-      entry: "Free",
-      prizePool: "5,000 Points",
-      participants: "850/2,000",
-      timeLeft: "Starts Tomorrow",
-      image: "/images/hero-real-stadium.jpg"
+      startTime: "5h 30m",
+      prizePool: "Practice Cup",
+      status: "Open"
     },
     {
       id: 3,
-      title: "Practice Match: IND vs AUS",
-      status: "Live",
+      series: "South Africa vs West Indies",
+      team1: "SA",
+      team1Name: "South Africa",
+      team1Flag: "🇿🇦",
+      team2: "WI",
+      team2Name: "West Indies",
+      team2Flag: "🌴",
       type: "Test",
-      entry: "Practice",
-      prizePool: "Bragging Rights",
-      participants: "Unlimited",
-      timeLeft: "Day 3",
-      image: "/images/hero-real-stadium.jpg"
+      startTime: "Tomorrow",
+      prizePool: "Grand League",
+      status: "Upcoming"
+    },
+    {
+      id: 4,
+      series: "Big Bash League 2025",
+      team1: "SIX",
+      team1Name: "Sydney Sixers",
+      team1Flag: "🟣",
+      team2: "HEA",
+      team2Name: "Brisbane Heat",
+      team2Flag: "🔵",
+      type: "T20",
+      startTime: "Tomorrow",
+      prizePool: "Head-to-Head",
+      status: "Upcoming"
     }
   ];
 
   return (
-    <div className="container py-8">
-      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-slate-900">Tournaments</h1>
-          <p className="text-slate-600">Join India's biggest fantasy cricket contests.</p>
+    <div className="min-h-screen bg-slate-50 py-8">
+      <div className="container max-w-4xl">
+        <div className="flex items-center justify-between mb-8">
+          <div>
+            <h1 className="text-2xl font-bold text-slate-900">Match Lobby</h1>
+            <p className="text-slate-500 text-sm">Select a match to join contests</p>
+          </div>
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm" className="gap-2">
+              <Trophy className="w-4 h-4" /> My Contests
+            </Button>
+          </div>
         </div>
-        <Button className="bg-secondary hover:bg-secondary/90 text-white">
-          Create Private League
-        </Button>
-      </div>
 
-      <Tabs defaultValue="all" className="w-full">
-        <TabsList className="mb-8 bg-slate-100 p-1">
-          <TabsTrigger value="all" className="data-[state=active]:bg-white data-[state=active]:shadow-sm">All Contests</TabsTrigger>
-          <TabsTrigger value="live" className="data-[state=active]:bg-white data-[state=active]:shadow-sm">Live Now</TabsTrigger>
-          <TabsTrigger value="upcoming" className="data-[state=active]:bg-white data-[state=active]:shadow-sm">Upcoming</TabsTrigger>
-          <TabsTrigger value="practice" className="data-[state=active]:bg-white data-[state=active]:shadow-sm">Practice</TabsTrigger>
-        </TabsList>
+        <Tabs defaultValue="cricket" className="w-full">
+          <TabsList className="grid w-full grid-cols-3 mb-6">
+            <TabsTrigger value="cricket">Cricket</TabsTrigger>
+            <TabsTrigger value="football" disabled>Football (Coming Soon)</TabsTrigger>
+            <TabsTrigger value="kabaddi" disabled>Kabaddi (Coming Soon)</TabsTrigger>
+          </TabsList>
 
-        <TabsContent value="all" className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {tournaments.map((tournament) => (
-              <Card key={tournament.id} className="overflow-hidden border-slate-200 hover:shadow-md transition-shadow group">
-                <div className="h-40 overflow-hidden relative">
-                  <img 
-                    src={tournament.image} 
-                    alt={tournament.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                  />
-                  <div className="absolute top-3 right-3">
-                    <Badge variant={tournament.status === "Live" ? "destructive" : "secondary"} className="font-bold shadow-sm">
-                      {tournament.status === "Live" && <span className="w-2 h-2 bg-white rounded-full mr-1 animate-pulse"></span>}
-                      {tournament.status}
-                    </Badge>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                    <span className="text-white text-xs font-bold px-2 py-1 bg-primary/80 rounded backdrop-blur-sm">
-                      {tournament.type}
-                    </span>
-                  </div>
-                </div>
-                
-                <CardHeader className="pb-2">
-                  <CardTitle className="text-lg leading-tight">{tournament.title}</CardTitle>
-                </CardHeader>
-                
-                <CardContent className="pb-4">
-                  <div className="grid grid-cols-2 gap-4 text-sm mb-4">
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <Trophy className="w-4 h-4 text-amber-500" />
-                      <span>{tournament.prizePool}</span>
+          <TabsContent value="cricket" className="space-y-4">
+            {/* Featured Match */}
+            <div className="mb-6">
+              <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Featured Match</h2>
+              <Link href="/create-team/1">
+                <Card className="border-primary/20 shadow-md hover:shadow-lg transition-all cursor-pointer bg-gradient-to-br from-white to-blue-50">
+                  <CardContent className="p-0">
+                    <div className="bg-slate-100 px-4 py-2 flex justify-between items-center border-b border-slate-200">
+                      <span className="text-xs font-medium text-slate-600">{matches[0].series}</span>
+                      <Badge variant="secondary" className="bg-green-100 text-green-700 hover:bg-green-100 border-green-200 gap-1">
+                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span> Lineups Out
+                      </Badge>
                     </div>
-                    <div className="flex items-center gap-2 text-slate-600">
-                      <Users className="w-4 h-4 text-blue-500" />
-                      <span>{tournament.participants}</span>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs text-slate-500 bg-slate-50 p-2 rounded">
-                    <Clock className="w-3 h-3" />
-                    <span>Time Remaining: <span className="font-medium text-slate-700">{tournament.timeLeft}</span></span>
-                  </div>
-                </CardContent>
+                    <div className="p-6">
+                      <div className="flex justify-between items-center">
+                        <div className="flex flex-col items-center gap-2 w-1/3">
+                          <div className="text-4xl">{matches[0].team1Flag}</div>
+                          <span className="font-bold text-lg text-slate-900">{matches[0].team1}</span>
+                          <span className="text-xs text-slate-500">{matches[0].team1Name}</span>
+                        </div>
+                        
+                        <div className="flex flex-col items-center gap-1 w-1/3">
+                          <span className="text-xs font-medium text-slate-400">VS</span>
+                          <div className="flex items-center gap-1 text-red-500 font-bold bg-red-50 px-3 py-1 rounded-full text-sm border border-red-100">
+                            <Clock className="w-3 h-3" /> {matches[0].startTime}
+                          </div>
+                          <span className="text-xs text-slate-500 mt-1">{matches[0].prizePool}</span>
+                        </div>
 
-                <CardFooter className="pt-0">
-                  <Button className="w-full bg-primary hover:bg-primary/90 text-white group-hover:translate-x-1 transition-transform duration-300">
-                    Join Contest <ChevronRight className="w-4 h-4 ml-1" />
-                  </Button>
-                </CardFooter>
-              </Card>
+                        <div className="flex flex-col items-center gap-2 w-1/3">
+                          <div className="text-4xl">{matches[0].team2Flag}</div>
+                          <span className="font-bold text-lg text-slate-900">{matches[0].team2}</span>
+                          <span className="text-xs text-slate-500">{matches[0].team2Name}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="bg-slate-50 px-4 py-3 border-t border-slate-100 flex justify-between items-center">
+                      <div className="flex gap-4 text-xs text-slate-500">
+                        <span className="flex items-center gap-1"><Trophy className="w-3 h-3" /> 1 Crore Pts Pool</span>
+                        <span>•</span>
+                        <span>Max 20 Teams</span>
+                      </div>
+                      <Button size="sm" className="gap-1 h-8">
+                        Join Now <ChevronRight className="w-3 h-3" />
+                      </Button>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+            </div>
+
+            {/* Upcoming Matches List */}
+            <h2 className="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Upcoming Matches</h2>
+            {matches.slice(1).map((match) => (
+              <Link key={match.id} href={`/create-team/${match.id}`}>
+                <Card className="hover:border-primary/50 transition-colors cursor-pointer group">
+                  <CardContent className="p-4">
+                    <div className="flex justify-between items-center mb-4">
+                      <span className="text-[10px] font-medium text-slate-500 uppercase">{match.series} • {match.type}</span>
+                      <Badge variant="outline" className="text-[10px] h-5 border-slate-200 text-slate-500">
+                        <Clock className="w-3 h-3 mr-1" /> {match.startTime}
+                      </Badge>
+                    </div>
+                    
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center gap-3">
+                        <span className="text-2xl">{match.team1Flag}</span>
+                        <span className="font-bold text-slate-900">{match.team1}</span>
+                      </div>
+                      
+                      <span className="text-xs text-slate-300 font-medium">VS</span>
+                      
+                      <div className="flex items-center gap-3">
+                        <span className="font-bold text-slate-900">{match.team2}</span>
+                        <span className="text-2xl">{match.team2Flag}</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center">
+                      <span className="text-xs text-green-600 font-medium bg-green-50 px-2 py-0.5 rounded">
+                        {match.prizePool}
+                      </span>
+                      <span className="text-xs text-slate-400 group-hover:text-primary transition-colors flex items-center gap-1">
+                        Create Team <ChevronRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
             ))}
-          </div>
-        </TabsContent>
-        
-        {/* Placeholder content for other tabs */}
-        <TabsContent value="live">
-          <div className="p-12 text-center text-slate-500 bg-slate-50 rounded-lg border border-dashed border-slate-300">
-            <p>Filter active. Showing live tournaments only.</p>
-          </div>
-        </TabsContent>
-        <TabsContent value="upcoming">
-           <div className="p-12 text-center text-slate-500 bg-slate-50 rounded-lg border border-dashed border-slate-300">
-            <p>Filter active. Showing upcoming tournaments only.</p>
-          </div>
-        </TabsContent>
-        <TabsContent value="practice">
-           <div className="p-12 text-center text-slate-500 bg-slate-50 rounded-lg border border-dashed border-slate-300">
-            <p>Filter active. Showing practice matches only.</p>
-          </div>
-        </TabsContent>
-      </Tabs>
+          </TabsContent>
+        </Tabs>
+      </div>
     </div>
   );
 }
