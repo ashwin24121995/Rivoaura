@@ -13,6 +13,9 @@ import Tournaments from "./pages/Tournaments";
 import Community from "./pages/Community";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import PointSystem from "./pages/PointSystem";
+import HowToPlay from "./pages/HowToPlay";
+import AboutUs from "./pages/AboutUs";
 import Layout from "./components/Layout";
 
 
@@ -25,6 +28,9 @@ function Router() {
         <Route path={"/community"} component={Community} />
         <Route path={"/login"} component={Login} />
         <Route path={"/register"} component={Register} />
+        <Route path={"/point-system"} component={PointSystem} />
+        <Route path={"/how-to-play"} component={HowToPlay} />
+        <Route path={"/about-us"} component={AboutUs} />
         <Route path={"/terms"} component={Terms} />
         <Route path={"/privacy"} component={Privacy} />
         <Route path={"/fair-play"} component={FairPlay} />

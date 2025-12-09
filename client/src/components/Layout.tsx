@@ -134,6 +134,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-semibold text-primary mb-4">Platform</h4>
               <ul className="space-y-2 text-sm">
+                <li><Link href="/about-us" className="hover:text-secondary">About Us</Link></li>
                 <li><Link href="/tournaments" className="hover:text-secondary">Tournaments</Link></li>
                 <li><Link href="/community" className="hover:text-secondary">Community</Link></li>
                 <li><Link href="/how-to-play" className="hover:text-secondary">How to Play</Link></li>

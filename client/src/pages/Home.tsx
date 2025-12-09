@@ -6,6 +6,19 @@ import { Link } from "wouter";
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
+      {/* Live Match Ticker */}
+      <div className="bg-slate-900 border-b border-slate-800 text-white py-2 overflow-hidden whitespace-nowrap relative z-20">
+        <div className="container flex items-center gap-8 animate-marquee">
+          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> IND vs AUS: IND 145/3 (18.2)</span>
+          <span className="text-slate-600">|</span>
+          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-green-500 rounded-full"></span> ENG vs NZ: Match Starts in 2h 30m</span>
+          <span className="text-slate-600">|</span>
+          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> SA vs WI: SA Won by 45 Runs</span>
+          <span className="text-slate-600">|</span>
+          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-green-500 rounded-full"></span> IPL Auction: Live Updates</span>
+        </div>
+      </div>
+
       {/* Hero Section - Broadcast Style */}
       <section className="relative w-full h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
         {/* Background Image with Overlay */}
@@ -76,6 +89,35 @@ export default function Home() {
                 <p className="text-sm font-bold text-slate-900">Fair Play Policy</p>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Winners Section */}
+      <section className="py-12 bg-slate-50 border-b border-slate-200">
+        <div className="container">
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-2xl font-bold text-slate-900">Recent Champions</h2>
+            <Link href="/tournaments" className="text-primary text-sm font-medium hover:underline">View All Contests</Link>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { name: "Rahul K.", prize: "₹10,000", contest: "Mega T20 League", avatar: "RK" },
+              { name: "Priya S.", prize: "₹5,000", contest: "Weekend Bash", avatar: "PS" },
+              { name: "Amit B.", prize: "₹2,500", contest: "Head-to-Head", avatar: "AB" },
+              { name: "Sneha M.", prize: "₹1,000", contest: "Practice Cup", avatar: "SM" },
+            ].map((winner, i) => (
+              <Card key={i} className="border-slate-200 shadow-sm flex items-center p-4 gap-4">
+                <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">
+                  {winner.avatar}
+                </div>
+                <div>
+                  <p className="text-sm font-bold text-slate-900">{winner.name}</p>
+                  <p className="text-xs text-green-600 font-medium">Won {winner.prize}</p>
+                  <p className="text-[10px] text-slate-500 truncate max-w-[100px]">{winner.contest}</p>
+                </div>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
