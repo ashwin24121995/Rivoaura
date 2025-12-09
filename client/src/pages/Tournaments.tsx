@@ -4,66 +4,42 @@ import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Clock, Trophy, ChevronRight } from "lucide-react";
 import { Link } from "wouter";
+import { useEffect, useState } from "react";
+import { fetchLiveMatches, Match } from "@/lib/cricket-api";
 
 export default function Tournaments() {
-  const matches = [
-    {
-      id: 1,
-      series: "India Tour of Australia 2025",
-      team1: "IND",
-      team1Name: "India",
-      team1Flag: "🇮🇳",
-      team2: "AUS",
-      team2Name: "Australia",
-      team2Flag: "🇦🇺",
-      type: "T20",
-      startTime: "2h 15m",
-      prizePool: "Mega Contest",
-      status: "Open"
-    },
-    {
-      id: 2,
-      series: "England Tour of New Zealand",
-      team1: "ENG",
-      team1Name: "England",
-      team1Flag: "🇬🇧",
-      team2: "NZ",
-      team2Name: "New Zealand",
-      team2Flag: "🇳🇿",
-      type: "ODI",
-      startTime: "5h 30m",
-      prizePool: "Practice Cup",
-      status: "Open"
-    },
-    {
-      id: 3,
-      series: "South Africa vs West Indies",
-      team1: "SA",
-      team1Name: "South Africa",
-      team1Flag: "🇿🇦",
-      team2: "WI",
-      team2Name: "West Indies",
-      team2Flag: "🌴",
-      type: "Test",
-      startTime: "Tomorrow",
-      prizePool: "Grand League",
-      status: "Upcoming"
-    },
-    {
-      id: 4,
-      series: "Big Bash League 2025",
-      team1: "SIX",
-      team1Name: "Sydney Sixers",
-      team1Flag: "🟣",
-      team2: "HEA",
-      team2Name: "Brisbane Heat",
-      team2Flag: "🔵",
-      type: "T20",
-      startTime: "Tomorrow",
-      prizePool: "Head-to-Head",
-      status: "Upcoming"
-    }
-  ];
+  const [matches, setMatches] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadMatches = async () => {
+      const liveData = await fetchLiveMatches();
+      
+      // Transform API data to match UI structure
+      const transformedMatches = liveData.map((m, index) => ({
+        id: m.id,
+        series: m.matchType + " Series",
+        team1: m.teams[0].substring(0, 3).toUpperCase(),
+        team1Name: m.teams[0],
+        team1Flag: "🏏", // Placeholder as API might not return flags
+        team2: m.teams[1].substring(0, 3).toUpperCase(),
+        team2Name: m.teams[1],
+        team2Flag: "🏏",
+        type: m.matchType,
+        startTime: m.status === "Live" ? "LIVE" : "Upcoming",
+        prizePool: index === 0 ? "Mega Contest" : "Practice Cup",
+        status: m.status
+      }));
+      
+      setMatches(transformedMatches);
+      setLoading(false);
+    };
+    loadMatches();
+  }, []);
+
+  if (loading) {
+    return <div className="min-h-screen flex items-center justify-center">Loading Matches...</div>;
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 py-8">

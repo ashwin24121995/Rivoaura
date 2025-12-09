@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -6,9 +6,10 @@ import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Plus, Minus, Info } from "lucide-react";
 import { Link, useRoute } from "wouter";
+import { calculateFantasyPoints } from "@/lib/fantasy-points";
 
-// Mock Data for Players
-const playersData = [
+// Mock Data for Players (Initial State)
+const initialPlayersData = [
   { id: 1, name: "Virat Kohli", team: "IND", role: "BAT", credits: 10.5, points: 452, image: "VK" },
   { id: 2, name: "Rohit Sharma", team: "IND", role: "BAT", credits: 10.0, points: 380, image: "RS" },
   { id: 3, name: "Jasprit Bumrah", team: "IND", role: "BOWL", credits: 9.5, points: 410, image: "JB" },
@@ -27,6 +28,22 @@ const playersData = [
 ];
 
 export default function CreateTeam() {
+  const [playersData, setPlayersData] = useState(initialPlayersData);
+
+  // Simulate real-time point updates
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPlayersData(prevData => prevData.map(player => {
+        // Randomly update points for simulation
+        if (Math.random() > 0.7) {
+          return { ...player, points: player.points + Math.floor(Math.random() * 5) };
+        }
+        return player;
+      }));
+    }, 5000); // Update every 5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
   const [selectedRole, setSelectedRole] = useState("WK");
   const [selectedPlayers, setSelectedPlayers] = useState<number[]>([]);
   const [creditsLeft, setCreditsLeft] = useState(100);

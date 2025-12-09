@@ -2,20 +2,44 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Shield, Users, Trophy, BarChart3, CheckCircle2, AlertCircle } from "lucide-react";
 import { Link } from "wouter";
+import { useEffect, useState } from "react";
+import { fetchLiveMatches, Match } from "@/lib/cricket-api";
 
 export default function Home() {
+  const [liveMatches, setLiveMatches] = useState<Match[]>([]);
+
+  useEffect(() => {
+    const loadMatches = async () => {
+      const matches = await fetchLiveMatches();
+      setLiveMatches(matches);
+    };
+    loadMatches();
+    // Refresh every 60 seconds to respect API rate limits
+    const interval = setInterval(loadMatches, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="min-h-screen bg-slate-50">
       {/* Live Match Ticker */}
-      <div className="bg-slate-900 border-b border-slate-800 text-white py-2 overflow-hidden whitespace-nowrap relative z-20">
-        <div className="container flex items-center gap-8 animate-marquee">
-          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> IND vs AUS: IND 145/3 (18.2)</span>
-          <span className="text-slate-600">|</span>
-          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-green-500 rounded-full"></span> ENG vs NZ: Match Starts in 2h 30m</span>
-          <span className="text-slate-600">|</span>
-          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span> SA vs WI: SA Won by 45 Runs</span>
-          <span className="text-slate-600">|</span>
-          <span className="flex items-center gap-2 text-xs font-medium"><span className="w-2 h-2 bg-green-500 rounded-full"></span> IPL Auction: Live Updates</span>
+      <div className="bg-slate-900 text-white text-xs py-2 overflow-hidden whitespace-nowrap border-b border-slate-800">
+        <div className="animate-marquee inline-block">
+          {liveMatches.length > 0 ? (
+            liveMatches.map((match) => (
+              <span key={match.id} className="mx-4">
+                <span className={match.status === "Live" ? "text-red-400" : "text-green-400"}>
+                  ● {match.name}: {match.statusText}
+                </span>
+                <span className="mx-4 text-slate-500">|</span>
+              </span>
+            ))
+          ) : (
+            <>
+              <span className="mx-4 text-red-400">● IND vs AUS: IND 145/3 (18.2)</span>
+              <span className="mx-4 text-slate-500">|</span>
+              <span className="mx-4 text-green-400">● ENG vs NZ: Match Starts in 2h 30m</span>
+            </>
+          )}
         </div>
       </div>
 
