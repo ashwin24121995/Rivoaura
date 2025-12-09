@@ -15,8 +15,18 @@ export default function Tournaments() {
     const loadMatches = async () => {
       const liveData = await fetchLiveMatches();
       
+      // Filter for relevant matches (International or Major Leagues)
+      const relevantMatches = liveData.filter(m => 
+        m.matchType === "T20" || 
+        m.matchType === "ODI" || 
+        m.matchType === "Test" || 
+        m.name.includes("India") || 
+        m.name.includes("Australia") || 
+        m.name.includes("England")
+      );
+
       // Transform API data to match UI structure
-      const transformedMatches = liveData.map((m, index) => ({
+      const transformedMatches = relevantMatches.map((m, index) => ({
         id: m.id,
         series: m.matchType + " Series",
         team1: m.teams[0].substring(0, 3).toUpperCase(),
@@ -27,7 +37,7 @@ export default function Tournaments() {
         team2Flag: "🏏",
         type: m.matchType,
         startTime: m.status === "Live" ? "LIVE" : "Upcoming",
-        prizePool: index === 0 ? "Mega Contest" : "Practice Cup",
+        contestType: index === 0 ? "Mega League" : "Practice Match",
         status: m.status
       }));
       
@@ -89,7 +99,7 @@ export default function Tournaments() {
                           <div className="flex items-center gap-1 text-red-500 font-bold bg-red-50 px-3 py-1 rounded-full text-sm border border-red-100">
                             <Clock className="w-3 h-3" /> {matches[0].startTime}
                           </div>
-                          <span className="text-xs text-slate-500 mt-1">{matches[0].prizePool}</span>
+                          <span className="text-xs text-slate-500 mt-1">{matches[0].contestType}</span>
                         </div>
 
                         <div className="flex flex-col items-center gap-2 w-1/3">
@@ -101,7 +111,7 @@ export default function Tournaments() {
                     </div>
                     <div className="bg-slate-50 px-4 py-3 border-t border-slate-100 flex justify-between items-center">
                       <div className="flex gap-4 text-xs text-slate-500">
-                        <span className="flex items-center gap-1"><Trophy className="w-3 h-3" /> 1 Crore Pts Pool</span>
+                        <span className="flex items-center gap-1"><Trophy className="w-3 h-3" /> Global Leaderboard</span>
                         <span>•</span>
                         <span>Max 20 Teams</span>
                       </div>
@@ -143,7 +153,7 @@ export default function Tournaments() {
 
                     <div className="mt-4 pt-3 border-t border-slate-100 flex justify-between items-center">
                       <span className="text-xs text-green-600 font-medium bg-green-50 px-2 py-0.5 rounded">
-                        {match.prizePool}
+                        {match.contestType}
                       </span>
                       <span className="text-xs text-slate-400 group-hover:text-primary transition-colors flex items-center gap-1">
                         Create Team <ChevronRight className="w-3 h-3" />

@@ -30,20 +30,8 @@ const initialPlayersData = [
 export default function CreateTeam() {
   const [playersData, setPlayersData] = useState(initialPlayersData);
 
-  // Simulate real-time point updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setPlayersData(prevData => prevData.map(player => {
-        // Randomly update points for simulation
-        if (Math.random() > 0.7) {
-          return { ...player, points: player.points + Math.floor(Math.random() * 5) };
-        }
-        return player;
-      }));
-    }, 5000); // Update every 5 seconds
-
-    return () => clearInterval(interval);
-  }, []);
+  // Real-time point updates removed to prevent misleading simulation.
+  // In a production environment, this would be connected to a live websocket or polling real API data.
   const [selectedRole, setSelectedRole] = useState("WK");
   const [selectedPlayers, setSelectedPlayers] = useState<number[]>([]);
   const [creditsLeft, setCreditsLeft] = useState(100);

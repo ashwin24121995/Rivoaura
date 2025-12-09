@@ -121,15 +121,15 @@ export default function Home() {
       <section className="py-12 bg-slate-50 border-b border-slate-200">
         <div className="container">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-slate-900">Recent Champions</h2>
-            <Link href="/tournaments" className="text-primary text-sm font-medium hover:underline">View All Contests</Link>
+            <h2 className="text-2xl font-bold text-slate-900">Top Performers</h2>
+            <Link href="/tournaments" className="text-primary text-sm font-medium hover:underline">View Leaderboard</Link>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { name: "Rahul K.", prize: "10,000 Pts", contest: "Mega T20 League", avatar: "RK" },
-              { name: "Priya S.", prize: "5,000 Pts", contest: "Weekend Bash", avatar: "PS" },
-              { name: "Amit B.", prize: "Rank #1", contest: "Head-to-Head", avatar: "AB" },
-              { name: "Sneha M.", prize: "Rank #1", contest: "Practice Cup", avatar: "SM" },
+              { name: "Rahul K.", rank: "Rank #1", points: "10,240 Pts", contest: "Mega T20 League", avatar: "RK" },
+              { name: "Priya S.", rank: "Rank #2", points: "9,850 Pts", contest: "Weekend Bash", avatar: "PS" },
+              { name: "Amit B.", rank: "Rank #1", points: "8,920 Pts", contest: "Head-to-Head", avatar: "AB" },
+              { name: "Sneha M.", rank: "Rank #5", points: "7,400 Pts", contest: "Practice Cup", avatar: "SM" },
             ].map((winner, i) => (
               <Card key={i} className="border-slate-200 shadow-sm flex items-center p-4 gap-4">
                 <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">
@@ -137,7 +137,7 @@ export default function Home() {
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-900">{winner.name}</p>
-                  <p className="text-xs text-green-600 font-medium">Score: {winner.prize}</p>
+                  <p className="text-xs text-green-600 font-medium">{winner.rank} • {winner.points}</p>
                   <p className="text-[10px] text-slate-500 truncate max-w-[100px]">{winner.contest}</p>
                 </div>
               </Card>
