@@ -51,7 +51,7 @@ export default function Register() {
             <div className="flex items-start space-x-2">
               <Checkbox id="policy" className="mt-1" />
               <Label htmlFor="policy" className="text-sm font-normal text-slate-600 leading-tight">
-                I agree to the <Link href="/terms"><a className="text-primary hover:underline">Terms & Conditions</a></Link> and <Link href="/privacy"><a className="text-primary hover:underline">Privacy Policy</a></Link>.
+                I agree to the <Link href="/terms" className="text-primary hover:underline">Terms & Conditions</Link> and <Link href="/privacy" className="text-primary hover:underline">Privacy Policy</Link>.
               </Label>
             </div>
           </div>
@@ -63,8 +63,8 @@ export default function Register() {
         <CardFooter className="flex justify-center text-sm text-slate-600">
           <div>
             Already have an account?{" "}
-            <Link href="/login">
-              <a className="text-primary font-semibold hover:underline">Sign in</a>
+            <Link href="/login" className="text-primary font-semibold hover:underline">
+              Sign in
             </Link>
           </div>
         </CardFooter>

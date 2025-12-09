@@ -40,24 +40,24 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
         <div className="container flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/">
-            <a className="flex items-center gap-2 font-bold text-xl text-primary tracking-tight">
-              <img 
-                src="/images/logo.png" 
-                alt="Elite Squad Sports" 
-                className="h-10 w-10 object-contain"
-              />
-              <span className="hidden sm:inline-block">ELITE SQUAD</span>
-            </a>
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-primary tracking-tight">
+            <img 
+              src="/images/logo.png" 
+              alt="Elite Squad Sports" 
+              className="h-10 w-10 object-contain"
+            />
+            <span className="hidden sm:inline-block">ELITE SQUAD</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6 text-sm font-medium">
             {navItems.map((item) => (
-              <Link key={item.href} href={item.href}>
-                <a className={`transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}>
-                  {item.label}
-                </a>
+              <Link 
+                key={item.href} 
+                href={item.href}
+                className={`transition-colors hover:text-primary ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}
+              >
+                {item.label}
               </Link>
             ))}
           </nav>
@@ -90,13 +90,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <div className="md:hidden border-t bg-white p-4 space-y-4 shadow-lg absolute w-full">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
-                <Link key={item.href} href={item.href}>
-                  <a 
-                    className={`text-sm font-medium ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.label}
-                  </a>
+                <Link 
+                  key={item.href} 
+                  href={item.href}
+                  className={`text-sm font-medium ${isActive(item.href) ? "text-primary" : "text-muted-foreground"}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.label}
                 </Link>
               ))}
             </nav>
@@ -134,20 +134,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div>
               <h4 className="font-semibold text-primary mb-4">Platform</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/tournaments"><a className="hover:text-secondary">Tournaments</a></Link></li>
-                <li><Link href="/community"><a className="hover:text-secondary">Community</a></Link></li>
-                <li><Link href="/how-to-play"><a className="hover:text-secondary">How to Play</a></Link></li>
-                <li><Link href="/point-system"><a className="hover:text-secondary">Point System</a></Link></li>
+                <li><Link href="/tournaments" className="hover:text-secondary">Tournaments</Link></li>
+                <li><Link href="/community" className="hover:text-secondary">Community</Link></li>
+                <li><Link href="/how-to-play" className="hover:text-secondary">How to Play</Link></li>
+                <li><Link href="/point-system" className="hover:text-secondary">Point System</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="font-semibold text-primary mb-4">Legal & Trust</h4>
               <ul className="space-y-2 text-sm">
-                <li><Link href="/fair-play"><a className="hover:text-secondary">Fair Play Policy</a></Link></li>
-                <li><Link href="/terms"><a className="hover:text-secondary">Terms & Conditions</a></Link></li>
-                <li><Link href="/privacy"><a className="hover:text-secondary">Privacy Policy</a></Link></li>
-                <li><Link href="/responsible-gaming"><a className="hover:text-secondary">Responsible Gaming</a></Link></li>
+                <li><Link href="/fair-play" className="hover:text-secondary">Fair Play Policy</Link></li>
+                <li><Link href="/terms" className="hover:text-secondary">Terms & Conditions</Link></li>
+                <li><Link href="/privacy" className="hover:text-secondary">Privacy Policy</Link></li>
+                <li><Link href="/responsible-gaming" className="hover:text-secondary">Responsible Gaming</Link></li>
               </ul>
             </div>
 

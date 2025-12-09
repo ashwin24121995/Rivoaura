@@ -28,8 +28,8 @@ export default function Login() {
           <div className="space-y-2">
             <div className="flex items-center justify-between">
               <Label htmlFor="password">Password</Label>
-              <Link href="/forgot-password">
-                <a className="text-xs text-primary hover:underline">Forgot password?</a>
+              <Link href="/forgot-password" className="text-xs text-primary hover:underline">
+                Forgot password?
               </Link>
             </div>
             <Input id="password" type="password" />
@@ -53,8 +53,8 @@ export default function Login() {
           </div>
           <div className="pt-4">
             Don't have an account?{" "}
-            <Link href="/register">
-              <a className="text-primary font-semibold hover:underline">Sign up</a>
+            <Link href="/register" className="text-primary font-semibold hover:underline">
+              Sign up
             </Link>
           </div>
         </CardFooter>
