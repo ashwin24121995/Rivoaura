@@ -186,14 +186,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </ul>
               <div className="mt-4 pt-4 border-t border-slate-200">
                 <p className="text-xs text-slate-500">
-                  This game may be habit-forming or financially risky. Please play responsibly.
+                  This platform is 100% free-to-play. No real money is involved. Play for fun and glory.
                 </p>
               </div>
             </div>
           </div>
 
           <div className="border-t border-slate-200 pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-            <p>&copy; 2025 Elite Squad Sports. All rights reserved.</p>
+            <p>&copy; 2025 Elite Squad Sports. Owned and operated by KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED. All rights reserved.</p>
             <p className="text-center md:text-right max-w-2xl">
               Disclaimer: Elite Squad Sports is a skill-based fantasy sports platform. It is not associated with any official cricket authority. 
               Residents of Andhra Pradesh, Assam, Nagaland, Odisha, Sikkim, and Telangana are not permitted to play pay-to-play contests.

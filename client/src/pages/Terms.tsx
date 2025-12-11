@@ -18,7 +18,7 @@ export default function Terms() {
               <section>
                 <h2 className="text-xl font-bold text-slate-900 mb-4">1. Introduction</h2>
                 <p>
-                  Welcome to Elite Squad Sports ("we," "our," or "us"). By accessing or using our website (elitesquadsports.com) and services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our platform.
+                  Welcome to Elite Squad Sports ("we," "our," or "us"), owned and operated by KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED. By accessing or using our website (elitesquadsports.com) and services, you agree to be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must not use our platform.
                 </p>
               </section>
 
@@ -91,7 +91,11 @@ export default function Terms() {
               <section>
                 <h2 className="text-xl font-bold text-slate-900 mb-4">8. Governing Law</h2>
                 <p>
-                  These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions. Any disputes shall be subject to the exclusive jurisdiction of the courts in [Your City/State], India.
+                  These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions. Any disputes shall be subject to the exclusive jurisdiction of the courts in Kodagu, Karnataka, India.
+
+Registered Office:
+KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED
+C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka
                 </p>
               </section>
 

@@ -82,7 +82,10 @@ export default function Privacy() {
                 <h2 className="text-xl font-bold text-slate-900 mb-4">7. Contact Us</h2>
                 <p>
                   If you have any questions about this Privacy Policy, please contact us at: <br />
-                  <strong>Email:</strong> privacy@elitesquadsports.com
+                  <strong>Email:</strong> privacy@elitesquadsports.com <br /><br />
+                  <strong>Data Controller:</strong><br />
+                  KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED<br />
+                  C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka, India
                 </p>
               </section>
 
