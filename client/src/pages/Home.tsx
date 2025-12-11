@@ -34,11 +34,7 @@ export default function Home() {
               </span>
             ))
           ) : (
-            <>
-              <span className="mx-4 text-red-400">● IND vs AUS: IND 145/3 (18.2)</span>
-              <span className="mx-4 text-slate-500">|</span>
-              <span className="mx-4 text-green-400">● ENG vs NZ: Match Starts in 2h 30m</span>
-            </>
+            <span className="mx-4 text-slate-400">Loading live match data...</span>
           )}
         </div>
       </div>

@@ -50,6 +50,11 @@ export default function Community() {
   const { isAuthenticated } = useAuth();
   const [posts, setPosts] = useState(FORUM_POSTS);
   const [newPost, setNewPost] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All Topics");
+
+  const filteredPosts = selectedCategory === "All Topics" 
+    ? posts 
+    : posts.filter(post => post.category === selectedCategory);
 
   const handlePost = () => {
     if (!isAuthenticated) {
@@ -98,7 +103,12 @@ export default function Community() {
             </CardHeader>
             <CardContent className="space-y-2">
               {["All Topics", "Match Prediction", "Player Analysis", "Fantasy Tips", "General Chat"].map((cat) => (
-                <Button key={cat} variant="ghost" className="w-full justify-start text-slate-600 hover:text-blue-600 hover:bg-blue-50">
+                <Button 
+                  key={cat} 
+                  variant={selectedCategory === cat ? "secondary" : "ghost"} 
+                  className={`w-full justify-start ${selectedCategory === cat ? "bg-blue-100 text-blue-700" : "text-slate-600 hover:text-blue-600 hover:bg-blue-50"}`}
+                  onClick={() => setSelectedCategory(cat)}
+                >
                   {cat}
                 </Button>
               ))}
@@ -168,7 +178,7 @@ export default function Community() {
             </TabsList>
 
             <TabsContent value="hot" className="space-y-4">
-              {posts.map((post) => (
+              {filteredPosts.map((post) => (
                 <Card key={post.id} className="border-slate-200 shadow-sm hover:shadow-md transition-shadow">
                   <CardContent className="p-6">
                     <div className="flex items-start justify-between mb-4">
