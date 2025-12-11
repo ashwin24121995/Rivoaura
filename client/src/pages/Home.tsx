@@ -21,23 +21,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Live Match Ticker */}
-      <div className="bg-slate-900 text-white text-xs py-2 overflow-hidden whitespace-nowrap border-b border-slate-800">
-        <div className="animate-marquee inline-block">
-          {liveMatches.length > 0 ? (
-            liveMatches.map((match) => (
-              <span key={match.id} className="mx-4">
-                <span className={match.status === "Live" ? "text-red-400" : "text-green-400"}>
-                  ● {match.name}: {match.statusText}
-                </span>
-                <span className="mx-4 text-slate-500">|</span>
-              </span>
-            ))
-          ) : (
-            <span className="mx-4 text-slate-400">Loading live match data...</span>
-          )}
-        </div>
-      </div>
+
 
       {/* Hero Section - Broadcast Style */}
       <section className="relative w-full h-[600px] flex items-center justify-center overflow-hidden bg-slate-900">
