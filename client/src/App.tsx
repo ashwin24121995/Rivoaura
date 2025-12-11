@@ -90,12 +90,29 @@ function Router() {
         </Layout>
       </Route>
 
+      <Route path="/my-contests">
+        <Layout>
+          <MyContests />
+        </Layout>
+      </Route>
+      <Route path="/leaderboard">
+        <Layout>
+          <Leaderboard />
+        </Layout>
+      </Route>
+      <Route path="/profile">
+        <Layout>
+          <UserProfile />
+        </Layout>
+      </Route>
+      <Route path="/contests/:id">
+        <Layout>
+          <Contests />
+        </Layout>
+      </Route>
+
       {/* Pages WITHOUT Layout (Fullscreen Apps) */}
       <Route path="/create-team/:matchId" component={CreateTeam} />
-      <Route path="/contests/:id" component={Contests} />
-      <Route path="/my-contests" component={MyContests} />
-      <Route path="/leaderboard" component={Leaderboard} />
-      <Route path="/profile" component={UserProfile} />
 
       <Route path="/404">
         <Layout>
