@@ -1,62 +1,108 @@
-# Elite Squad Sports - Project Roadmap & To-Do List
+# Elite Squad Sports - Development Roadmap
 
-This document outlines the future development roadmap for **Elite Squad Sports**, focusing on enhancing the free-to-play community experience, technical performance, and user engagement.
+## Phase 1: Brand Assets & Design System ✅ COMPLETED
+- [x] **Logo Generation**
+    - [x] Generate primary logo: "Elite Squad Sports" (Navy & Gold theme, shield/crest style)
+    - [x] Generate favicon/icon: "ESS" monogram or shield icon
+    - [x] Generate "18+" compliance badge
+    - [x] Generate "Fair Play" badge
+    - [x] Generate "No Real Money" badge
+- [x] **Visual Assets**
+    - [x] Hero Image (Home): Cinematic cricket stadium at night, gold lighting
+    - [x] Hero Image (About): Team strategy meeting or locker room scene
+    - [x] Hero Image (How to Play): Digital tactical board or training ground
+    - [x] Hero Image (Blog): Cricket analysis desk
 
-## 🚀 Phase 1: Core Community Features (Immediate Priority)
-These features are essential to transform the platform from a "utility" to a vibrant "community".
+## Phase 2: Project Initialization & Infrastructure ✅ COMPLETED
+- [x] **Scaffold Project**
+    - [x] Initialize React + Tailwind + Shadcn UI project
+    - [x] Configure Tailwind theme (Navy: #0f172a, Gold: #fbbf24, Emerald: #10b981)
+    - [x] Set up directory structure (pages, components, lib, assets)
+- [x] **Database & Auth Setup (Custom)**
+    - [x] **Schema Design:**
+        - [x] `users` table (id, username, email, password_hash, state, dob, created_at)
+        - [x] `matches` table (id, team1, team2, date, status)
+        - [x] `players` table (id, name, role, credit_value, team_id)
+        - [x] `user_teams` table (id, user_id, match_id, captain_id, vice_captain_id)
+        - [x] `user_team_players` table (team_id, player_id)
+    - [x] Database schema migrated successfully
 
-- [ ] **Global Leaderboard ("Hall of Fame")**
-    - [ ] Create a dedicated page showing top players by Weekly, Monthly, and All-Time rankings.
-    - [ ] Implement filters for specific tournament leaderboards (e.g., "IPL 2025 Champion").
-    - [ ] Add "Badges" for top rankers (e.g., "Top 10", "Series Winner").
+## Phase 3: Public & Legal Pages (Static Content) ✅ COMPLETED
+- [x] **Layout Components**
+    - [x] **Header:** Logo, Nav Links (Home, How to Play, About), Login/Register Buttons
+    - [x] **Footer:**
+        - [x] Company Name: "KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED"
+        - [x] Disclaimer Text (Andhra, Assam, etc. restriction)
+        - [x] Links: Terms, Privacy, Fair Play, Responsible Gaming, Contact
+        - [x] "18+" and "No Real Money" badges
+- [x] **Page Development**
+    - [x] **Home:** Hero section, "Why Play Free?", Features, Testimonials, Complete Transparency Section
+    - [x] **About Us:** Company mission (Education focus), Vision
+    - [x] **How to Play:** Step-by-step guide (Register -> Select Match -> Build Team)
+    - [x] **FAQ:** Common questions (Is it free? Why 18+? State restrictions?)
+    - [x] **Blog:** "Cricket News & Tips" with article listings
+    - [x] **Contact Us:** Form and company address details
+- [x] **Legal Pages** (Strict Compliance)
+    - [x] **Terms & Conditions:** Full legal text, jurisdiction details
+    - [x] **Privacy Policy:** Data handling, "Data Controller" details
+    - [x] **Fair Play Policy:** Anti-cheating rules
+    - [x] **Responsible Gaming:** "Entertainment Only" disclaimer
 
-- [ ] **Public User Profiles**
-    - [ ] Build a profile page for each user (`/user/[username]`).
-    - [ ] Display a "Trophy Cabinet" showing past contest wins and badges.
-    - [ ] Show recent match history and performance stats (e.g., "Win Rate", "Total Points").
+## Phase 4: Core Game Features (The "App") ✅ COMPLETED
+- [x] **Authentication Flow**
+    - [x] **Register Page:** Form with Name, Email, Password, DOB (Date Picker), State (Dropdown with restricted states disabled/hidden or validation error)
+    - [x] **Login Page:** Email/Password form
+    - [x] **Password Reset:** Email request flow
+- [x] **Dashboard (User Hub)**
+    - [x] Welcome message
+    - [x] "Upcoming Matches" list
+    - [x] "My Teams" summary
+    - [x] User stats display
+- [x] **Team Builder (The Core Game)**
+    - [x] **Select Match Page (Tournaments):** List of upcoming fixtures
+    - [x] **Create Team Page:**
+        - [x] Player list with credits and roles (WK, BAT, AR, BOW)
+        - [x] Credit budget tracker (100 credits max)
+        - [x] Team composition validation (Min 1 WK, 3-6 BAT, etc.)
+        - [x] Captain/Vice-Captain selection
+    - [x] **Team Preview:** Visual pitch view of selected XI
+- [x] **Leaderboard**
+    - [x] Ranking table (User Name, Points, Rank)
+    - [x] "No Cash Prizes" reminder
+- [x] **User Settings**
+    - [x] Profile update
+    - [x] Change password
+    - [x] Notification preferences
+    - [x] Account deletion
 
-- [ ] **Community Forums & Discussions**
-    - [ ] Expand the current Community page into a full forum.
-    - [ ] Add categories: "Match Predictions", "Fantasy Tips", "General Cricket Chat".
-    - [ ] Implement upvote/downvote system for helpful tips.
+## Phase 5: Additional Features ✅ COMPLETED
+- [x] **Contests System**
+    - [x] Contest listing page
+    - [x] My Contests page
+- [x] **Community Features**
+    - [x] Community discussion page ("The Dugout")
+- [x] **User Profile**
+    - [x] Public profile page
+    - [x] Stats and history
 
-## 📱 Phase 2: Mobile Experience & Engagement
-Since most fantasy sports users are on mobile, optimizing for small screens is critical.
+## Phase 6: Final Polish & Review
+- [ ] **Backend API Implementation**
+    - [ ] Implement actual auth endpoints (currently using mock data)
+    - [ ] Implement match data endpoints
+    - [ ] Implement team creation endpoints
+    - [ ] Implement leaderboard endpoints
+- [ ] **Compliance Audit**
+    - [ ] Verify State restrictions in Registration
+    - [ ] Verify Age restriction (18+) logic
+    - [ ] Check all Footer disclaimers
+- [ ] **UI/UX Polish**
+    - [ ] Responsive check (Mobile view)
+    - [ ] Loading states and error messages
+- [ ] **Deployment Prep**
+    - [ ] Final build check
+    - [ ] Performance optimization
 
-- [ ] **Progressive Web App (PWA)**
-    - [ ] Configure `manifest.json` to allow users to "Install" the website as an app.
-    - [ ] Enable offline mode for viewing past match results.
-    - [ ] Add push notifications for "Match Starting Soon" and "Toss Update".
-
-- [ ] **Social Sharing Integration**
-    - [ ] Add "Share My Team" button to generate a shareable image of the user's 11 players.
-    - [ ] Add WhatsApp/Telegram share buttons for inviting friends to private contests.
-
-- [ ] **Referral System**
-    - [ ] Implement a "Invite a Friend" system where both users get bonus "Credits" or "Badges".
-
-## 🔧 Phase 3: Technical & Data Enhancements
-Improving the realism and reliability of the platform.
-
-- [ ] **Live Score WebSocket Integration**
-    - [ ] Upgrade from polling (every 60s) to WebSockets for instant score updates.
-    - [ ] Add ball-by-ball commentary feed to the Match Center.
-
-- [ ] **Advanced Player Stats**
-    - [ ] Show detailed player form (e.g., "Last 5 Matches" scores) in the Team Builder.
-    - [ ] Add "Pitch Report" and "Weather Forecast" data to the Match Lobby.
-
-- [ ] **SEO & Performance**
-    - [ ] Implement Server-Side Rendering (SSR) or Static Site Generation (SSG) for better SEO.
-    - [ ] Optimize images and assets for faster load times on 4G networks.
-
-## 🛡️ Phase 4: Compliance & Trust (Ongoing)
-Maintaining the platform's integrity and legal safety.
-
-- [ ] **Regular Content Audits**
-    - [ ] Monthly review of all text to ensure no "gambling" terminology creeps in.
-    - [ ] Verify that all "Responsible Gaming" links are active and accessible.
-
-- [ ] **User Verification System**
-    - [ ] Implement optional email/phone verification to prevent bot accounts.
-    - [ ] Add a "Verified Player" badge for trusted community members.
+## Summary
+✅ **Completed:** All frontend pages and routing
+🚧 **In Progress:** Backend API implementation
+⏳ **Pending:** Final testing and deployment

@@ -22,10 +22,17 @@ import Contests from "./pages/Contests";
 import MyContests from "./pages/MyContests";
 import Leaderboard from "./pages/Leaderboard";
 import UserProfile from "./pages/UserProfile";
+import About from "./pages/About";
+import FAQ from "./pages/FAQ";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import Dashboard from "./pages/Dashboard";
+import PasswordReset from "./pages/PasswordReset";
+import Settings from "./pages/Settings";
 import Layout from "./components/Layout";
 
-
 function Router() {
+  // make sure to consider if you need authentication for certain routes
   return (
     <Switch>
       {/* Pages with Layout */}
@@ -67,6 +74,41 @@ function Router() {
       <Route path="/about-us">
         <Layout>
           <AboutUs />
+        </Layout>
+      </Route>
+      <Route path="/about">
+        <Layout>
+          <About />
+        </Layout>
+      </Route>
+      <Route path="/faq">
+        <Layout>
+          <FAQ />
+        </Layout>
+      </Route>
+      <Route path="/blog">
+        <Layout>
+          <Blog />
+        </Layout>
+      </Route>
+      <Route path="/contact">
+        <Layout>
+          <Contact />
+        </Layout>
+      </Route>
+      <Route path="/dashboard">
+        <Layout>
+          <Dashboard />
+        </Layout>
+      </Route>
+      <Route path="/password-reset">
+        <Layout>
+          <PasswordReset />
+        </Layout>
+      </Route>
+      <Route path="/settings">
+        <Layout>
+          <Settings />
         </Layout>
       </Route>
       <Route path="/terms">
