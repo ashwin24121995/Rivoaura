@@ -130,3 +130,9 @@
 - [x] Completely redesign footer with modern layout
 - [x] Update global styles and color scheme
 - [x] Remove all old design elements
+
+
+## Copyright Fix
+- [x] Update footer copyright to show correct legal entity (KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED)
+- [x] Add CIN and PAN details to footer
+- [x] Add registered office address to footer

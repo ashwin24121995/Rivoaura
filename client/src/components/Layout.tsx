@@ -381,12 +381,15 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           {/* Bottom Bar */}
           <div className="border-t border-slate-700 pt-8">
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
-              <div className="text-xs text-slate-400 max-w-2xl">
-                <p className="mb-2">
-                  <strong className="text-white">Owned and operated by:</strong> KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED
+              <div className="text-xs text-slate-400 max-w-3xl">
+                <p className="mb-3">
+                  &copy; {new Date().getFullYear()} <strong className="text-white">KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED</strong>. All rights reserved.
                 </p>
-                <p className="mb-2">
-                  &copy; {new Date().getFullYear()} Elite Squad Sports. All rights reserved.
+                <p className="mb-2 text-slate-500">
+                  Operating as <strong className="text-slate-300">Elite Squad Sports</strong> | CIN: <strong className="text-slate-300">U10792KA2024PTC186508</strong> | PAN: <strong className="text-slate-300">AAKCK9076B</strong>
+                </p>
+                <p className="text-[10px] text-slate-500">
+                  Registered Office: C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka, India
                 </p>
               </div>
               
