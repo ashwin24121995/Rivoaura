@@ -5,8 +5,11 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, Plus, Minus, Info } from "lucide-react";
-import { Link, useRoute } from "wouter";
+import { Link, useRoute, useLocation } from "wouter";
 import { calculateFantasyPoints } from "@/lib/fantasy-points";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
+import { nanoid } from "nanoid";
 
 // Mock Data for Players (Initial State)
 const initialPlayersData = [
@@ -35,6 +38,9 @@ export default function CreateTeam() {
   const [selectedRole, setSelectedRole] = useState("WK");
   const [selectedPlayers, setSelectedPlayers] = useState<number[]>([]);
   const [creditsLeft, setCreditsLeft] = useState(100);
+  const { saveTeam, isAuthenticated } = useAuth();
+  const [, setLocation] = useLocation();
+  const [match, params] = useRoute("/create-team/:id");
   
   const togglePlayer = (player: any) => {
     if (selectedPlayers.includes(player.id)) {
@@ -167,14 +173,34 @@ export default function CreateTeam() {
       <div className="fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 p-4 shadow-lg z-20">
         <div className="container flex gap-4">
           <Button variant="outline" className="flex-1">Team Preview</Button>
-          <Link href="/contests/1" className="flex-1">
-            <Button 
-              className={`w-full ${selectedPlayers.length === 11 ? 'bg-green-600 hover:bg-green-700' : 'bg-slate-300 cursor-not-allowed'}`}
+          <Button 
+              className={`flex-1 ${selectedPlayers.length === 11 ? 'bg-green-600 hover:bg-green-700' : 'bg-slate-300 cursor-not-allowed'}`}
               disabled={selectedPlayers.length !== 11}
+              onClick={() => {
+                if (!isAuthenticated) {
+                  toast.error("Please login to save your team");
+                  setLocation("/login");
+                  return;
+                }
+                
+                // Save Team Logic
+                const newTeam = {
+                  id: nanoid(),
+                  matchId: parseInt(params?.id || "0"),
+                  name: `Team ${nanoid(4)}`,
+                  players: selectedPlayers,
+                  captainId: selectedPlayers[0], // Default first player as Captain
+                  viceCaptainId: selectedPlayers[1], // Default second as VC
+                  totalPoints: 0
+                };
+                
+                saveTeam(newTeam);
+                toast.success("Team saved successfully!");
+                setLocation("/contests/1");
+              }}
             >
-              Continue
+              Save Team & Join Contest
             </Button>
-          </Link>
         </div>
       </div>
     </div>

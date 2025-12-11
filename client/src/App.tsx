@@ -4,6 +4,7 @@ import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import Home from "./pages/Home";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
@@ -18,6 +19,9 @@ import HowToPlay from "./pages/HowToPlay";
 import AboutUs from "./pages/AboutUs";
 import CreateTeam from "./pages/CreateTeam";
 import Contests from "./pages/Contests";
+import MyContests from "./pages/MyContests";
+import Leaderboard from "./pages/Leaderboard";
+import UserProfile from "./pages/UserProfile";
 import Layout from "./components/Layout";
 
 
@@ -88,7 +92,10 @@ function Router() {
 
       {/* Pages WITHOUT Layout (Fullscreen Apps) */}
       <Route path="/create-team/:matchId" component={CreateTeam} />
-      <Route path="/contests/:matchId" component={Contests} />
+      <Route path="/contests/:id" component={Contests} />
+      <Route path="/my-contests" component={MyContests} />
+      <Route path="/leaderboard" component={Leaderboard} />
+      <Route path="/profile" component={UserProfile} />
 
       <Route path="/404">
         <Layout>
@@ -114,14 +121,13 @@ function Router() {
 function App() {
   return (
     <ErrorBoundary>
-      <ThemeProvider
-        defaultTheme="light"
-        // switchable
-      >
+      <ThemeProvider defaultTheme="light">
+        <AuthProvider>
         <TooltipProvider>
           <Toaster />
           <Router />
         </TooltipProvider>
+        </AuthProvider>
       </ThemeProvider>
     </ErrorBoundary>
   );

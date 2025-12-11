@@ -3,9 +3,13 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Badge } from "@/components/ui/badge";
 import { Trophy, Users, Shield, Zap, ArrowLeft } from "lucide-react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 
 export default function Contests() {
+  const { joinContest, user, isAuthenticated } = useAuth();
+  const [, setLocation] = useLocation();
   const contests = [
     {
       id: 1,
@@ -91,8 +95,21 @@ export default function Contests() {
                   </div>
                   <div className="text-right">
                     <div className="text-xs text-slate-500 mb-1">Entry</div>
-                    <Button size="sm" className="bg-green-600 hover:bg-green-700 h-8 px-6 font-bold">
-                      {contest.entry}
+                    <Button 
+                      size="sm" 
+                      className={`h-8 px-6 font-bold ${user?.joinedContests.includes(contest.id.toString()) ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
+                      disabled={user?.joinedContests.includes(contest.id.toString())}
+                      onClick={() => {
+                        if (!isAuthenticated) {
+                          toast.error("Please login to join contests");
+                          setLocation("/login");
+                          return;
+                        }
+                        joinContest(contest.id.toString());
+                        toast.success(`Successfully joined ${contest.name}!`);
+                      }}
+                    >
+                      {user?.joinedContests.includes(contest.id.toString()) ? 'Joined' : contest.entry}
                     </Button>
                   </div>
                 </div>
@@ -142,8 +159,22 @@ export default function Contests() {
                       <div className="text-xs text-slate-500">Prize</div>
                       <div className="font-bold text-slate-900">{contest.prizePool}</div>
                     </div>
-                    <Button size="sm" variant="outline" className="border-green-600 text-green-600 hover:bg-green-50 h-8 px-6 font-bold">
-                      {contest.entry}
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className={`h-8 px-6 font-bold ${user?.joinedContests.includes(contest.id.toString()) ? 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed' : 'border-green-600 text-green-600 hover:bg-green-50'}`}
+                      disabled={user?.joinedContests.includes(contest.id.toString())}
+                      onClick={() => {
+                        if (!isAuthenticated) {
+                          toast.error("Please login to join contests");
+                          setLocation("/login");
+                          return;
+                        }
+                        joinContest(contest.id.toString());
+                        toast.success(`Successfully joined ${contest.name}!`);
+                      }}
+                    >
+                      {user?.joinedContests.includes(contest.id.toString()) ? 'Joined' : contest.entry}
                     </Button>
                   </div>
                   <div className="flex justify-between items-center text-xs text-slate-500">
@@ -174,8 +205,22 @@ export default function Contests() {
                   <div className="font-bold text-slate-900 mb-1">{contest.name}</div>
                   <div className="text-xs text-slate-500">Join for free & improve your skills</div>
                 </div>
-                <Button size="sm" variant="secondary" className="h-8 px-6 font-bold">
-                  Join
+                <Button 
+                  size="sm" 
+                  variant="secondary" 
+                  className="h-8 px-6 font-bold"
+                  disabled={user?.joinedContests.includes(contest.id.toString())}
+                  onClick={() => {
+                    if (!isAuthenticated) {
+                      toast.error("Please login to join contests");
+                      setLocation("/login");
+                      return;
+                    }
+                    joinContest(contest.id.toString());
+                    toast.success(`Successfully joined ${contest.name}!`);
+                  }}
+                >
+                  {user?.joinedContests.includes(contest.id.toString()) ? 'Joined' : 'Join'}
                 </Button>
               </CardContent>
             </Card>

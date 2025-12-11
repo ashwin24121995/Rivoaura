@@ -1,15 +1,19 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { ShieldCheck, Menu, X } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ShieldCheck, Menu, X, User } from "lucide-react";
 import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [location] = useLocation();
+  const { user, isAuthenticated, logout } = useAuth();
 
   const navItems = [
     { label: "Home", href: "/" },
     { label: "Tournaments", href: "/tournaments" },
+    { label: "Leaderboard", href: "/leaderboard" },
     { label: "Community", href: "/community" },
     { label: "Fair Play", href: "/fair-play" },
   ];
@@ -64,16 +68,38 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
           {/* Auth Buttons */}
           <div className="hidden md:flex items-center gap-4">
-            <Link href="/login">
-              <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
-                Log In
-              </Button>
-            </Link>
-            <Link href="/register">
-              <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-white font-semibold shadow-sm">
-                Join Free
-              </Button>
-            </Link>
+            {isAuthenticated && user ? (
+              <div className="flex items-center gap-4">
+                <Link href="/profile">
+                  <div className="flex items-center gap-2 cursor-pointer hover:opacity-80">
+                    <div className="text-right hidden lg:block">
+                      <div className="text-sm font-bold text-slate-900">{user.username}</div>
+                      <div className="text-xs text-slate-500">{user.credits} Credits</div>
+                    </div>
+                    <Avatar className="h-8 w-8 border border-slate-200">
+                      <AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${user.avatar}`} />
+                      <AvatarFallback>{user.avatar}</AvatarFallback>
+                    </Avatar>
+                  </div>
+                </Link>
+                <Button variant="ghost" size="sm" onClick={logout} className="text-slate-500 hover:text-red-600">
+                  Logout
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Link href="/login">
+                  <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-primary">
+                    Log In
+                  </Button>
+                </Link>
+                <Link href="/register">
+                  <Button size="sm" className="bg-secondary hover:bg-secondary/90 text-white font-semibold shadow-sm">
+                    Join Free
+                  </Button>
+                </Link>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Toggle */}
