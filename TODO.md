@@ -165,3 +165,20 @@
 ## Replace with User-Provided Assets
 - [x] Copy user-provided logo to replace generated logo
 - [x] Copy user-provided badges to replace generated badges
+
+
+## Cricket Data API Integration (Remove All Mock Data)
+- [x] Log in to https://cricketdata.org/member.aspx and study API documentation
+- [x] Identify all required API endpoints (matches, players, scores, teams)
+- [x] Identify all required and optional API keys
+- [x] Implement API service layer in the backend
+- [x] Create real-time match data fetching (upcoming, live, completed)
+- [x] Create player data fetching with stats
+- [x] Implement live score updates
+- [x] Add local storage caching with auto-refresh
+- [x] Remove all mock data from Tournaments page
+- [ ] Remove all mock data from CreateTeam page
+- [ ] Remove all mock data from Leaderboard page
+- [ ] Remove all mock data from all other pages
+- [ ] Test with live API data
+- [ ] Verify match status logic (upcoming → live → completed)
