@@ -55,17 +55,17 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition-opacity"></div>
                 <img 
-                  src="/images/logo.png" 
-                  alt="Elite Squad Sports" 
+                  src="/images/logo-rivoaura.png" 
+                  alt="RIVOAURA" 
                   className="relative h-12 w-12 object-contain"
                 />
               </div>
               <div className="hidden sm:block">
                 <div className="font-bold text-xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-                  ELITE SQUAD
+                  RIVOAURA
                 </div>
                 <div className="text-[10px] text-slate-500 font-medium tracking-wider uppercase">
-                  Fantasy Cricket
+                  FANTASY CRICKET EXCELLENCE
                 </div>
               </div>
             </Link>
@@ -234,10 +234,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-3 mb-6">
-                <img src="/images/logo.png" alt="Elite Squad Sports" className="h-12 w-12" />
+                <img src="/images/logo-rivoaura.png" alt="RIVOAURA" className="h-12 w-12" />
                 <div>
-                  <div className="font-bold text-xl text-white">ELITE SQUAD</div>
-                  <div className="text-xs text-yellow-400 font-semibold">Fantasy Cricket</div>
+                  <div className="font-bold text-xl text-white">RIVOAURA</div>
+                  <div className="text-xs text-yellow-400 font-semibold">FANTASY CRICKET EXCELLENCE</div>
                 </div>
               </div>
               <p className="text-sm leading-relaxed text-slate-400 mb-6">
@@ -383,13 +383,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
               <div className="text-xs text-slate-400 max-w-3xl">
                 <p className="mb-3">
-                  &copy; {new Date().getFullYear()} <strong className="text-white">KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED</strong>. All rights reserved.
+                  &copy; {new Date().getFullYear()} <strong className="text-white">RIVOAURA PRIVATE LIMITED</strong>. All rights reserved.
                 </p>
                 <p className="mb-2 text-slate-500">
-                  Operating as <strong className="text-slate-300">Elite Squad Sports</strong> | CIN: <strong className="text-slate-300">U10792KA2024PTC186508</strong> | PAN: <strong className="text-slate-300">AAKCK9076B</strong>
+                  Operating as <strong className="text-slate-300">RIVOAURA</strong> | CIN: <strong className="text-slate-300">U74999DL2016PTC306805</strong> | PAN: <strong className="text-slate-300">AAHCR9551P</strong>
                 </p>
                 <p className="text-[10px] text-slate-500">
-                  Registered Office: C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka, India
+                  Registered Office: A-96 SHANKER GARDEN, VIKASPURI, NEW DELHI, West Delhi, Delhi, India, 110018
                 </p>
               </div>
               

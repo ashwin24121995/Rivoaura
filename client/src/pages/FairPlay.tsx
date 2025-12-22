@@ -9,7 +9,7 @@ export default function FairPlay() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-slate-900 mb-2">Fair Play Policy</h1>
         <p className="text-slate-600">
-          At Elite Squad Sports, we are committed to maintaining a fair, transparent, and secure environment for all our users.
+          At RIVOAURA, we are committed to maintaining a fair, transparent, and secure environment for all our users.
         </p>
       </div>
 
@@ -44,7 +44,7 @@ export default function FairPlay() {
                   <UserX className="w-5 h-5 text-red-500" /> 1. Single Account Policy
                 </h2>
                 <p>
-                  A user is allowed to have only one account on Elite Squad Sports. Creating multiple accounts to bypass restrictions, abuse referral bonuses, or gain an unfair advantage is strictly prohibited. If a user is found to have multiple accounts, all associated accounts will be permanently banned.
+                  A user is allowed to have only one account on RIVOAURA. Creating multiple accounts to bypass restrictions, abuse referral bonuses, or gain an unfair advantage is strictly prohibited. If a user is found to have multiple accounts, all associated accounts will be permanently banned.
                 </p>
               </section>
 

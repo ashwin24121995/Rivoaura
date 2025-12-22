@@ -1,16 +1,18 @@
 # Company Legal Information
 
-**Company Name:** KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED
+**Company Name:** RIVOAURA PRIVATE LIMITED
 
-**Corporate Identification Number (CIN):** U10792KA2024PTC186508
+**Brand Name:** RIVOAURA
 
-**Permanent Account Number (PAN):** AAKCK9076B
+**Corporate Identification Number (CIN):** U74999DL2016PTC306805
 
-**Tax Deduction and Collection Account Number (TAN):** BLRK29132F
+**Permanent Account Number (PAN):** AAHCR9551P
 
-**Date of Incorporation:** 21st March 2024
+**Goods and Services Tax Identification Number (GSTIN):** 07AAHCR9551P1ZJ
+
+**Date of Incorporation:** 2016
 
 **Registered Office Address:**
-C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka
+A-96 SHANKER GARDEN, VIKASPURI, NEW DELHI, West Delhi, Delhi, India, 110018
 
-**Registrar:** Central Registration Centre, Ministry of Corporate Affairs, Government of India
+**Business Type:** Fantasy Cricket Platform - Free to Play, Educational, Skill-Based Gaming

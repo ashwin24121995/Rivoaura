@@ -88,7 +88,7 @@ export default function PasswordReset() {
                 <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg">
                   <h4 className="font-semibold text-slate-900 mb-2">Next Steps:</h4>
                   <ol className="list-decimal list-inside space-y-2 text-sm text-slate-700">
-                    <li>Check your inbox for an email from Elite Squad Sports</li>
+                    <li>Check your inbox for an email from RIVOAURA</li>
                     <li>Click the "Reset Password" link in the email</li>
                     <li>Create a new password (minimum 8 characters)</li>
                     <li>Log in with your new password</li>

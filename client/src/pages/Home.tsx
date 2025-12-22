@@ -14,7 +14,7 @@ export default function Home() {
         <div className="absolute inset-0 z-0">
           <img 
             src="/images/hero-home.png" 
-            alt="Elite Squad Sports Stadium" 
+            alt="RIVOAURA Stadium" 
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/30"></div>
@@ -35,7 +35,7 @@ export default function Home() {
           </h1>
           
           <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            Welcome to <strong>Elite Squad Sports</strong>, India's most authentic free-to-play fantasy cricket platform. 
+            Welcome to <strong>RIVOAURA</strong>, India's most authentic free-to-play fantasy cricket platform. 
             Build your dream 11, analyze player form, and compete with thousands of managers in a 100% secure, skill-based environment.
           </p>
 
@@ -87,7 +87,7 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">How Elite Squad Sports Works</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">How RIVOAURA Works</h2>
             <p className="text-lg text-slate-600">
               Fantasy cricket simplified into 4 strategic steps. No prior experience needed—just your love for the game.
             </p>
@@ -141,7 +141,7 @@ export default function Home() {
       <section className="py-24 bg-slate-50">
         <div className="container">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">Why Choose Elite Squad Sports?</h2>
+            <h2 className="text-4xl font-bold text-slate-900 mb-6">Why Choose RIVOAURA?</h2>
             <p className="text-lg text-slate-600">
               We've built the most transparent, skill-based fantasy cricket platform in India. Here's what makes us different.
             </p>
@@ -217,7 +217,7 @@ export default function Home() {
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold mb-4">The Numbers Speak</h2>
             <p className="text-xl text-slate-300">
-              Join thousands of cricket enthusiasts who trust Elite Squad Sports.
+              Join thousands of cricket enthusiasts who trust RIVOAURA.
             </p>
           </div>
 
@@ -254,9 +254,9 @@ export default function Home() {
 
           <div className="space-y-6">
             <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-2">Who Owns Elite Squad Sports?</h3>
+              <h3 className="font-bold text-slate-900 mb-2">Who Owns RIVOAURA?</h3>
               <p className="text-slate-700">
-                Elite Squad Sports is owned and operated by <strong>KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED</strong>, 
+                RIVOAURA is owned and operated by <strong>RIVOAURA PRIVATE LIMITED</strong>, 
                 a legally registered Indian private limited company based in Kodagu, Karnataka.
               </p>
             </div>
@@ -264,7 +264,7 @@ export default function Home() {
             <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
               <h3 className="font-bold text-slate-900 mb-2">How Do We Make Money?</h3>
               <p className="text-slate-700">
-                We don't—at least not in the traditional sense. Elite Squad Sports is pre-funded by private investors who believe 
+                We don't—at least not in the traditional sense. RIVOAURA is pre-funded by private investors who believe 
                 in fantasy sports as an educational tool. We do not charge entry fees, sell user data, or run advertisements.
               </p>
             </div>

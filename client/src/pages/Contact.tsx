@@ -45,7 +45,7 @@ export default function Contact() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Registered Office</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
-                  KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED<br />
+                  RIVOAURA PRIVATE LIMITED<br />
                   Kodagu District<br />
                   Karnataka, India
                 </p>
@@ -131,7 +131,7 @@ export default function Contact() {
                 />
                 <label htmlFor="privacy" className="text-sm text-slate-600">
                   I agree to the <a href="/privacy" className="text-blue-600 underline">Privacy Policy</a> and 
-                  consent to Elite Squad Sports collecting and processing my personal data for the purpose of 
+                  consent to RIVOAURA collecting and processing my personal data for the purpose of 
                   responding to this inquiry.
                 </label>
               </div>

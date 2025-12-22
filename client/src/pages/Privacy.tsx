@@ -84,7 +84,7 @@ export default function Privacy() {
                   If you have any questions about this Privacy Policy, please contact us at: <br />
                   <strong>Email:</strong> privacy@elitesquadsports.com <br /><br />
                   <strong>Data Controller:</strong><br />
-                  KAVERAMMA COFFEE CURING WORKS PRIVATE LIMITED<br />
+                  RIVOAURA PRIVATE LIMITED<br />
                   C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka, India
                 </p>
               </section>

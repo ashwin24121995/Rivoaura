@@ -22,7 +22,7 @@ export default function AboutUs() {
             Redefining <span className="text-secondary">Fantasy Cricket</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-            We are Elite Squad Sports. A community-driven platform built by fans, for fans. 
+            We are RIVOAURA. A community-driven platform built by fans, for fans. 
             Our mission is to bring the thrill of the stadium directly to your screen through 
             skill, strategy, and fair play.
           </p>
@@ -40,7 +40,7 @@ export default function AboutUs() {
               We wanted to bring the <strong>soul of cricket</strong> back to fantasy gaming.
             </p>
             <p className="text-lg text-slate-600 leading-relaxed">
-              Founded in Mumbai by a group of cricket analysts and tech enthusiasts, Elite Squad Sports was 
+              Founded in Mumbai by a group of cricket analysts and tech enthusiasts, RIVOAURA was 
               conceived as a sanctuary for true cricket lovers. We spent two years researching player statistics, 
               game mechanics, and user behavior to build a platform that rewards <strong>knowledge over luck</strong>.
             </p>
@@ -206,7 +206,7 @@ export default function AboutUs() {
           <div className="relative z-10 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to be part of our story?</h2>
             <p className="text-blue-100 text-lg mb-8">
-              Join thousands of cricket fans who have found their home at Elite Squad Sports. 
+              Join thousands of cricket fans who have found their home at RIVOAURA. 
               Start your journey today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

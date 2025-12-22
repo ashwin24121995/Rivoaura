@@ -57,7 +57,7 @@ export default function Leaderboard() {
           <Trophy className="w-16 h-16 text-yellow-400 mx-auto mb-4 animate-bounce" />
           <h1 className="text-4xl font-bold mb-2">Hall of Fame</h1>
           <p className="text-blue-200 max-w-xl mx-auto">
-            Celebrate the champions of Elite Squad Sports. Compete, climb the ranks, and earn your place in history.
+            Celebrate the champions of RIVOAURA. Compete, climb the ranks, and earn your place in history.
           </p>
         </div>
       </div>

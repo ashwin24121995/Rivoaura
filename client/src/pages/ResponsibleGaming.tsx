@@ -8,7 +8,7 @@ export default function ResponsibleGaming() {
       <div className="mb-8 text-center">
         <h1 className="text-3xl font-bold text-slate-900 mb-4">Responsible Gaming</h1>
         <p className="text-slate-600 max-w-2xl mx-auto">
-          Elite Squad Sports is a 100% free-to-play community platform. We are committed to ensuring a fun, safe, and balanced gaming experience for all our users.
+          RIVOAURA is a 100% free-to-play community platform. We are committed to ensuring a fun, safe, and balanced gaming experience for all our users.
         </p>
       </div>
 
@@ -60,7 +60,7 @@ export default function ResponsibleGaming() {
         <section className="bg-slate-50 p-8 rounded-xl border border-slate-200">
           <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Commitment</h2>
           <p className="text-slate-700 leading-relaxed mb-4">
-            While Elite Squad Sports is completely free and involves no financial risk, excessive gaming can impact your daily life. We encourage all users to play responsibly and treat this platform as a fun recreational activity.
+            While RIVOAURA is completely free and involves no financial risk, excessive gaming can impact your daily life. We encourage all users to play responsibly and treat this platform as a fun recreational activity.
           </p>
           <ul className="list-disc pl-6 space-y-2 text-slate-700">
             <li>Prioritize your personal and professional responsibilities over gaming.</li>
