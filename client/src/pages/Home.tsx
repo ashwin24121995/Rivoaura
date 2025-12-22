@@ -317,9 +317,9 @@ export default function Home() {
       <section className="py-8 bg-slate-50 border-t border-slate-200">
         <div className="container">
           <div className="flex flex-wrap items-center justify-center gap-6 mb-4">
-            <img src="/images/badge-18plus.png" alt="18+ Only" className="w-12 h-12" />
-            <img src="/images/badge-fairplay.png" alt="Fair Play" className="w-12 h-12" />
-            <img src="/images/badge-nomoney.png" alt="No Real Money" className="w-12 h-12" />
+            <img src="/images/badge-18plus-rivoaura.png" alt="18+ Only" className="w-12 h-12" />
+            <img src="/images/badge-fairplay-rivoaura.png" alt="Fair Play" className="w-12 h-12" />
+            <img src="/images/badge-nomoney-rivoaura.png" alt="No Real Money" className="w-12 h-12" />
           </div>
           <p className="text-center text-sm text-slate-600 max-w-4xl mx-auto leading-relaxed">
             <strong>Legal Disclaimer:</strong> This platform is NOT available in Andhra Pradesh, Assam, Odisha, Telangana, Nagaland, 

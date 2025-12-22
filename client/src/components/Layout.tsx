@@ -370,9 +370,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {/* Trust Badges */}
               <div className="mt-6 pt-6 border-t border-slate-700">
                 <div className="flex items-center gap-3">
-                  <img src="/images/badge-18plus.png" alt="18+" className="h-10 w-10 object-contain" />
-                  <img src="/images/badge-fairplay.png" alt="Fair Play" className="h-10 w-10 object-contain" />
-                  <img src="/images/badge-nomoney.png" alt="No Real Money" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-18plus-rivoaura.png" alt="18+" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-fairplay-rivoaura.png" alt="Fair Play" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-nomoney-rivoaura.png" alt="No Real Money" className="h-10 w-10 object-contain" />
                 </div>
               </div>
             </div>

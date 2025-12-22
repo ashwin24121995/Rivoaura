@@ -153,3 +153,10 @@
 - [x] Search for old CIN, PAN references
 - [x] Search for old address references
 - [x] Update all found instances
+
+
+## Generate New RIVOAURA Badges
+- [x] Generate 18+ badge with RIVOAURA branding
+- [x] Generate Fair Play badge with RIVOAURA branding
+- [x] Generate No Real Money badge with RIVOAURA branding
+- [x] Update badge references in code
