@@ -1,332 +1,647 @@
-import { useAuth } from "@/_core/hooks/useAuth";
 import { Button } from "@/components/ui/button";
-import { Shield, Users, Trophy, PlayCircle, CheckCircle2, TrendingUp, Target, Zap, Award, BarChart3, Clock } from "lucide-react";
+import { Card, CardContent } from "@/components/ui/card";
+import { Shield, Trophy, Users, BarChart3, CheckCircle2, PlayCircle, Zap, Target, Award, TrendingUp, Lock, Globe } from "lucide-react";
 import { Link } from "wouter";
-import { getLoginUrl } from "@/const";
 
 export default function Home() {
-  const { user, isAuthenticated } = useAuth();
-
   return (
-    <div className="min-h-screen bg-slate-50 font-sans">
-      {/* Hero Section */}
-      <section className="relative w-full min-h-[700px] flex items-center justify-center overflow-hidden bg-slate-900 text-white">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/images/hero-home.png" 
-            alt="RIVOAURA Stadium" 
-            className="w-full h-full object-cover opacity-40"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-slate-900/30"></div>
-        </div>
+    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+      
+      {/* HERO SECTION - Immersive Introduction */}
+      <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155]">
+        <div className="absolute inset-0 bg-[url('/images/cricket-pattern.svg')] opacity-5"></div>
+        
+        <div className="container relative z-10 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left: Hero Content */}
+            <div className="space-y-8 text-white">
+              <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-gradient-to-r from-amber-500/20 to-amber-600/20 border border-amber-500/30 backdrop-blur-sm">
+                <span className="relative flex h-3 w-3">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-3 w-3 bg-amber-500"></span>
+                </span>
+                <span className="text-amber-400 font-bold text-sm tracking-wider">100% FREE TO PLAY • NO REAL MONEY</span>
+              </div>
 
-        <div className="container relative z-10 text-center py-20">
-          <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 text-sm font-semibold backdrop-blur-md mb-8">
-            <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-yellow-500"></span>
-            </span>
-            100% FREE TO PLAY • NO REAL MONEY
+              <h1 className="text-6xl md:text-7xl font-black leading-tight">
+                Master Fantasy Cricket with{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">
+                  RIVOAURA
+                </span>
+              </h1>
+
+              <p className="text-xl text-slate-300 leading-relaxed border-l-4 border-amber-500 pl-6">
+                Welcome to India's most transparent and educational fantasy cricket platform. 
+                <strong className="text-white"> RIVOAURA</strong> is a 100% free-to-play community where you build dream teams, 
+                compete with thousands of cricket enthusiasts, and sharpen your strategic thinking—all without spending a single rupee.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-5 pt-6">
+                <Link href="/register">
+                  <Button size="lg" className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-bold px-10 h-16 text-lg rounded-full shadow-[0_0_30px_rgba(251,191,36,0.4)] transition-all hover:scale-105">
+                    <PlayCircle className="w-6 h-6 mr-3" />
+                    Start Playing Free
+                  </Button>
+                </Link>
+                <Link href="/how-to-play">
+                  <Button variant="outline" size="lg" className="border-2 border-white/30 text-white hover:bg-white/10 h-16 text-lg rounded-full px-10 backdrop-blur-sm">
+                    <BarChart3 className="w-5 h-5 mr-3" />
+                    How It Works
+                  </Button>
+                </Link>
+              </div>
+
+              <div className="grid grid-cols-3 gap-8 pt-10 border-t border-white/20">
+                <div>
+                  <div className="text-4xl font-black text-amber-400 mb-2">75K+</div>
+                  <div className="text-sm text-slate-400 font-medium">Active Players</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-black text-amber-400 mb-2">₹0</div>
+                  <div className="text-sm text-slate-400 font-medium">Entry Fee Forever</div>
+                </div>
+                <div>
+                  <div className="text-4xl font-black text-amber-400 mb-2">100%</div>
+                  <div className="text-sm text-slate-400 font-medium">Skill-Based</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Trust Badges & Highlights */}
+            <div className="relative hidden lg:block">
+              <div className="absolute inset-0 bg-amber-500/20 blur-[100px] rounded-full"></div>
+              <Card className="relative z-10 bg-slate-800/50 backdrop-blur-xl border-slate-700 shadow-2xl">
+                <CardContent className="p-8 space-y-6">
+                  <div className="flex items-center gap-4 pb-6 border-b border-slate-700">
+                    <img src="/logo-rivoaura.png" alt="RIVOAURA" className="w-16 h-16" />
+                    <div>
+                      <div className="text-2xl font-bold text-white">RIVOAURA</div>
+                      <div className="text-sm text-slate-400">Educational Fantasy Cricket</div>
+                    </div>
+                  </div>
+
+                  <div className="space-y-4">
+                    <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
+                      <img src="/badge-nomoney-rivoaura.png" alt="No Money" className="w-14 h-14" />
+                      <div>
+                        <div className="font-bold text-white">100% Free to Play</div>
+                        <div className="text-sm text-slate-400">No deposits, no withdrawals</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
+                      <img src="/badge-18plus-rivoaura.png" alt="18+" className="w-14 h-14" />
+                      <div>
+                        <div className="font-bold text-white">Age Verified Platform</div>
+                        <div className="text-sm text-slate-400">Strictly 18+ community</div>
+                      </div>
+                    </div>
+
+                    <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
+                      <img src="/badge-fairplay-rivoaura.png" alt="Fair Play" className="w-14 h-14" />
+                      <div>
+                        <div className="font-bold text-white">Fair Play Certified</div>
+                        <div className="text-sm text-slate-400">Transparent & ethical</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="pt-6 border-t border-slate-700 text-center">
+                    <p className="text-xs text-slate-500 leading-relaxed">
+                      Operated by <strong className="text-slate-400">RIVOAURA PRIVATE LIMITED</strong><br />
+                      CIN: U74999DL2016PTC306805 • Registered in New Delhi, India
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold leading-tight tracking-tight mb-6">
-            Where <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Strategy</span> <br />
-            Meets <span className="text-white">Glory</span>
-          </h1>
-          
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed mb-8">
-            Welcome to <strong>RIVOAURA</strong>, India's most authentic free-to-play fantasy cricket platform. 
-            Build your dream 11, analyze player form, and compete with thousands of managers in a 100% secure, skill-based environment.
-          </p>
+        </div>
+      </section>
 
-          <div className="flex flex-col sm:flex-row gap-5 justify-center mb-12">
-            {isAuthenticated ? (
-              <Link href="/dashboard">
-                <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-slate-900 font-bold px-10 h-14 text-lg rounded-full">
-                  Go to Dashboard
+      {/* SECTION 1: BUILD YOUR TEAM (Visual Left) */}
+      <section className="py-24 bg-white">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left: Visual */}
+            <div className="order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-blue-500/20 blur-2xl rounded-3xl"></div>
+                <img 
+                  src="/images/home-team-builder.png" 
+                  alt="Fantasy Cricket Team Builder" 
+                  className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
+                />
+              </div>
+            </div>
+
+            {/* Right: Content */}
+            <div className="order-1 lg:order-2 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-50 border border-blue-200">
+                <Target className="w-4 h-4 text-blue-600" />
+                <span className="text-blue-600 font-bold text-sm">STEP 1: TEAM BUILDING</span>
+              </div>
+
+              <h2 className="text-5xl font-black text-slate-900 leading-tight">
+                Build Your Dream <span className="text-blue-600">Playing XI</span>
+              </h2>
+
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Every great fantasy team starts with smart selection. At RIVOAURA, you get <strong>100 credits</strong> to assemble 
+                your perfect 11-player squad from real cricket matches happening worldwide.
+              </p>
+
+              <div className="space-y-4 bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600">
+                <h3 className="font-bold text-slate-900 text-xl mb-4">Team Composition Rules:</h3>
+                
+                <div className="grid grid-cols-1 gap-3">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <strong className="text-slate-900">Wicket-Keepers:</strong>
+                      <span className="text-slate-600"> Select 1-4 players (usually 8.5-10 credits each)</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <strong className="text-slate-900">Batsmen:</strong>
+                      <span className="text-slate-600"> Select 3-6 players (premium batsmen cost 9-10.5 credits)</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <strong className="text-slate-900">All-Rounders:</strong>
+                      <span className="text-slate-600"> Select 1-4 players (top all-rounders cost 9-10 credits)</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                    <div>
+                      <strong className="text-slate-900">Bowlers:</strong>
+                      <span className="text-slate-600"> Select 3-6 players (regular bowlers cost 8-9 credits)</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-amber-50 border border-amber-200 rounded-xl p-6">
+                <div className="flex items-start gap-4">
+                  <Zap className="w-8 h-8 text-amber-600 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-amber-900 mb-2">Pro Strategy Tip:</h4>
+                    <p className="text-amber-800 leading-relaxed">
+                      Balance your budget wisely! Don't spend all credits on star batsmen. 
+                      Budget bowlers (7-8 credits) can earn massive points through wickets and economy rates. 
+                      Mix premium players with value picks to maximize your team's potential.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <Link href="/tournaments">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 h-14 rounded-full">
+                  Browse Live Matches
                 </Button>
               </Link>
-            ) : (
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 2: LIVE SCORING (Visual Right) */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-slate-100">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left: Content */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-50 border border-red-200">
+                <div className="relative flex h-2.5 w-2.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-red-600"></span>
+                </div>
+                <span className="text-red-600 font-bold text-sm">STEP 2: LIVE MATCH TRACKING</span>
+              </div>
+
+              <h2 className="text-5xl font-black text-slate-900 leading-tight">
+                Watch Points Update <span className="text-red-600">Ball-by-Ball</span>
+              </h2>
+
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Once the real cricket match begins, RIVOAURA's advanced scoring engine tracks every single delivery 
+                and instantly calculates fantasy points for your selected players. Experience the thrill of watching 
+                your team's score climb in real-time!
+              </p>
+
+              <div className="space-y-4">
+                <Card className="border-2 border-slate-200 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-slate-900 text-xl mb-4 flex items-center gap-2">
+                      <BarChart3 className="w-6 h-6 text-blue-600" />
+                      How Points Are Calculated
+                    </h3>
+                    
+                    <div className="space-y-3 text-slate-700">
+                      <div className="flex justify-between items-center py-2 border-b border-slate-200">
+                        <span className="font-medium">Every run scored</span>
+                        <span className="font-bold text-green-600">+1 point</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-slate-200">
+                        <span className="font-medium">Boundary (4 runs)</span>
+                        <span className="font-bold text-green-600">+1 bonus point</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-slate-200">
+                        <span className="font-medium">Six (6 runs)</span>
+                        <span className="font-bold text-green-600">+2 bonus points</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-slate-200">
+                        <span className="font-medium">Wicket taken (bowling)</span>
+                        <span className="font-bold text-green-600">+25 points</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2 border-b border-slate-200">
+                        <span className="font-medium">Catch taken (fielding)</span>
+                        <span className="font-bold text-green-600">+8 points</span>
+                      </div>
+                      <div className="flex justify-between items-center py-2">
+                        <span className="font-medium">Half-century (50+ runs)</span>
+                        <span className="font-bold text-green-600">+8 bonus points</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+
+                <div className="bg-blue-50 border border-blue-200 rounded-xl p-6">
+                  <div className="flex items-start gap-4">
+                    <TrendingUp className="w-8 h-8 text-blue-600 flex-shrink-0" />
+                    <div>
+                      <h4 className="font-bold text-blue-900 mb-2">Captain & Vice-Captain Multipliers:</h4>
+                      <p className="text-blue-800 leading-relaxed">
+                        Your <strong>Captain earns 2x points</strong> and your <strong>Vice-Captain earns 1.5x points</strong>. 
+                        Choose wisely! Selecting the right captain can be the difference between winning and losing a contest.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <Link href="/point-system">
+                <Button size="lg" variant="outline" className="border-2 border-slate-300 text-slate-700 hover:bg-slate-100 font-bold px-8 h-14 rounded-full">
+                  View Complete Point System
+                </Button>
+              </Link>
+            </div>
+
+            {/* Right: Visual */}
+            <div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 to-orange-500/20 blur-2xl rounded-3xl"></div>
+                <img 
+                  src="/images/home-live-scoring.png" 
+                  alt="Live Fantasy Cricket Scoring" 
+                  className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 3: STRATEGY & ANALYTICS (Visual Left) */}
+      <section className="py-24 bg-white">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left: Visual */}
+            <div className="order-2 lg:order-1">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-2xl rounded-3xl"></div>
+                <img 
+                  src="/images/home-strategy.png" 
+                  alt="Fantasy Cricket Strategy & Analytics" 
+                  className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
+                />
+              </div>
+            </div>
+
+            {/* Right: Content */}
+            <div className="order-1 lg:order-2 space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-50 border border-purple-200">
+                <BarChart3 className="w-4 h-4 text-purple-600" />
+                <span className="text-purple-600 font-bold text-sm">STEP 3: STRATEGIC ANALYSIS</span>
+              </div>
+
+              <h2 className="text-5xl font-black text-slate-900 leading-tight">
+                Master the Game with <span className="text-purple-600">Data & Insights</span>
+              </h2>
+
+              <p className="text-lg text-slate-600 leading-relaxed">
+                RIVOAURA isn't just about picking your favorite players—it's about making <strong>informed, strategic decisions</strong>. 
+                We provide you with comprehensive player statistics, recent form analysis, and head-to-head matchup data 
+                to help you build winning teams.
+              </p>
+
+              <div className="space-y-4">
+                <Card className="border-l-4 border-purple-600 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-slate-900 text-lg mb-3 flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-purple-600" />
+                      Player Performance Analytics
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Access detailed statistics including batting average, strike rate, bowling economy, 
+                      recent form (last 5 matches), and venue-specific performance. Make data-driven decisions, not guesses.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-blue-600 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-slate-900 text-lg mb-3 flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-blue-600" />
+                      Match Context & Conditions
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Understand pitch conditions, weather forecasts, and team news before finalizing your squad. 
+                      Spinners thrive on turning tracks, while fast bowlers dominate green pitches—choose accordingly.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                <Card className="border-l-4 border-green-600 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-slate-900 text-lg mb-3 flex items-center gap-2">
+                      <CheckCircle2 className="w-5 h-5 text-green-600" />
+                      Community Expert Tips
+                    </h3>
+                    <p className="text-slate-600 leading-relaxed">
+                      Learn from top-performing RIVOAURA players in our community forums. 
+                      Share strategies, discuss team combinations, and improve your fantasy cricket IQ together.
+                    </p>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <div className="bg-purple-50 border border-purple-200 rounded-xl p-6">
+                <div className="flex items-start gap-4">
+                  <Award className="w-8 h-8 text-purple-600 flex-shrink-0" />
+                  <div>
+                    <h4 className="font-bold text-purple-900 mb-2">Skill Development Focus:</h4>
+                    <p className="text-purple-800 leading-relaxed">
+                      RIVOAURA is designed to be <strong>educational</strong>. The more you play, the better you understand 
+                      cricket dynamics, player roles, and match situations. It's not gambling—it's skill-building.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* SECTION 4: LEADERBOARD & COMPETITION (Visual Right) */}
+      <section className="py-24 bg-gradient-to-br from-slate-50 to-slate-100">
+        <div className="container">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            
+            {/* Left: Content */}
+            <div className="space-y-6">
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-50 border border-amber-200">
+                <Trophy className="w-4 h-4 text-amber-600" />
+                <span className="text-amber-600 font-bold text-sm">STEP 4: COMPETE & WIN</span>
+              </div>
+
+              <h2 className="text-5xl font-black text-slate-900 leading-tight">
+                Climb the <span className="text-amber-600">Global Leaderboard</span>
+              </h2>
+
+              <p className="text-lg text-slate-600 leading-relaxed">
+                Join thousands of cricket fans competing in free contests across every major cricket match. 
+                Earn points, climb rankings, and establish yourself as a fantasy cricket champion—all without spending money.
+              </p>
+
+              <div className="space-y-4">
+                <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-2 border-amber-300 rounded-xl p-6">
+                  <h3 className="font-bold text-amber-900 text-xl mb-4 flex items-center gap-2">
+                    <Trophy className="w-6 h-6 text-amber-600" />
+                    What You Win at RIVOAURA
+                  </h3>
+                  
+                  <div className="space-y-3">
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <strong className="text-slate-900">Achievement Badges:</strong>
+                        <span className="text-slate-700"> Unlock exclusive badges like "Century Maker," "Hat-Trick Hero," and "Captain Fantastic"</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <strong className="text-slate-900">Leaderboard Glory:</strong>
+                        <span className="text-slate-700"> See your name at the top of global and contest-specific rankings</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <strong className="text-slate-900">Community Recognition:</strong>
+                        <span className="text-slate-700"> Earn reputation points and become a respected strategist in forums</span>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-3">
+                      <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
+                      <div>
+                        <strong className="text-slate-900">Bragging Rights:</strong>
+                        <span className="text-slate-700"> Share your victories with friends and challenge them to beat your score</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <Card className="border-2 border-slate-200 shadow-lg">
+                  <CardContent className="p-6">
+                    <h3 className="font-bold text-slate-900 text-lg mb-3">Contest Types Available:</h3>
+                    
+                    <div className="space-y-3 text-slate-700">
+                      <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                        <Users className="w-5 h-5 text-blue-600 flex-shrink-0" />
+                        <div>
+                          <strong>Mega Leagues:</strong> Compete with thousands of players
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                        <Target className="w-5 h-5 text-green-600 flex-shrink-0" />
+                        <div>
+                          <strong>Head-to-Head:</strong> Challenge a single opponent directly
+                        </div>
+                      </div>
+
+                      <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
+                        <Globe className="w-5 h-5 text-purple-600 flex-shrink-0" />
+                        <div>
+                          <strong>Private Leagues:</strong> Create contests for friends & family
+                        </div>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </div>
+
+              <Link href="/leaderboard">
+                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white font-bold px-8 h-14 rounded-full">
+                  View Global Rankings
+                </Button>
+              </Link>
+            </div>
+
+            {/* Right: Visual */}
+            <div>
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 blur-2xl rounded-3xl"></div>
+                <img 
+                  src="/images/home-leaderboard.png" 
+                  alt="Fantasy Cricket Leaderboard" 
+                  className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
+                />
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* TRANSPARENCY SECTION */}
+      <section className="py-24 bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155] text-white">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 border border-white/20 backdrop-blur-sm">
+              <Shield className="w-5 h-5 text-amber-400" />
+              <span className="text-amber-400 font-bold text-sm">100% TRANSPARENT PLATFORM</span>
+            </div>
+
+            <h2 className="text-5xl font-black leading-tight">
+              Why RIVOAURA is <span className="text-amber-400">Completely Legal & Safe</span>
+            </h2>
+
+            <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
+              We understand your concerns about online fantasy sports platforms. 
+              Here's exactly how RIVOAURA operates and why we're different from gambling websites.
+            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+              <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+                <CardContent className="p-8 space-y-4">
+                  <div className="w-16 h-16 bg-green-500/20 rounded-2xl flex items-center justify-center mb-4">
+                    <CheckCircle2 className="w-8 h-8 text-green-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">No Real Money Involved</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    RIVOAURA is <strong className="text-white">100% free to play</strong>. 
+                    There are no deposits, no withdrawals, no payment gateways, and no cash prizes. 
+                    You cannot lose money because you never spend money.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+                <CardContent className="p-8 space-y-4">
+                  <div className="w-16 h-16 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-4">
+                    <Lock className="w-8 h-8 text-blue-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Skill-Based, Not Luck</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    Fantasy cricket is recognized as a <strong className="text-white">game of skill</strong> under Indian law. 
+                    Success depends on your cricket knowledge, strategic thinking, and player analysis—not random chance.
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+                <CardContent className="p-8 space-y-4">
+                  <div className="w-16 h-16 bg-purple-500/20 rounded-2xl flex items-center justify-center mb-4">
+                    <Shield className="w-8 h-8 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Legally Registered Company</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    RIVOAURA is operated by <strong className="text-white">RIVOAURA PRIVATE LIMITED</strong>, 
+                    a company registered with the Ministry of Corporate Affairs (CIN: U74999DL2016PTC306805).
+                  </p>
+                </CardContent>
+              </Card>
+
+              <Card className="bg-slate-800/50 border-slate-700 backdrop-blur-sm">
+                <CardContent className="p-8 space-y-4">
+                  <div className="w-16 h-16 bg-amber-500/20 rounded-2xl flex items-center justify-center mb-4">
+                    <Users className="w-8 h-8 text-amber-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white">Educational Purpose</h3>
+                  <p className="text-slate-300 leading-relaxed">
+                    Our platform is designed for <strong className="text-white">entertainment and education</strong>. 
+                    Players learn cricket strategy, improve analytical skills, and engage with a passionate community.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="pt-12">
+              <Link href="/about">
+                <Button size="lg" variant="outline" className="border-2 border-white/30 text-white hover:bg-white/10 font-bold px-10 h-16 text-lg rounded-full backdrop-blur-sm">
+                  Read Our Complete Story
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CALL TO ACTION */}
+      <section className="py-24 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-700">
+        <div className="container">
+          <div className="max-w-4xl mx-auto text-center space-y-8">
+            <h2 className="text-5xl md:text-6xl font-black text-white leading-tight">
+              Ready to Start Your Fantasy Cricket Journey?
+            </h2>
+
+            <p className="text-2xl text-amber-50 leading-relaxed">
+              Join 75,000+ cricket fans already playing on RIVOAURA. 
+              It's free, it's fun, and it's the smartest way to enjoy cricket.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
               <Link href="/register">
-                <Button size="lg" className="bg-yellow-600 hover:bg-yellow-700 text-slate-900 font-bold px-10 h-14 text-lg rounded-full">
-                  Start Playing Free
+                <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50 font-black px-12 h-16 text-xl rounded-full shadow-2xl">
+                  Create Free Account
                 </Button>
               </Link>
-            )}
-            <Link href="/how-to-play">
-              <Button variant="outline" size="lg" className="border-slate-600 text-white hover:bg-white/10 h-14 text-lg rounded-full px-8 bg-transparent">
-                <PlayCircle className="w-5 h-5 mr-2" />
-                How to Play
-              </Button>
-            </Link>
-          </div>
+              <Link href="/tournaments">
+                <Button size="lg" variant="outline" className="border-3 border-white text-white hover:bg-white/20 font-bold px-12 h-16 text-xl rounded-full backdrop-blur-sm">
+                  Browse Matches
+                </Button>
+              </Link>
+            </div>
 
-          {/* Trust Badges */}
-          <div className="flex flex-wrap items-center justify-center gap-6">
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-5 h-5 text-green-400" />
-              <span className="text-sm">18+ Only</span>
-            </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-5 h-5 text-green-400" />
-              <span className="text-sm">Fair Play Certified</span>
-            </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-5 h-5 text-green-400" />
-              <span className="text-sm">No Real Money</span>
-            </div>
-            <div className="flex items-center gap-2 text-slate-300">
-              <CheckCircle2 className="w-5 h-5 text-green-400" />
-              <span className="text-sm">Legally Compliant</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How It Works */}
-      <section className="py-24 bg-white">
-        <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">How RIVOAURA Works</h2>
-            <p className="text-lg text-slate-600">
-              Fantasy cricket simplified into 4 strategic steps. No prior experience needed—just your love for the game.
+            <p className="text-sm text-amber-100 pt-8">
+              No credit card required • No hidden fees • No real money • 100% free forever
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center mb-6 mx-auto text-white font-bold text-3xl">
-                1
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Select a Match</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Browse upcoming T20, ODI, and Test matches from international and domestic leagues. Choose your battleground.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center mb-6 mx-auto text-white font-bold text-3xl">
-                2
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Build Your Squad</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Pick 11 players within a 100-credit budget. Balance batsmen, bowlers, all-rounders, and wicket-keepers strategically.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center mb-6 mx-auto text-white font-bold text-3xl">
-                3
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Choose Captain</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Select a Captain (2x points) and Vice-Captain (1.5x points). This decision often separates winners from the rest.
-              </p>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-6 mx-auto text-white font-bold text-3xl">
-                4
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Compete & Win</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Join contests, watch live scores update in real-time, and climb the leaderboard as your players perform.
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-24 bg-slate-50">
-        <div className="container">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-4xl font-bold text-slate-900 mb-6">Why Choose RIVOAURA?</h2>
-            <p className="text-lg text-slate-600">
-              We've built the most transparent, skill-based fantasy cricket platform in India. Here's what makes us different.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl border border-slate-200">
-              <div className="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6">
-                <Shield className="w-7 h-7 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">100% Free & Legal</h3>
-              <p className="text-slate-600 leading-relaxed">
-                No real money involved. Purely skill-based and fully compliant with Indian laws. We're backed by investors who believe in fantasy sports as education, not gambling.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-slate-200">
-              <div className="w-14 h-14 bg-yellow-50 rounded-xl flex items-center justify-center mb-6">
-                <Trophy className="w-7 h-7 text-yellow-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Compete for Glory</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Climb weekly, monthly, and all-time leaderboards. Earn digital badges and bragging rights. No cash prizes—just pure competitive spirit.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-slate-200">
-              <div className="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-6">
-                <Users className="w-7 h-7 text-green-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Thriving Community</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Join "The Dugout" to discuss strategies, share tips, and debate team selections with thousands of passionate cricket fans across India.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-slate-200">
-              <div className="w-14 h-14 bg-purple-50 rounded-xl flex items-center justify-center mb-6">
-                <BarChart3 className="w-7 h-7 text-purple-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Advanced Analytics</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Access detailed player stats, form analysis, and head-to-head records. Make data-driven decisions like a pro manager.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-slate-200">
-              <div className="w-14 h-14 bg-red-50 rounded-xl flex items-center justify-center mb-6">
-                <Zap className="w-7 h-7 text-red-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Live Scoring</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Watch your fantasy points update in real-time as the match progresses. Experience the thrill of live leaderboard shifts.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl border border-slate-200">
-              <div className="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center mb-6">
-                <Target className="w-7 h-7 text-orange-600" />
-              </div>
-              <h3 className="text-xl font-bold text-slate-900 mb-3">Educational Focus</h3>
-              <p className="text-slate-600 leading-relaxed">
-                Learn cricket strategy through our detailed guides, blog articles, and point system breakdowns. Improve your game knowledge.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-24 bg-slate-900 text-white">
-        <div className="container">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">The Numbers Speak</h2>
-            <p className="text-xl text-slate-300">
-              Join thousands of cricket enthusiasts who trust RIVOAURA.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">50K+</div>
-              <div className="text-slate-300">Active Users</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">200+</div>
-              <div className="text-slate-300">Matches Covered</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">1M+</div>
-              <div className="text-slate-300">Teams Created</div>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl font-bold text-yellow-400 mb-2">100%</div>
-              <div className="text-slate-300">Free Forever</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Transparency Section */}
-      <section className="py-24 bg-white">
-        <div className="container max-w-4xl">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-slate-900 mb-4">Complete Transparency</h2>
-            <p className="text-lg text-slate-600">
-              We operate with 100% openness. Here's everything you need to know.
-            </p>
-          </div>
-
-          <div className="space-y-6">
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-2">Who Owns RIVOAURA?</h3>
-              <p className="text-slate-700">
-                RIVOAURA is owned and operated by <strong>RIVOAURA PRIVATE LIMITED</strong>, 
-                a legally registered Indian private limited company based in New Delhi, Delhi.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-2">How Do We Make Money?</h3>
-              <p className="text-slate-700">
-                We don't—at least not in the traditional sense. RIVOAURA is pre-funded by private investors who believe 
-                in fantasy sports as an educational tool. We do not charge entry fees, sell user data, or run advertisements.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-2">Is It Legal?</h3>
-              <p className="text-slate-700">
-                Yes. Fantasy cricket is classified as a "Game of Skill" under Indian law. We operate in full compliance with the 
-                Public Gambling Act, 1867, and state-specific regulations. However, we are NOT available in Andhra Pradesh, Assam, 
-                Nagaland, Odisha, Sikkim, and Telangana due to government compliance requirements.
-              </p>
-            </div>
-
-            <div className="bg-slate-50 p-6 rounded-xl border border-slate-200">
-              <h3 className="font-bold text-slate-900 mb-2">What Do Winners Get?</h3>
-              <p className="text-slate-700">
-                Winners receive digital badges, leaderboard rankings, and community recognition. We do NOT offer cash prizes, 
-                real money rewards, or any form of monetary compensation. This is purely for entertainment and skill development.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
-        <div className="container text-center">
-          <Award className="w-16 h-16 mx-auto mb-6 text-yellow-400" />
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to Build Your Dream Team?</h2>
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-            Join thousands of cricket fans mastering the art of fantasy sports. No credit card required. No hidden fees. Just pure skill.
-          </p>
-          {isAuthenticated ? (
-            <Link href="/tournaments">
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold px-12 h-16 text-lg rounded-full">
-                Browse Matches
-              </Button>
-            </Link>
-          ) : (
-            <Link href="/register">
-              <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold px-12 h-16 text-lg rounded-full">
-                Create Free Account
-              </Button>
-            </Link>
-          )}
-        </div>
-      </section>
-
-      {/* Legal Disclaimer */}
-      <section className="py-8 bg-slate-50 border-t border-slate-200">
-        <div className="container">
-          <div className="flex flex-wrap items-center justify-center gap-6 mb-4">
-            <img src="/images/badge-18plus-rivoaura.png" alt="18+ Only" className="w-12 h-12" />
-            <img src="/images/badge-fairplay-rivoaura.png" alt="Fair Play" className="w-12 h-12" />
-            <img src="/images/badge-nomoney-rivoaura.png" alt="No Real Money" className="w-12 h-12" />
-          </div>
-          <p className="text-center text-sm text-slate-600 max-w-4xl mx-auto leading-relaxed">
-            <strong>Legal Disclaimer:</strong> This platform is NOT available in Andhra Pradesh, Assam, Odisha, Telangana, Nagaland, 
-            and Sikkim. Only users 18 years and older are permitted. This is a skill-based, free-to-play platform with no real money involved.
-          </p>
-        </div>
-      </section>
     </div>
   );
 }
