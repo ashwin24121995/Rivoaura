@@ -85,7 +85,7 @@ export default function Privacy() {
                   <strong>Email:</strong> privacy@elitesquadsports.com <br /><br />
                   <strong>Data Controller:</strong><br />
                   RIVOAURA PRIVATE LIMITED<br />
-                  C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka, India
+                  A-96 SHANKER GARDEN, VIKASPURI, NEW DELHI, West Delhi, Delhi, India, 110018, India
                 </p>
               </section>
 

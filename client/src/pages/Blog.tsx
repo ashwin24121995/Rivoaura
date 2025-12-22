@@ -6,7 +6,7 @@ const blogPosts = [
     id: 1,
     title: "Understanding the Impact of Pitch Conditions on Fantasy Team Selection",
     excerpt: "Pitch conditions can make or break your fantasy team. Learn how to analyze pitch reports, weather forecasts, and historical data to gain a competitive edge in team selection.",
-    author: "Elite Squad Editorial",
+    author: "RIVOAURA Editorial",
     date: "December 10, 2024",
     category: "Strategy",
     readTime: "8 min read",
@@ -16,7 +16,7 @@ const blogPosts = [
     id: 2,
     title: "The Science of Captaincy: Why Form Beats Reputation",
     excerpt: "Discover the data-driven approach to selecting your fantasy captain. We analyze 500+ matches to reveal which factors truly predict high-scoring performances.",
-    author: "Elite Squad Analytics",
+    author: "RIVOAURA Analytics",
     date: "December 8, 2024",
     category: "Analytics",
     readTime: "12 min read",
@@ -26,7 +26,7 @@ const blogPosts = [
     id: 3,
     title: "Budget Allocation Strategies: The 70-20-10 Rule",
     excerpt: "How should you distribute your 100 credits? Learn the proven budget allocation framework used by top fantasy players to build balanced, high-scoring teams.",
-    author: "Elite Squad Coaching",
+    author: "RIVOAURA Coaching",
     date: "December 5, 2024",
     category: "Beginner Guide",
     readTime: "6 min read",
@@ -36,7 +36,7 @@ const blogPosts = [
     id: 4,
     title: "All-Rounders vs. Specialists: The Great Debate",
     excerpt: "Should you load up on all-rounders or stick with specialist batsmen and bowlers? We break down the math behind this age-old fantasy cricket dilemma.",
-    author: "Elite Squad Editorial",
+    author: "RIVOAURA Editorial",
     date: "December 3, 2024",
     category: "Strategy",
     readTime: "10 min read",
@@ -46,7 +46,7 @@ const blogPosts = [
     id: 5,
     title: "Reading Between the Lines: How to Interpret Team News",
     excerpt: "Last-minute lineup changes can destroy your carefully crafted team. Learn how to monitor team news, injury reports, and press conferences like a pro.",
-    author: "Elite Squad Coaching",
+    author: "RIVOAURA Coaching",
     date: "December 1, 2024",
     category: "Tips & Tricks",
     readTime: "7 min read",
@@ -56,7 +56,7 @@ const blogPosts = [
     id: 6,
     title: "The Psychology of Fantasy Cricket: Avoiding Cognitive Biases",
     excerpt: "Recency bias, confirmation bias, and the sunk cost fallacy—learn how psychological traps sabotage your team selection and how to overcome them.",
-    author: "Elite Squad Analytics",
+    author: "RIVOAURA Analytics",
     date: "November 28, 2024",
     category: "Psychology",
     readTime: "9 min read",
@@ -85,7 +85,7 @@ export default function Blog() {
             <TrendingUp className="w-4 h-4" />
             Cricket Strategy & Analysis
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">The Elite Squad Blog</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">The RIVOAURA Blog</h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
             Expert insights, data-driven analysis, and proven strategies to elevate your fantasy cricket game.
           </p>

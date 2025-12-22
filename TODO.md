@@ -145,3 +145,11 @@
 - [x] Update all page content references
 - [x] Update meta tags and titles
 - [x] Update configuration files
+
+
+## Thorough Cleanup - Remove All Old Branding
+- [x] Search for "Elite Squad" references
+- [x] Search for "KAVERAMMA" references
+- [x] Search for old CIN, PAN references
+- [x] Search for old address references
+- [x] Update all found instances

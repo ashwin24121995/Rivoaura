@@ -91,11 +91,11 @@ export default function Terms() {
               <section>
                 <h2 className="text-xl font-bold text-slate-900 mb-4">8. Governing Law</h2>
                 <p>
-                  These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions. Any disputes shall be subject to the exclusive jurisdiction of the courts in Kodagu, Karnataka, India.
+                  These Terms shall be governed and construed in accordance with the laws of India, without regard to its conflict of law provisions. Any disputes shall be subject to the exclusive jurisdiction of the courts in New Delhi, Delhi, India.
 
 Registered Office:
 RIVOAURA PRIVATE LIMITED
-C/O S K MOHAN, MEKOOR, SIDDAPURA, Pollibetta, Virajpet, Kodagu- 571215, Karnataka
+A-96 SHANKER GARDEN, VIKASPURI, NEW DELHI, West Delhi, Delhi, India, 110018
                 </p>
               </section>
 

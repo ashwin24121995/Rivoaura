@@ -362,7 +362,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <MapPin className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-slate-400 mb-1">Registered Office</div>
-                    <div className="text-white">Kodagu District, Karnataka, India</div>
+                    <div className="text-white">West Delhi, Delhi, India</div>
                   </div>
                 </li>
               </ul>

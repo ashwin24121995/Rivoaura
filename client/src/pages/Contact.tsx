@@ -46,8 +46,8 @@ export default function Contact() {
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Registered Office</h3>
                 <p className="text-slate-600 text-sm leading-relaxed">
                   RIVOAURA PRIVATE LIMITED<br />
-                  Kodagu District<br />
-                  Karnataka, India
+                  West Delhi<br />
+                  Delhi, India
                 </p>
               </CardContent>
             </Card>

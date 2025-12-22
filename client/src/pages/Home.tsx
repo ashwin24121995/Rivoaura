@@ -257,7 +257,7 @@ export default function Home() {
               <h3 className="font-bold text-slate-900 mb-2">Who Owns RIVOAURA?</h3>
               <p className="text-slate-700">
                 RIVOAURA is owned and operated by <strong>RIVOAURA PRIVATE LIMITED</strong>, 
-                a legally registered Indian private limited company based in Kodagu, Karnataka.
+                a legally registered Indian private limited company based in New Delhi, Delhi.
               </p>
             </div>
 

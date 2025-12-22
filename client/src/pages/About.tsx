@@ -71,8 +71,8 @@ export default function About() {
                   <div className="bg-slate-50 p-4 rounded-lg border border-slate-200">
                     <div className="text-sm text-slate-600 mb-1">Registered Office:</div>
                     <div className="font-semibold text-slate-900">
-                      Kodagu District<br />
-                      Karnataka, India
+                      West Delhi<br />
+                      Delhi, India
                     </div>
                   </div>
                 </div>

@@ -100,7 +100,7 @@ const faqs: { category: string; items: FAQItem[] }[] = [
       },
       {
         question: "Who owns RIVOAURA?",
-        answer: "RIVOAURA is owned and operated by RIVOAURA PRIVATE LIMITED, a legally registered Indian private limited company based in Kodagu, Karnataka."
+        answer: "RIVOAURA is owned and operated by RIVOAURA PRIVATE LIMITED, a legally registered Indian private limited company based in New Delhi, Delhi."
       },
       {
         question: "Do you have a Fair Play Policy?",
