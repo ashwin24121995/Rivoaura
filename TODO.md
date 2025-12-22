@@ -160,3 +160,8 @@
 - [x] Generate Fair Play badge with RIVOAURA branding
 - [x] Generate No Real Money badge with RIVOAURA branding
 - [x] Update badge references in code
+
+
+## Replace with User-Provided Assets
+- [x] Copy user-provided logo to replace generated logo
+- [x] Copy user-provided badges to replace generated badges
