@@ -262,3 +262,13 @@
 - [x] Explain discussion forum mechanics
 - [x] Add strategy sharing best practices
 - [x] Include community values and conduct rules
+
+
+## Legal & Policy Pages - Comprehensive Detail
+- [x] Create detailed Terms & Conditions page with all legal clauses
+- [x] Create detailed Privacy Policy page with data handling explanations
+- [x] Create detailed Fair Play Policy page with rules and violations
+- [x] Create detailed Responsible Gaming page with safety guidelines
+- [x] Create detailed Contact Us page with multiple contact methods
+- [x] Add footer links to all policy pages
+- [x] Ensure all legal content is accurate and compliant
