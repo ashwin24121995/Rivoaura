@@ -70,18 +70,36 @@ export interface MatchSquad {
 
 // Standard credit calculation
 function calculatePlayerCredit(role: string, playerName: string): number {
-  // Top players get higher credits (simplified - can be enhanced with player stats)
-  const isTopPlayer = false; // TODO: Implement player ranking logic
+  // List of premium players (star performers)
+  const premiumPlayers = [
+    'Virat Kohli', 'Rohit Sharma', 'Babar Azam', 'Kane Williamson', 'Steve Smith',
+    'Joe Root', 'David Warner', 'AB de Villiers', 'Quinton de Kock', 'Jos Buttler',
+    'Jasprit Bumrah', 'Pat Cummins', 'Kagiso Rabada', 'Trent Boult', 'Rashid Khan',
+    'Ravindra Jadeja', 'Ben Stokes', 'Shakib Al Hasan', 'Glenn Maxwell', 'Hardik Pandya',
+    'Mitchell Starc', 'Mohammed Shami', 'Shaheen Afridi', 'Rishabh Pant', 'KL Rahul',
+    'Travis Head', 'Suryakumar Yadav', 'Mohammad Rizwan', 'Jonny Bairstow'
+  ];
   
-  const credits: Record<string, number> = {
-    'Batsman': isTopPlayer ? 10 : 9,
-    'Bowler': isTopPlayer ? 9 : 8,
-    'WK-Batsman': isTopPlayer ? 10.5 : 9.5,
-    'Batting Allrounder': isTopPlayer ? 9.5 : 8.5,
-    'Bowling Allrounder': isTopPlayer ? 9.5 : 8.5,
+  const isPremium = premiumPlayers.some(p => playerName.toLowerCase().includes(p.toLowerCase()));
+  
+  // Credit ranges based on role and player status
+  const creditRanges: Record<string, { premium: number; regular: number; budget: number }> = {
+    'Batsman': { premium: 10.5, regular: 9, budget: 8.5 },
+    'Bowler': { premium: 9.5, regular: 8.5, budget: 8 },
+    'WK-Batsman': { premium: 10, regular: 9, budget: 8.5 },
+    'Batting Allrounder': { premium: 10, regular: 9, budget: 8.5 },
+    'Bowling Allrounder': { premium: 9.5, regular: 9, budget: 8.5 },
   };
   
-  return credits[role] || 8;
+  const range = creditRanges[role] || { premium: 9, regular: 8, budget: 7.5 };
+  
+  // Add slight randomization for variety
+  if (isPremium) {
+    return range.premium + (Math.random() * 0.5 - 0.25); // ±0.25 variation
+  } else {
+    // 70% regular, 30% budget
+    return Math.random() < 0.7 ? range.regular : range.budget;
+  }
 }
 
 // Cache helpers
