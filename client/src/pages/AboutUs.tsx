@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Users, Target, Shield, Heart, Trophy, Globe, Zap, Award, Building2, Scale, CheckCircle2, BookOpen, TrendingUp, Sparkles } from "lucide-react";
+import { Users, Target, Shield, Heart, Trophy, Globe, Zap, Award, Building2, Scale, CheckCircle2, BookOpen, TrendingUp, Sparkles, AlertCircle, Lock, UserCheck, MapPin, Calculator, Brain, LineChart, Clock } from "lucide-react";
 
 export default function AboutUs() {
   return (
@@ -30,7 +30,7 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* Who We Are Section */}
+      {/* Who We Are Section - Expanded */}
       <div className="container py-24">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
@@ -38,26 +38,47 @@ export default function AboutUs() {
             <div className="w-24 h-1.5 bg-gradient-to-r from-secondary to-blue-500 mx-auto rounded-full"></div>
           </div>
           
-          <div className="prose prose-lg max-w-none text-slate-700 space-y-6 leading-relaxed">
-            <p className="text-xl text-slate-800 font-medium">
-              <strong className="text-secondary">RIVOAURA</strong> is not just another fantasy cricket platform—we are a movement 
-              to democratize fantasy sports education in India. We believe that fantasy cricket is more than entertainment; 
-              it is a powerful tool for learning cricket strategy, understanding player analytics, and developing critical thinking skills.
-            </p>
-            
-            <p>
-              Unlike traditional fantasy platforms that operate on a pay-to-play model, we have built a completely free ecosystem 
-              where users can experience the thrill of team management, strategic decision-making, and competitive gameplay 
-              without any financial pressure. Our platform is designed for cricket enthusiasts who want to deepen their understanding 
-              of the game, test their analytical skills, and compete purely for glory and recognition.
-            </p>
-            
-            <p>
-              We are backed by private investors who share our vision of fantasy sports as an educational medium. This funding model 
-              allows us to operate without charging users, selling personal data, or displaying intrusive advertisements. Every feature, 
-              every design choice, and every policy decision is made with one goal in mind: <strong>to create the most authentic, 
-              transparent, and user-friendly fantasy cricket experience in India.</strong>
-            </p>
+          <div className="space-y-8">
+            <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed space-y-6">
+              <p className="text-xl text-slate-800 font-medium">
+                <strong className="text-secondary">RIVOAURA</strong> is not just another fantasy cricket platform—we are a movement 
+                to democratize fantasy sports education in India. We believe that fantasy cricket is more than entertainment; 
+                it is a powerful tool for learning cricket strategy, understanding player analytics, and developing critical thinking skills.
+              </p>
+              
+              <p>
+                Unlike traditional fantasy platforms that operate on a pay-to-play model, we have built a completely free ecosystem 
+                where users can experience the thrill of team management, strategic decision-making, and competitive gameplay 
+                without any financial pressure. Our platform is designed for cricket enthusiasts who want to deepen their understanding 
+                of the game, test their analytical skills, and compete purely for glory and recognition.
+              </p>
+              
+              <p>
+                We are backed by private investors who share our vision of fantasy sports as an educational medium. This funding model 
+                allows us to operate without charging users, selling personal data, or displaying intrusive advertisements. Every feature, 
+                every design choice, and every policy decision is made with one goal in mind: <strong>to create the most authentic, 
+                transparent, and user-friendly fantasy cricket experience in India.</strong>
+              </p>
+            </div>
+
+            {/* Key Statistics */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+              {[
+                { number: "100%", label: "Free Forever", icon: <Trophy className="w-6 h-6" /> },
+                { number: "₹0", label: "Entry Fees", icon: <Shield className="w-6 h-6" /> },
+                { number: "18+", label: "Age Verified", icon: <UserCheck className="w-6 h-6" /> },
+              ].map((stat, i) => (
+                <Card key={i} className="border-2 border-slate-200 shadow-lg text-center">
+                  <CardContent className="p-8">
+                    <div className="w-14 h-14 rounded-full bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center mx-auto mb-4 text-blue-600">
+                      {stat.icon}
+                    </div>
+                    <div className="text-4xl font-black text-slate-900 mb-2">{stat.number}</div>
+                    <div className="text-sm font-medium text-slate-600">{stat.label}</div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -94,6 +115,12 @@ export default function AboutUs() {
                       Delhi, India
                     </p>
                   </div>
+                  <div className="bg-blue-50 rounded-lg p-4 mt-4">
+                    <p className="text-sm text-slate-700">
+                      <strong>What this means:</strong> We are a legitimate, legally recognized business entity in India, 
+                      subject to all corporate laws and regulations. Our registration ensures accountability and legal protection for users.
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
 
@@ -116,7 +143,8 @@ export default function AboutUs() {
                     {[
                       "Compliant with Public Gambling Act, 1867",
                       "Adheres to state-specific gaming regulations",
-                      "Zero real money transactions"
+                      "Zero real money transactions",
+                      "Regular legal audits conducted"
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3">
                         <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-0.5" />
@@ -274,19 +302,19 @@ export default function AboutUs() {
               {
                 icon: <Shield className="w-8 h-8 text-blue-600" />,
                 title: "Zero Financial Risk",
-                desc: "There is no real money involved at any stage. You cannot deposit money, you cannot win money, and you cannot lose money. This eliminates the psychological pressure, addiction risks, and financial stress associated with real-money gaming.",
+                desc: "There is no real money involved at any stage. You cannot deposit money, you cannot win money, and you cannot lose money. This eliminates the psychological pressure, addiction risks, and financial stress associated with real-money gaming. You play purely for skill development and competitive satisfaction.",
                 gradient: "from-blue-500 to-blue-600"
               },
               {
                 icon: <BookOpen className="w-8 h-8 text-purple-600" />,
                 title: "Educational Focus",
-                desc: "Every feature is designed to teach. Our detailed point system explanations, player statistics, match analysis articles, and strategy guides help users understand cricket at a deeper level. We provide context for every decision.",
+                desc: "Every feature is designed to teach. Our detailed point system explanations, player statistics, match analysis articles, and strategy guides help users understand cricket at a deeper level. We provide context for every decision, helping you learn why certain players perform better in specific conditions.",
                 gradient: "from-purple-500 to-purple-600"
               },
               {
                 icon: <CheckCircle2 className="w-8 h-8 text-orange-600" />,
                 title: "Complete Transparency",
-                desc: "We openly share our ownership details, funding model, legal compliance status, and operational practices. There are no secret algorithms, hidden terms, or unclear policies. Every rule and calculation is documented and accessible.",
+                desc: "We openly share our ownership details, funding model, legal compliance status, and operational practices. There are no secret algorithms, hidden terms, or unclear policies. Every rule, every point calculation, and every decision-making process is documented and accessible to all users.",
                 gradient: "from-orange-500 to-orange-600"
               },
             ].map((item, i) => (
@@ -307,43 +335,376 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* Business Model Transparency */}
+      {/* What We Focus On - NEW DETAILED SECTION */}
       <div className="bg-gradient-to-br from-blue-50 to-slate-50 py-24 border-y border-slate-200">
         <div className="container">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-16">
-              <Globe className="w-16 h-16 text-blue-600 mx-auto mb-6" />
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Business Model Transparency</h2>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">What We Focus On</h2>
               <p className="text-lg text-slate-600">
-                We believe users deserve to know exactly how we operate and sustain our platform
+                Our platform is built around four core pillars that define the RIVOAURA experience
               </p>
             </div>
 
-            <div className="space-y-12">
-              {/* How Do We Make Money */}
-              <Card className="border-2 border-blue-200 shadow-xl overflow-hidden">
-                <div className="h-3 bg-gradient-to-r from-blue-500 to-blue-600"></div>
-                <CardContent className="p-10 space-y-6">
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">How Do We Make Money?</h3>
-                  <p className="text-xl text-slate-700 font-medium">
-                    <strong className="text-blue-600">Short answer: We don't.</strong> RIVOAURA operates on a <strong>pre-funded model</strong>. 
-                    We are backed by private investors who believe in the educational and social value of fantasy sports.
-                  </p>
-                  
-                  <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
-                    <p className="font-semibold text-slate-900 mb-4">We do NOT generate revenue through:</p>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      {[
-                        "Entry fees or subscription charges",
-                        "Selling user data to third parties",
-                        "Displaying advertisements",
-                        "In-app purchases or premium features"
-                      ].map((item, i) => (
-                        <div key={i} className="flex items-center gap-3">
-                          <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
-                            <span className="text-red-600 text-sm font-bold">✕</span>
+            <div className="space-y-8">
+              {[
+                {
+                  icon: <Brain className="w-10 h-10 text-blue-600" />,
+                  title: "Skill Development",
+                  color: "blue",
+                  points: [
+                    {
+                      subtitle: "Critical Thinking",
+                      text: "Learn to analyze player form, pitch conditions, weather forecasts, and head-to-head records to make informed team selection decisions."
+                    },
+                    {
+                      subtitle: "Data Analysis",
+                      text: "Develop the ability to interpret cricket statistics, understand player performance trends, and identify value picks that others might overlook."
+                    },
+                    {
+                      subtitle: "Strategic Planning",
+                      text: "Master the art of balancing your team within credit constraints, choosing the right captain and vice-captain, and adapting strategies for different match formats."
+                    },
+                    {
+                      subtitle: "Risk Management",
+                      text: "Learn to make calculated decisions under uncertainty—a valuable life skill that extends far beyond fantasy cricket."
+                    }
+                  ]
+                },
+                {
+                  icon: <Users className="w-10 h-10 text-green-600" />,
+                  title: "Community Engagement",
+                  color: "green",
+                  points: [
+                    {
+                      subtitle: "Discussion Forums",
+                      text: "Participate in active discussions about player form, match predictions, and team strategies with fellow cricket enthusiasts."
+                    },
+                    {
+                      subtitle: "Leaderboards & Recognition",
+                      text: "Compete for top positions on our leaderboards and earn digital badges that recognize your strategic prowess and cricket knowledge."
+                    },
+                    {
+                      subtitle: "Healthy Competition",
+                      text: "Experience the thrill of competition without the toxicity of money-driven platforms. Here, respect and sportsmanship come first."
+                    },
+                    {
+                      subtitle: "Knowledge Sharing",
+                      text: "Learn from experienced players, share your own insights, and grow together as a community of cricket strategists."
+                    }
+                  ]
+                },
+                {
+                  icon: <Scale className="w-10 h-10 text-purple-600" />,
+                  title: "Fair Competition",
+                  color: "purple",
+                  points: [
+                    {
+                      subtitle: "Anti-Cheating Systems",
+                      text: "Advanced algorithms detect and prevent multiple accounts, bot usage, and other forms of cheating to ensure fair play."
+                    },
+                    {
+                      subtitle: "Transparent Scoring",
+                      text: "Our point system is fully documented and publicly accessible. Every run, wicket, and catch has a clear point value with no hidden calculations."
+                    },
+                    {
+                      subtitle: "Level Playing Field",
+                      text: "Everyone starts with the same credit budget and access to the same player pool. Success is determined purely by your cricket knowledge and strategic thinking."
+                    },
+                    {
+                      subtitle: "Zero Pay-to-Win",
+                      text: "Unlike other platforms, you cannot buy advantages. Premium features, if introduced, will never affect contest outcomes."
+                    }
+                  ]
+                },
+                {
+                  icon: <Shield className="w-10 h-10 text-red-600" />,
+                  title: "Responsible Gaming",
+                  color: "red",
+                  points: [
+                    {
+                      subtitle: "No Financial Incentives",
+                      text: "By eliminating real money, we remove the primary driver of gaming addiction and compulsive behavior."
+                    },
+                    {
+                      subtitle: "Age Verification",
+                      text: "Strict 18+ age requirement ensures that only adults with the maturity to engage responsibly can access the platform."
+                    },
+                    {
+                      subtitle: "State Compliance",
+                      text: "We proactively block access from states with restrictive gaming laws, even when not legally required, to promote responsible operations."
+                    },
+                    {
+                      subtitle: "Educational Approach",
+                      text: "Our platform is designed for learning and entertainment, not for generating income or replacing employment."
+                    }
+                  ]
+                }
+              ].map((section, i) => (
+                <Card key={i} className="border-2 border-slate-200 shadow-xl overflow-hidden">
+                  <div className={`h-3 bg-gradient-to-r from-${section.color}-500 to-${section.color}-600`}></div>
+                  <CardContent className="p-10 space-y-6">
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className={`w-16 h-16 rounded-2xl bg-${section.color}-50 flex items-center justify-center`}>
+                        {section.icon}
+                      </div>
+                      <h3 className="text-3xl font-bold text-slate-900">{section.title}</h3>
+                    </div>
+                    <div className="space-y-6">
+                      {section.points.map((point, j) => (
+                        <div key={j} className="flex gap-4">
+                          <div className="flex-shrink-0 w-2 h-2 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 mt-2"></div>
+                          <div>
+                            <h4 className="font-bold text-slate-900 mb-1">{point.subtitle}</h4>
+                            <p className="text-slate-600 leading-relaxed">{point.text}</p>
                           </div>
-                          <span className="text-slate-700">{item}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Business Model Transparency */}
+      <div className="container py-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <Globe className="w-16 h-16 text-blue-600 mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Business Model Transparency</h2>
+            <p className="text-lg text-slate-600">
+              We believe users deserve to know exactly how we operate and sustain our platform
+            </p>
+          </div>
+
+          <div className="space-y-12">
+            {/* How Do We Make Money */}
+            <Card className="border-2 border-blue-200 shadow-xl overflow-hidden">
+              <div className="h-3 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+              <CardContent className="p-10 space-y-6">
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">How Do We Make Money?</h3>
+                <p className="text-xl text-slate-700 font-medium">
+                  <strong className="text-blue-600">Short answer: We don't.</strong> RIVOAURA operates on a <strong>pre-funded model</strong>. 
+                  We are backed by private investors who believe in the educational and social value of fantasy sports. These investors have 
+                  provided capital to build and maintain the platform without expecting immediate financial returns.
+                </p>
+                
+                <div className="bg-slate-50 rounded-xl p-6 border border-slate-200">
+                  <p className="font-semibold text-slate-900 mb-4">We do NOT generate revenue through:</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[
+                      "Entry fees or subscription charges (we're 100% free)",
+                      "Selling user data to third parties (your privacy is sacred)",
+                      "Displaying advertisements (clean, distraction-free experience)",
+                      "In-app purchases or premium features (everyone gets full access)"
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3">
+                        <div className="w-6 h-6 rounded-full bg-red-100 flex items-center justify-center flex-shrink-0">
+                          <span className="text-red-600 text-sm font-bold">✕</span>
+                        </div>
+                        <span className="text-slate-700 text-sm">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 mt-6">
+                  <h4 className="font-bold text-slate-900 mb-3 flex items-center gap-2">
+                    <AlertCircle className="w-5 h-5 text-blue-600" />
+                    Why This Matters to You
+                  </h4>
+                  <p className="text-slate-700 leading-relaxed">
+                    Because we don't rely on user payments, we have no incentive to manipulate contests, push addictive features, 
+                    or compromise your experience for profit. Our success is measured by user satisfaction and learning outcomes, 
+                    not revenue. This alignment of interests ensures that our platform truly serves your needs.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Why Would Investors Fund */}
+            <Card className="border-2 border-green-200 shadow-xl overflow-hidden">
+              <div className="h-3 bg-gradient-to-r from-green-500 to-green-600"></div>
+              <CardContent className="p-10 space-y-6">
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">Why Would Investors Fund a Free Platform?</h3>
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Our investors share a vision of <strong className="text-green-700">fantasy sports as education, not gambling</strong>. 
+                  They recognize that traditional fantasy platforms have created a negative perception of the industry due to aggressive 
+                  monetization, gambling-like mechanics, and predatory practices that exploit users' competitive instincts for profit.
+                </p>
+                
+                <div className="space-y-4">
+                  <p className="font-semibold text-slate-900">By funding a completely free platform, they aim to:</p>
+                  {[
+                    {
+                      title: "Prove a Better Model Exists",
+                      text: "Demonstrate that fantasy sports can be educational, socially beneficial, and financially sustainable without exploiting users."
+                    },
+                    {
+                      title: "Build a Values-Driven Community",
+                      text: "Create a large, engaged user base that values skill, knowledge, and fair play over monetary rewards."
+                    },
+                    {
+                      title: "Restore Industry Reputation",
+                      text: "Change the public perception of fantasy sports from 'online gambling' to 'sports education and strategy development.'"
+                    },
+                    {
+                      title: "Long-Term Vision",
+                      text: "In the future, explore ethical monetization models (such as optional premium analytics tools) with full user consent and transparency—but the core experience will always remain free."
+                    }
+                  ].map((item, i) => (
+                    <div key={i} className="flex gap-4 bg-green-50 rounded-lg p-4">
+                      <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
+                      <div>
+                        <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
+                        <p className="text-slate-700 text-sm">{item.text}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Will You Ever Charge */}
+            <Card className="border-2 border-purple-200 shadow-xl overflow-hidden">
+              <div className="h-3 bg-gradient-to-r from-purple-500 to-purple-600"></div>
+              <CardContent className="p-10 space-y-6">
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">Will You Ever Charge Users?</h3>
+                <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-6">
+                  <p className="text-xl font-bold text-purple-900 mb-3">
+                    Our core platform will always remain 100% free.
+                  </p>
+                  <p className="text-slate-700 leading-relaxed mb-4">
+                    We are committed to ensuring that anyone can create teams, join contests, and compete without paying. 
+                    This is not a temporary promotional offer—it is a permanent commitment backed by our investors.
+                  </p>
+                  <p className="text-slate-700 leading-relaxed">
+                    However, in the future, we may introduce <strong>optional premium features</strong> (such as advanced 
+                    analytics dashboards, historical data exports, or exclusive educational content) that users can choose 
+                    to purchase. These features will be clearly labeled as optional, and they will never provide competitive 
+                    advantages in contests. The core fantasy experience—team creation, contest participation, and leaderboard 
+                    competition—will never be paywalled.
+                  </p>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
+      {/* Government Compliance & Safety - EXPANDED */}
+      <div className="bg-slate-900 py-24 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.1),transparent_70%)]"></div>
+        <div className="container relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <Lock className="w-16 h-16 text-secondary mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Government Compliance & Safety</h2>
+              <p className="text-xl text-slate-400">
+                We operate in strict accordance with Indian laws and regulations to ensure a safe, legal, and responsible gaming environment
+              </p>
+            </div>
+
+            <div className="space-y-8">
+              {/* Age Restriction */}
+              <Card className="bg-slate-800/50 border-slate-700">
+                <CardContent className="p-10 space-y-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-xl bg-red-500/20 flex items-center justify-center">
+                      <UserCheck className="w-7 h-7 text-red-400" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-white">Age Restriction (18+)</h3>
+                  </div>
+                  <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
+                    <p className="text-red-200 font-semibold text-lg mb-3">
+                      Only users who are 18 years of age or older are permitted to use RIVOAURA.
+                    </p>
+                    <p className="text-slate-300 leading-relaxed">
+                      This is a strict legal requirement under Indian law. During registration, users must provide their date of birth, 
+                      and our system automatically rejects accounts for individuals under 18. We also implement additional verification 
+                      measures to prevent age falsification.
+                    </p>
+                  </div>
+                  <div className="space-y-3">
+                    <p className="font-semibold text-white">Why this restriction exists:</p>
+                    <p className="text-slate-300 leading-relaxed">
+                      Fantasy sports involve strategic decision-making, competitive pressure, and analytical thinking that are considered 
+                      appropriate only for adults. This age limit ensures that users have the emotional maturity, legal capacity, and 
+                      cognitive development to engage responsibly with the platform. It also protects minors from potential risks associated 
+                      with competitive gaming environments.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* State Restrictions */}
+              <Card className="bg-slate-800/50 border-slate-700">
+                <CardContent className="p-10 space-y-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-xl bg-orange-500/20 flex items-center justify-center">
+                      <MapPin className="w-7 h-7 text-orange-400" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-white">State Restrictions</h3>
+                  </div>
+                  <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-6">
+                    <p className="text-orange-200 font-semibold text-lg mb-4">
+                      RIVOAURA is NOT available to residents of the following Indian states:
+                    </p>
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                      {["Andhra Pradesh", "Assam", "Nagaland", "Odisha", "Sikkim", "Telangana"].map((state, i) => (
+                        <div key={i} className="flex items-center gap-2 bg-slate-800/50 rounded-lg px-4 py-2">
+                          <div className="w-2 h-2 rounded-full bg-orange-400"></div>
+                          <span className="text-white text-sm font-medium">{state}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <p className="font-semibold text-white">Why these restrictions exist:</p>
+                    <p className="text-slate-300 leading-relaxed">
+                      These states have specific laws that prohibit or heavily regulate online games of skill, including fantasy sports. 
+                      To ensure full legal compliance and avoid any regulatory ambiguity, we have proactively blocked access from these regions.
+                    </p>
+                    <p className="text-slate-300 leading-relaxed">
+                      During registration, users must select their state of residence, and accounts from restricted states are automatically 
+                      rejected. We also use IP-based geo-blocking to prevent access attempts from these regions. This approach protects both 
+                      our users and our platform from potential legal complications.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Regulatory Compliance */}
+              <Card className="bg-slate-800/50 border-slate-700">
+                <CardContent className="p-10 space-y-6">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-xl bg-green-500/20 flex items-center justify-center">
+                      <Scale className="w-7 h-7 text-green-400" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-white">Regulatory Compliance</h3>
+                  </div>
+                  <p className="text-slate-300 leading-relaxed">
+                    Fantasy cricket is legally classified as a <strong className="text-green-400">"Game of Skill"</strong> under the 
+                    Public Gambling Act, 1867, and is permitted in most Indian states. Unlike games of chance (such as lotteries, slot machines, 
+                    or roulette), fantasy cricket requires knowledge, strategy, analytical thinking, and cricket expertise to succeed.
+                  </p>
+                  <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-6">
+                    <p className="font-semibold text-white mb-4">Our compliance measures include:</p>
+                    <div className="space-y-3">
+                      {[
+                        "Strict age verification during registration with document validation",
+                        "Geo-blocking and IP filtering for restricted states",
+                        "Zero real money transactions (eliminating gambling classification)",
+                        "Transparent point system and contest rules publicly documented",
+                        "Regular legal audits by independent law firms to ensure ongoing compliance",
+                        "Immediate response to regulatory changes and policy updates"
+                      ].map((item, i) => (
+                        <div key={i} className="flex items-start gap-3">
+                          <CheckCircle2 className="w-5 h-5 text-green-400 flex-shrink-0 mt-1" />
+                          <span className="text-slate-300">{item}</span>
                         </div>
                       ))}
                     </div>
@@ -351,52 +712,180 @@ export default function AboutUs() {
                 </CardContent>
               </Card>
 
-              {/* Why Would Investors Fund */}
-              <Card className="border-2 border-green-200 shadow-xl overflow-hidden">
-                <div className="h-3 bg-gradient-to-r from-green-500 to-green-600"></div>
+              {/* Zero Financial Risk */}
+              <Card className="bg-slate-800/50 border-slate-700">
                 <CardContent className="p-10 space-y-6">
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Why Would Investors Fund a Free Platform?</h3>
-                  <p className="text-lg text-slate-700 leading-relaxed">
-                    Our investors share a vision of <strong className="text-green-700">fantasy sports as education, not gambling</strong>. 
-                    They recognize that traditional fantasy platforms have created a negative perception of the industry due to aggressive 
-                    monetization and gambling-like mechanics.
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                      <Shield className="w-7 h-7 text-blue-400" />
+                    </div>
+                    <h3 className="text-3xl font-bold text-white">Zero Financial Risk</h3>
+                  </div>
+                  <p className="text-slate-300 leading-relaxed mb-6">
+                    We have deliberately designed our platform to eliminate all financial risk and pressure. There is <strong className="text-blue-400">no real money involved at any stage</strong> of the RIVOAURA experience. This is not a marketing claim—it is a fundamental design principle that shapes every aspect of our platform.
                   </p>
-                  
-                  <div className="space-y-3">
-                    <p className="font-semibold text-slate-900">By funding a completely free platform, they aim to:</p>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
-                      "Demonstrate that fantasy sports can be educational and socially beneficial",
-                      "Build a large, engaged user base that values skill over money",
-                      "Create a positive brand associated with integrity and transparency",
-                      "Potentially explore ethical monetization models in the future (with full user consent)"
+                      {
+                        title: "No Deposits",
+                        text: "You cannot add money to your account. There is no wallet, no payment gateway, and no option to purchase credits or coins."
+                      },
+                      {
+                        title: "No Withdrawals",
+                        text: "You cannot win money. Even if you top the leaderboard, you receive digital badges and recognition—not cash prizes."
+                      },
+                      {
+                        title: "No Entry Fees",
+                        text: "Every contest is free to join. You can create unlimited teams and participate in unlimited contests without spending a rupee."
+                      },
+                      {
+                        title: "No Psychological Pressure",
+                        text: "Because there's no money at stake, you can experiment with risky strategies and learn from mistakes without fear of financial loss."
+                      },
+                      {
+                        title: "No Addiction Risk",
+                        text: "Research shows financial incentives are a major driver of gaming addiction. By removing money, we eliminate this risk factor."
+                      },
+                      {
+                        title: "Pure Skill Focus",
+                        text: "You can focus on what truly matters: improving your cricket knowledge, testing analytical skills, and competing for joy."
+                      }
                     ].map((item, i) => (
-                      <div key={i} className="flex items-start gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-green-600 flex-shrink-0 mt-1" />
-                        <span className="text-slate-700">{item}</span>
+                      <div key={i} className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-5">
+                        <h4 className="font-bold text-white mb-2">{item.title}</h4>
+                        <p className="text-slate-300 text-sm leading-relaxed">{item.text}</p>
                       </div>
                     ))}
                   </div>
                 </CardContent>
               </Card>
+            </div>
+          </div>
+        </div>
+      </div>
 
-              {/* Will You Ever Charge */}
-              <Card className="border-2 border-purple-200 shadow-xl overflow-hidden">
-                <div className="h-3 bg-gradient-to-r from-purple-500 to-purple-600"></div>
-                <CardContent className="p-10 space-y-6">
-                  <h3 className="text-3xl font-bold text-slate-900 mb-4">Will You Ever Charge Users?</h3>
-                  <div className="bg-purple-50 border-2 border-purple-200 rounded-xl p-6">
-                    <p className="text-xl font-bold text-purple-900 mb-3">
-                      Our core platform will always remain 100% free.
-                    </p>
-                    <p className="text-slate-700 leading-relaxed">
-                      We are committed to ensuring that anyone can create teams, join contests, and compete without paying. 
-                      However, in the future, we may introduce optional premium features (such as advanced analytics tools or 
-                      exclusive content) that users can choose to purchase—but the core fantasy experience will never be paywalled.
-                    </p>
+      {/* How Our Platform Works - NEW SECTION */}
+      <div className="container py-24">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <Calculator className="w-16 h-16 text-purple-600 mx-auto mb-6" />
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">How Our Platform Works</h2>
+            <p className="text-lg text-slate-600">
+              A step-by-step guide to understanding the RIVOAURA fantasy cricket experience
+            </p>
+          </div>
+
+          <div className="space-y-8">
+            {[
+              {
+                step: "1",
+                title: "Choose Your Match",
+                icon: <Trophy className="w-8 h-8 text-blue-600" />,
+                desc: "Browse our tournaments page to see all upcoming cricket matches. We support T20, ODI, and Test formats. Each match displays the teams, venue, start time, and number of active contests."
+              },
+              {
+                step: "2",
+                title: "Build Your Team",
+                icon: <Users className="w-8 h-8 text-green-600" />,
+                desc: "Select 11 players from the two competing teams within a 100-credit budget. Each player has a credit value based on their role and recent performance. You must follow team composition rules: 1-4 Wicketkeepers, 3-6 Batsmen, 1-4 All-Rounders, and 3-6 Bowlers."
+              },
+              {
+                step: "3",
+                title: "Choose Captain & Vice-Captain",
+                icon: <Award className="w-8 h-8 text-purple-600" />,
+                desc: "Select one player as Captain (earns 2x points) and another as Vice-Captain (earns 1.5x points). This strategic decision can significantly impact your final score, so choose players you expect to perform well."
+              },
+              {
+                step: "4",
+                title: "Join Contests",
+                icon: <Target className="w-8 h-8 text-orange-600" />,
+                desc: "Enter your team into free contests. You can join multiple contests with the same team or create different teams for different strategies. All contests are 100% free with no entry fees."
+              },
+              {
+                step: "5",
+                title: "Track Live Scores",
+                icon: <LineChart className="w-8 h-8 text-red-600" />,
+                desc: "Once the match starts, watch your team's points accumulate in real-time. Our scoring system awards points for runs, wickets, catches, stumpings, and other cricket actions. You can see exactly how each player is contributing to your total."
+              },
+              {
+                step: "6",
+                title: "Check Leaderboards",
+                icon: <Trophy className="w-8 h-8 text-yellow-600" />,
+                desc: "After the match ends, final scores are calculated and leaderboards are updated. Top performers earn digital badges, recognition, and bragging rights. Learn from top-ranked teams to improve your strategy for future matches."
+              }
+            ].map((item, i) => (
+              <Card key={i} className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
+                <CardContent className="p-8">
+                  <div className="flex items-start gap-6">
+                    <div className="flex-shrink-0">
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center text-2xl font-black shadow-lg">
+                        {item.step}
+                      </div>
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center group-hover:scale-110 transition-transform">
+                          {item.icon}
+                        </div>
+                        <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
+                      </div>
+                      <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Scoring Transparency - NEW SECTION */}
+      <div className="bg-gradient-to-br from-slate-50 to-purple-50/30 py-24 border-y border-slate-200">
+        <div className="container">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-16">
+              <Calculator className="w-16 h-16 text-purple-600 mx-auto mb-6" />
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Scoring Transparency</h2>
+              <p className="text-lg text-slate-600">
+                Our point system is fully documented and publicly accessible—no hidden algorithms or secret calculations
+              </p>
             </div>
+
+            <Card className="border-2 border-purple-200 shadow-xl">
+              <div className="h-3 bg-gradient-to-r from-purple-500 to-purple-600"></div>
+              <CardContent className="p-10 space-y-6">
+                <p className="text-lg text-slate-700 leading-relaxed">
+                  Every run scored, wicket taken, catch held, and boundary hit has a clearly defined point value. Our scoring system 
+                  is based on standard fantasy cricket rules used across the industry, with no proprietary modifications or hidden multipliers.
+                </p>
+                <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
+                  <h4 className="font-bold text-slate-900 mb-4">Example Point Values (T20 Format):</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {[
+                      "Run scored: +1 point",
+                      "Boundary (4s): +1 bonus point",
+                      "Six: +2 bonus points",
+                      "Half-century: +8 bonus points",
+                      "Century: +16 bonus points",
+                      "Wicket taken: +25 points",
+                      "Catch taken: +8 points",
+                      "Stumping: +12 points",
+                      "Run out (direct): +12 points",
+                      "Maiden over: +12 points"
+                    ].map((item, i) => (
+                      <div key={i} className="flex items-center gap-3 bg-white rounded-lg px-4 py-2">
+                        <div className="w-2 h-2 rounded-full bg-purple-500"></div>
+                        <span className="text-slate-700 text-sm">{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <p className="text-slate-700 leading-relaxed">
+                  For complete point system details including ODI and Test formats, negative points for ducks and expensive bowling, 
+                  and special bonuses, please visit our <a href="/how-to-play" className="text-purple-600 font-semibold hover:underline">How to Play</a> page.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
