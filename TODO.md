@@ -283,3 +283,9 @@
 - [x] Integrate live scoring into Tournaments page
 - [x] Add live match indicators and status badges
 - [x] Test with ongoing live matches
+
+
+## Remove Social Media Icons from Footer
+- [x] Locate footer component with social media icons
+- [x] Remove social media icon section from footer
+- [x] Test footer display after removal

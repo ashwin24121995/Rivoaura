@@ -1,7 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { ShieldCheck, Menu, X, Trophy, Users, Mail, MapPin, Phone, Facebook, Twitter, Instagram, Youtube } from "lucide-react";
+import { ShieldCheck, Menu, X, Trophy, Users, Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -240,23 +240,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <div className="text-xs text-yellow-400 font-semibold">FANTASY CRICKET EXCELLENCE</div>
                 </div>
               </div>
-              <p className="text-sm leading-relaxed text-slate-400 mb-6">
+              <p className="text-sm leading-relaxed text-slate-400">
                 India's premier free-to-play fantasy cricket platform. Build your dream team, compete with thousands, and master the art of cricket strategy.
               </p>
-              <div className="flex items-center gap-3">
-                <a href="#" className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-yellow-500 flex items-center justify-center transition-colors group">
-                  <Facebook className="w-4 h-4 text-slate-400 group-hover:text-slate-900" />
-                </a>
-                <a href="#" className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-yellow-500 flex items-center justify-center transition-colors group">
-                  <Twitter className="w-4 h-4 text-slate-400 group-hover:text-slate-900" />
-                </a>
-                <a href="#" className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-yellow-500 flex items-center justify-center transition-colors group">
-                  <Instagram className="w-4 h-4 text-slate-400 group-hover:text-slate-900" />
-                </a>
-                <a href="#" className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-yellow-500 flex items-center justify-center transition-colors group">
-                  <Youtube className="w-4 h-4 text-slate-400 group-hover:text-slate-900" />
-                </a>
-              </div>
             </div>
 
             {/* Quick Links */}
