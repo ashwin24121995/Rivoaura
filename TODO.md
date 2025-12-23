@@ -226,3 +226,10 @@
 - [x] Expand on educational benefits with specific examples
 - [x] Add transparency about scoring algorithms and point calculations
 - [x] Include detailed business model explanations
+
+
+## Visual Flowchart for How Platform Works
+- [x] Design visual flowchart with connecting lines between steps
+- [x] Add visual indicators (arrows, progress lines) to show flow
+- [x] Enhance step cards with better visual hierarchy
+- [x] Add responsive design for mobile flowchart view

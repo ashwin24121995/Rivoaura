@@ -764,77 +764,121 @@ export default function AboutUs() {
         </div>
       </div>
 
-      {/* How Our Platform Works - NEW SECTION */}
+      {/* How Our Platform Works - VISUAL FLOWCHART */}
       <div className="container py-24">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <Calculator className="w-16 h-16 text-purple-600 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">How Our Platform Works</h2>
             <p className="text-lg text-slate-600">
-              A step-by-step guide to understanding the RIVOAURA fantasy cricket experience
+              A step-by-step visual guide to understanding the RIVOAURA fantasy cricket experience
             </p>
           </div>
 
-          <div className="space-y-8">
-            {[
-              {
-                step: "1",
-                title: "Choose Your Match",
-                icon: <Trophy className="w-8 h-8 text-blue-600" />,
-                desc: "Browse our tournaments page to see all upcoming cricket matches. We support T20, ODI, and Test formats. Each match displays the teams, venue, start time, and number of active contests."
-              },
-              {
-                step: "2",
-                title: "Build Your Team",
-                icon: <Users className="w-8 h-8 text-green-600" />,
-                desc: "Select 11 players from the two competing teams within a 100-credit budget. Each player has a credit value based on their role and recent performance. You must follow team composition rules: 1-4 Wicketkeepers, 3-6 Batsmen, 1-4 All-Rounders, and 3-6 Bowlers."
-              },
-              {
-                step: "3",
-                title: "Choose Captain & Vice-Captain",
-                icon: <Award className="w-8 h-8 text-purple-600" />,
-                desc: "Select one player as Captain (earns 2x points) and another as Vice-Captain (earns 1.5x points). This strategic decision can significantly impact your final score, so choose players you expect to perform well."
-              },
-              {
-                step: "4",
-                title: "Join Contests",
-                icon: <Target className="w-8 h-8 text-orange-600" />,
-                desc: "Enter your team into free contests. You can join multiple contests with the same team or create different teams for different strategies. All contests are 100% free with no entry fees."
-              },
-              {
-                step: "5",
-                title: "Track Live Scores",
-                icon: <LineChart className="w-8 h-8 text-red-600" />,
-                desc: "Once the match starts, watch your team's points accumulate in real-time. Our scoring system awards points for runs, wickets, catches, stumpings, and other cricket actions. You can see exactly how each player is contributing to your total."
-              },
-              {
-                step: "6",
-                title: "Check Leaderboards",
-                icon: <Trophy className="w-8 h-8 text-yellow-600" />,
-                desc: "After the match ends, final scores are calculated and leaderboards are updated. Top performers earn digital badges, recognition, and bragging rights. Learn from top-ranked teams to improve your strategy for future matches."
-              }
-            ].map((item, i) => (
-              <Card key={i} className="border-2 border-slate-200 shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-                <CardContent className="p-8">
-                  <div className="flex items-start gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-blue-600 text-white flex items-center justify-center text-2xl font-black shadow-lg">
-                        {item.step}
-                      </div>
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center group-hover:scale-110 transition-transform">
-                          {item.icon}
+          {/* Visual Flowchart */}
+          <div className="relative">
+            {/* Connecting Line - Desktop */}
+            <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-blue-200 via-green-200 via-purple-200 via-orange-200 via-red-200 to-yellow-200 -translate-x-1/2 z-0"></div>
+            
+            <div className="space-y-12 relative z-10">
+              {[
+                {
+                  step: "1",
+                  title: "Choose Your Match",
+                  icon: <Trophy className="w-8 h-8 text-blue-600" />,
+                  desc: "Browse our tournaments page to see all upcoming cricket matches. We support T20, ODI, and Test formats. Each match displays the teams, venue, start time, and number of active contests.",
+                  color: "blue",
+                  position: "left"
+                },
+                {
+                  step: "2",
+                  title: "Build Your Team",
+                  icon: <Users className="w-8 h-8 text-green-600" />,
+                  desc: "Select 11 players from the two competing teams within a 100-credit budget. Each player has a credit value based on their role and recent performance. You must follow team composition rules: 1-4 Wicketkeepers, 3-6 Batsmen, 1-4 All-Rounders, and 3-6 Bowlers.",
+                  color: "green",
+                  position: "right"
+                },
+                {
+                  step: "3",
+                  title: "Choose Captain & Vice-Captain",
+                  icon: <Award className="w-8 h-8 text-purple-600" />,
+                  desc: "Select one player as Captain (earns 2x points) and another as Vice-Captain (earns 1.5x points). This strategic decision can significantly impact your final score, so choose players you expect to perform well.",
+                  color: "purple",
+                  position: "left"
+                },
+                {
+                  step: "4",
+                  title: "Join Contests",
+                  icon: <Target className="w-8 h-8 text-orange-600" />,
+                  desc: "Enter your team into free contests. You can join multiple contests with the same team or create different teams for different strategies. All contests are 100% free with no entry fees.",
+                  color: "orange",
+                  position: "right"
+                },
+                {
+                  step: "5",
+                  title: "Track Live Scores",
+                  icon: <LineChart className="w-8 h-8 text-red-600" />,
+                  desc: "Once the match starts, watch your team's points accumulate in real-time. Our scoring system awards points for runs, wickets, catches, stumpings, and other cricket actions. You can see exactly how each player is contributing to your total.",
+                  color: "red",
+                  position: "left"
+                },
+                {
+                  step: "6",
+                  title: "Check Leaderboards",
+                  icon: <Trophy className="w-8 h-8 text-yellow-600" />,
+                  desc: "After the match ends, final scores are calculated and leaderboards are updated. Top performers earn digital badges, recognition, and bragging rights. Learn from top-ranked teams to improve your strategy for future matches.",
+                  color: "yellow",
+                  position: "right"
+                }
+              ].map((item, i) => (
+                <div key={i} className={`flex items-center gap-8 ${item.position === 'right' ? 'lg:flex-row-reverse' : ''}`}>
+                  {/* Step Card */}
+                  <div className="flex-1 lg:max-w-[45%]">
+                    <Card className={`border-2 border-${item.color}-200 shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden group hover:-translate-y-1`}>
+                      <div className={`h-2 bg-gradient-to-r from-${item.color}-400 to-${item.color}-600`}></div>
+                      <CardContent className="p-8">
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className={`w-14 h-14 rounded-xl bg-${item.color}-50 flex items-center justify-center group-hover:scale-110 transition-transform shadow-md`}>
+                            {item.icon}
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-center gap-3 mb-2">
+                              <Badge className={`bg-${item.color}-100 text-${item.color}-700 border-${item.color}-300 font-bold text-lg px-3 py-1`}>
+                                Step {item.step}
+                              </Badge>
+                            </div>
+                            <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
+                          </div>
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
+                        <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                      </CardContent>
+                    </Card>
+                  </div>
+
+                  {/* Center Circle with Step Number */}
+                  <div className="hidden lg:flex flex-shrink-0 w-20 h-20 items-center justify-center">
+                    <div className={`w-20 h-20 rounded-full bg-gradient-to-br from-${item.color}-500 to-${item.color}-600 text-white flex items-center justify-center text-3xl font-black shadow-2xl border-4 border-white z-20 relative`}>
+                      {item.step}
+                      {/* Arrow pointing to card */}
+                      <div className={`absolute ${item.position === 'left' ? 'right-full mr-2' : 'left-full ml-2'} top-1/2 -translate-y-1/2`}>
+                        <div className={`w-8 h-0.5 bg-${item.color}-400`}></div>
                       </div>
-                      <p className="text-slate-600 leading-relaxed">{item.desc}</p>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
-            ))}
+
+                  {/* Spacer for alignment */}
+                  <div className="hidden lg:block flex-1 lg:max-w-[45%]"></div>
+                </div>
+              ))}
+            </div>
+
+            {/* Bottom completion indicator */}
+            <div className="mt-16 text-center">
+              <div className="inline-flex items-center gap-3 bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-full shadow-xl">
+                <CheckCircle2 className="w-6 h-6" />
+                <span className="font-bold text-lg">You're Ready to Compete!</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
