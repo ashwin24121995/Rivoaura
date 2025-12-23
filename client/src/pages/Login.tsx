@@ -39,19 +39,7 @@ export default function Login() {
           </Button>
         </CardContent>
         <CardFooter className="flex flex-col space-y-4 text-center text-sm text-slate-600">
-          <div className="relative w-full">
-            <div className="absolute inset-0 flex items-center">
-              <span className="w-full border-t border-slate-200" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-white px-2 text-slate-500">Or continue with</span>
-            </div>
-          </div>
-          <div className="grid grid-cols-2 gap-4 w-full">
-            <Button variant="outline" className="w-full">Google</Button>
-            <Button variant="outline" className="w-full">Facebook</Button>
-          </div>
-          <div className="pt-4">
+          <div>
             Don't have an account?{" "}
             <Link href="/register" className="text-primary font-semibold hover:underline">
               Sign up

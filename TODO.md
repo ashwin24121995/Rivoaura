@@ -289,3 +289,9 @@
 - [x] Locate footer component with social media icons
 - [x] Remove social media icon section from footer
 - [x] Test footer display after removal
+
+
+## Remove OAuth Buttons from Login Page
+- [x] Locate Google and Facebook OAuth buttons in Login page
+- [x] Remove OAuth buttons and "OR CONTINUE WITH" divider
+- [x] Test login page display after removal
