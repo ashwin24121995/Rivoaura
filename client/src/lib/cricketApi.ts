@@ -68,6 +68,35 @@ export interface MatchSquad {
   players: Player[];
 }
 
+export interface LiveScore {
+  matchId: string;
+  status: string;
+  score: Array<{
+    r: number;
+    w: number;
+    o: number;
+    inning: string;
+  }>;
+  currentInning: string;
+  runRate: number;
+  requiredRunRate?: number;
+  target?: number;
+  lastUpdate: string;
+}
+
+export interface BallByBall {
+  inning: number;
+  over: number;
+  ball: number;
+  batsman: string;
+  bowler: string;
+  runs: number;
+  extras?: string;
+  wicket?: boolean;
+  wicketType?: string;
+  commentary: string;
+}
+
 // Standard credit calculation
 function calculatePlayerCredit(role: string, playerName: string): number {
   // List of premium players (star performers)
@@ -264,6 +293,80 @@ export async function getMatchPoints(matchId: string): Promise<Record<string, nu
   } catch (error) {
     console.error(`Failed to fetch points for match ${matchId}:`, error);
     return {};
+  }
+}
+
+/**
+ * Fetch live score for a specific match
+ */
+export async function getLiveScore(matchId: string): Promise<LiveScore | null> {
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}/match_info?apikey=${API_KEY}&id=${matchId}`
+    );
+    
+    if (!response.ok) {
+      throw new Error(`API Error: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    const match = result.data;
+    
+    if (!match) return null;
+    
+    // Calculate run rates
+    let runRate = 0;
+    let requiredRunRate;
+    let target;
+    
+    if (match.score && match.score.length > 0) {
+      const currentInning = match.score[match.score.length - 1];
+      runRate = currentInning.o > 0 ? (currentInning.r / currentInning.o) : 0;
+      
+      // If second innings, calculate required run rate
+      if (match.score.length > 1) {
+        const firstInning = match.score[0];
+        target = firstInning.r + 1;
+        const ballsRemaining = (50 - currentInning.o) * 6; // Assuming ODI
+        const runsRequired = target - currentInning.r;
+        requiredRunRate = ballsRemaining > 0 ? (runsRequired / (ballsRemaining / 6)) : 0;
+      }
+    }
+    
+    return {
+      matchId: match.id,
+      status: match.status,
+      score: match.score || [],
+      currentInning: match.score && match.score.length > 0 ? match.score[match.score.length - 1].inning : '',
+      runRate: parseFloat(runRate.toFixed(2)),
+      requiredRunRate: requiredRunRate ? parseFloat(requiredRunRate.toFixed(2)) : undefined,
+      target,
+      lastUpdate: new Date().toISOString(),
+    };
+  } catch (error) {
+    console.error(`Failed to fetch live score for match ${matchId}:`, error);
+    return null;
+  }
+}
+
+/**
+ * Fetch scorecard with detailed player performance
+ */
+export async function getMatchScorecard(matchId: string): Promise<any> {
+  try {
+    const response = await fetch(
+      `${API_BASE_URL}/match_scorecard?apikey=${API_KEY}&id=${matchId}`
+    );
+    
+    if (!response.ok) {
+      throw new Error(`API Error: ${response.status}`);
+    }
+    
+    const result = await response.json();
+    return result.data || null;
+  } catch (error) {
+    console.error(`Failed to fetch scorecard for match ${matchId}:`, error);
+    return null;
   }
 }
 

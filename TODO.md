@@ -272,3 +272,14 @@
 - [x] Create detailed Contact Us page with multiple contact methods
 - [x] Add footer links to all policy pages
 - [x] Ensure all legal content is accurate and compliant
+
+
+## Real-Time Live Scoring Integration
+- [x] Review Cricket Data API live scoring endpoints (current match, scorecard, commentary)
+- [x] Update cricketApi.ts with live score fetching functions
+- [x] Implement player fantasy points calculation based on live performance
+- [x] Create LiveMatchCard component with ball-by-ball updates
+- [x] Add auto-refresh mechanism for live scores (polling every 30 seconds)
+- [x] Integrate live scoring into Tournaments page
+- [x] Add live match indicators and status badges
+- [x] Test with ongoing live matches

@@ -7,6 +7,7 @@ import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { getCurrentMatches, type Match } from "@/lib/cricketApi";
 import { toast } from "sonner";
+import LiveMatchCard from "@/components/LiveMatchCard";
 
 export default function Tournaments() {
   const [matches, setMatches] = useState<Match[]>([]);
@@ -228,7 +229,17 @@ export default function Tournaments() {
               matches
                 .filter(m => m.matchStarted && !m.matchEnded)
                 .map((match) => (
-                  <MatchCard key={match.id} match={match} formatMatchTime={formatMatchTime} getMatchStatus={getMatchStatus} />
+                  <div key={match.id} className="space-y-4">
+                    <LiveMatchCard
+                      matchId={match.id}
+                      matchName={match.name}
+                      teams={match.teams}
+                      venue={match.venue}
+                      autoRefresh={true}
+                      refreshInterval={30000}
+                    />
+                    <MatchCard match={match} formatMatchTime={formatMatchTime} getMatchStatus={getMatchStatus} />
+                  </div>
                 ))
             )}
           </TabsContent>
