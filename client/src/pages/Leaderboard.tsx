@@ -51,14 +51,91 @@ export default function Leaderboard() {
   return (
     <div className="min-h-screen bg-slate-50 pb-20">
       {/* Hero Section */}
-      <div className="bg-blue-900 text-white py-12 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/hero-stadium.jpg')] opacity-10 bg-cover bg-center"></div>
-        <div className="container relative z-10">
-          <Trophy className="w-16 h-16 text-yellow-400 mx-auto mb-4 animate-bounce" />
-          <h1 className="text-4xl font-bold mb-2">Hall of Fame</h1>
-          <p className="text-blue-200 max-w-xl mx-auto">
-            Celebrate the champions of RIVOAURA. Compete, climb the ranks, and earn your place in history.
-          </p>
+      <div className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(234,179,8,0.1),transparent_70%)]"></div>
+        <div className="container relative z-10 max-w-5xl">
+          <div className="text-center space-y-6">
+            <Trophy className="w-20 h-20 text-yellow-400 mx-auto animate-pulse" />
+            <h1 className="text-5xl md:text-6xl font-black tracking-tight">Hall of Fame</h1>
+            <p className="text-xl text-blue-200 max-w-2xl mx-auto leading-relaxed">
+              Celebrate the champions of RIVOAURA. Compete against thousands of cricket enthusiasts, 
+              climb the ranks, and earn your place in fantasy cricket history.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Explanation Section */}
+      <div className="bg-white border-b border-slate-200 py-12">
+        <div className="container max-w-5xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">How Rankings Work</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Our leaderboard system tracks your performance across all contests and rewards consistent excellence
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="border-2 border-blue-200 shadow-lg">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center mx-auto">
+                  <Trophy className="w-7 h-7 text-blue-600" />
+                </div>
+                <h3 className="font-bold text-slate-900 text-lg">Weekly Rankings</h3>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  Resets every Monday at 00:00 GMT. Tracks your total points earned from all contests during the current week. 
+                  Perfect for short-term competition and quick rewards.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-green-200 shadow-lg">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-green-100 flex items-center justify-center mx-auto">
+                  <Medal className="w-7 h-7 text-green-600" />
+                </div>
+                <h3 className="font-bold text-slate-900 text-lg">Monthly Rankings</h3>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  Resets on the 1st of each month. Accumulates points from all contests played during the calendar month. 
+                  Rewards sustained performance and strategic consistency.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-yellow-200 shadow-lg">
+              <CardContent className="p-6 text-center space-y-4">
+                <div className="w-14 h-14 rounded-full bg-yellow-100 flex items-center justify-center mx-auto">
+                  <Crown className="w-7 h-7 text-yellow-600" />
+                </div>
+                <h3 className="font-bold text-slate-900 text-lg">All-Time Rankings</h3>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  Never resets. Lifetime cumulative points from every contest you've ever played. 
+                  The ultimate measure of fantasy cricket mastery and dedication.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-10 bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl p-8 border-2 border-blue-200">
+            <h3 className="font-bold text-slate-900 text-xl mb-4 flex items-center gap-3">
+              <TrendingUp className="w-6 h-6 text-blue-600" />
+              Point Calculation System
+            </h3>
+            <div className="space-y-3 text-slate-700">
+              <p className="leading-relaxed">
+                <strong>Your leaderboard points</strong> are calculated by adding up your <strong>final team scores</strong> from all contests. 
+                If you score 450 points in Contest A and 380 points in Contest B, your weekly total is 830 points.
+              </p>
+              <p className="leading-relaxed">
+                <strong>Ranking is determined by total points.</strong> The player with the highest cumulative points in a given period 
+                (week, month, or all-time) holds the #1 position. Ties are broken by the number of contests won.
+              </p>
+              <p className="leading-relaxed">
+                <strong>Live updates:</strong> Rankings are updated in real-time as matches complete and final scores are calculated. 
+                Check back frequently to see your position change!
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

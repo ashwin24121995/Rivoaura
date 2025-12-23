@@ -1,3 +1,4 @@
+import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -84,17 +85,87 @@ export default function Tournaments() {
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans">
+      {/* Hero Section with Explanation */}
+      <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white py-16 border-b border-slate-700">
+        <div className="container max-w-5xl">
+          <div className="flex items-start justify-between gap-8">
+            <div className="flex-1">
+              <div className="flex items-center gap-3 mb-4">
+                <Trophy className="w-10 h-10 text-secondary" />
+                <h1 className="text-4xl font-bold">Match Lobby</h1>
+              </div>
+              <p className="text-xl text-slate-300 mb-6 leading-relaxed">
+                Browse all upcoming and live cricket matches across T20, ODI, and Test formats. 
+                Select any match to create your fantasy team and compete for glory.
+              </p>
+              <div className="flex items-center gap-4 text-sm">
+                <div className="flex items-center gap-2 bg-white/10 px-4 py-2 rounded-lg backdrop-blur-sm border border-white/20">
+                  <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+                  <span className="text-slate-200">{matches.length} Active Matches</span>
+                </div>
+                <div className="flex items-center gap-2 text-slate-400">
+                  <Info className="w-4 h-4" />
+                  <span>All contests are 100% free</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Explanation Cards */}
+      <div className="bg-white border-b border-slate-200 py-8">
+        <div className="container max-w-5xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <Card className="border-blue-200 bg-blue-50/50">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-blue-500 text-white flex items-center justify-center">
+                    <Calendar className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900">Match Formats</h3>
+                </div>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  We support all three cricket formats: T20 (fast-paced, 3 hours), ODI (balanced, 8 hours), and Test (strategic, 5 days). Each format has unique scoring rules.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-green-200 bg-green-50/50">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-green-500 text-white flex items-center justify-center">
+                    <Clock className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900">Team Deadline</h3>
+                </div>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  You must create and submit your team before the match starts. Typically, the deadline is 5-10 minutes before the scheduled start time.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="border-purple-200 bg-purple-50/50">
+              <CardContent className="p-6">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-purple-500 text-white flex items-center justify-center">
+                    <Trophy className="w-5 h-5" />
+                  </div>
+                  <h3 className="font-bold text-slate-900">Free Contests</h3>
+                </div>
+                <p className="text-sm text-slate-700 leading-relaxed">
+                  All contests are completely free to join. Create unlimited teams and compete in multiple contests without spending any money.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </div>
+
       {/* Page Header */}
       <div className="bg-white border-b border-slate-200 sticky top-16 z-30 shadow-sm">
         <div className="container max-w-5xl py-4">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-2xl font-bold text-slate-900 flex items-center gap-2">
-                Match Lobby 
-                <span className="text-xs font-normal text-slate-500 bg-slate-100 px-2 py-1 rounded-full border border-slate-200">
-                  {matches.length} Matches
-                </span>
-              </h1>
+              <h2 className="text-xl font-bold text-slate-900">Available Matches</h2>
               <p className="text-slate-500 text-sm mt-1">Select a match to build your fantasy squad</p>
             </div>
             <div className="flex gap-3">

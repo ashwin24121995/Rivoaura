@@ -91,19 +91,197 @@ export default function Community() {
   return (
     <div className="min-h-screen bg-slate-50 pb-20 font-sans">
       {/* Hero Section */}
-      <div className="bg-slate-900 text-white py-16 text-center relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/community-fans.jpg')] opacity-20 bg-cover bg-center"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-900"></div>
+      <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white py-20 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,85,247,0.15),transparent_70%)]"></div>
         
-        <div className="container relative z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-500/30 text-blue-300 text-sm font-medium mb-6 backdrop-blur-sm">
-            <Users className="w-4 h-4" /> 50,000+ Active Members
+        <div className="container relative z-10 max-w-5xl">
+          <div className="text-center space-y-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/20 border border-purple-500/30 text-purple-300 text-sm font-medium backdrop-blur-sm">
+              <Users className="w-4 h-4" /> 50,000+ Active Members
+            </div>
+            <h1 className="text-5xl md:text-6xl font-black tracking-tight">The Dugout</h1>
+            <p className="text-xl text-purple-200 max-w-2xl mx-auto leading-relaxed">
+              Join the conversation. Share your winning strategies, discuss match predictions, 
+              and connect with India's most passionate fantasy cricket community.
+            </p>
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">The Dugout</h1>
-          <p className="text-slate-300 max-w-2xl mx-auto text-lg leading-relaxed">
-            Join the conversation. Share your winning strategies, discuss match predictions, 
-            and connect with India's most passionate fantasy cricket community.
-          </p>
+        </div>
+      </div>
+
+      {/* Explanation Section */}
+      <div className="bg-white border-b border-slate-200 py-12">
+        <div className="container max-w-5xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold text-slate-900 mb-4">Community Guidelines & Features</h2>
+            <p className="text-lg text-slate-600 max-w-3xl mx-auto">
+              Our community is built on respect, knowledge-sharing, and fair play. Learn how to participate effectively.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <Card className="border-2 border-green-200 shadow-lg overflow-hidden">
+              <div className="h-2 bg-gradient-to-r from-green-400 to-green-600"></div>
+              <CardContent className="p-8 space-y-4">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center">
+                    <ShieldCheck className="w-6 h-6 text-green-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">Respectful Discussion</h3>
+                </div>
+                <p className="text-slate-700 leading-relaxed text-sm">
+                  Treat all members with respect. No harassment, hate speech, or personal attacks. 
+                  Disagree with ideas, not people. Constructive criticism is welcome; toxicity is not.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span>Share strategies and analysis respectfully</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600 font-bold">✓</span>
+                    <span>Acknowledge different opinions and playstyles</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold">✗</span>
+                    <span>No trolling, spamming, or inflammatory comments</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-blue-200 shadow-lg overflow-hidden">
+              <div className="h-2 bg-gradient-to-r from-blue-400 to-blue-600"></div>
+              <CardContent className="p-8 space-y-4">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center">
+                    <Award className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">Quality Content</h3>
+                </div>
+                <p className="text-slate-700 leading-relaxed text-sm">
+                  Share valuable insights backed by data and analysis. Avoid low-effort posts like "Who to pick?" 
+                  without context. Provide reasoning, statistics, and match conditions in your discussions.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Include pitch reports, player stats, and reasoning</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600 font-bold">✓</span>
+                    <span>Share match predictions with supporting evidence</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold">✗</span>
+                    <span>No vague questions or one-word responses</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-purple-200 shadow-lg overflow-hidden">
+              <div className="h-2 bg-gradient-to-r from-purple-400 to-purple-600"></div>
+              <CardContent className="p-8 space-y-4">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-purple-100 flex items-center justify-center">
+                    <AlertCircle className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">No Misinformation</h3>
+                </div>
+                <p className="text-slate-700 leading-relaxed text-sm">
+                  Accuracy matters. Don't spread false injury reports, fake team news, or unverified rumors. 
+                  If you're speculating, clearly label it as opinion, not fact. Cite sources when possible.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 font-bold">✓</span>
+                    <span>Verify information before sharing team news</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-purple-600 font-bold">✓</span>
+                    <span>Label predictions as opinions, not guarantees</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold">✗</span>
+                    <span>No fake injury reports or misleading clickbait</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-orange-200 shadow-lg overflow-hidden">
+              <div className="h-2 bg-gradient-to-r from-orange-400 to-orange-600"></div>
+              <CardContent className="p-8 space-y-4">
+                <div className="flex items-center gap-4 mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-orange-100 flex items-center justify-center">
+                    <MessageSquare className="w-6 h-6 text-orange-600" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">Helpful Participation</h3>
+                </div>
+                <p className="text-slate-700 leading-relaxed text-sm">
+                  Help newcomers learn the game. Answer questions patiently. Share your knowledge generously. 
+                  The community grows stronger when experienced players mentor beginners.
+                </p>
+                <ul className="space-y-2 text-sm text-slate-600">
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 font-bold">✓</span>
+                    <span>Answer beginner questions with patience</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-orange-600 font-bold">✓</span>
+                    <span>Share winning strategies and lessons learned</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-red-600 font-bold">✗</span>
+                    <span>Don't mock or belittle less experienced players</span>
+                  </li>
+                </ul>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-10 bg-gradient-to-br from-slate-50 to-blue-50 rounded-2xl p-8 border-2 border-slate-200">
+            <h3 className="font-bold text-slate-900 text-xl mb-4 flex items-center gap-3">
+              <TrendingUp className="w-6 h-6 text-blue-600" />
+              How to Get the Most from Community
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-slate-700">
+              <div>
+                <h4 className="font-bold text-slate-900 mb-2">Before Posting:</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span>Search if your question has been answered already</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span>Provide context: match details, your team, specific doubts</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-blue-600">•</span>
+                    <span>Use clear, descriptive titles for your posts</span>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h4 className="font-bold text-slate-900 mb-2">When Responding:</h4>
+                <ul className="space-y-2 text-sm">
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span>Explain your reasoning, don't just give answers</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span>Acknowledge uncertainty when you're not 100% sure</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-green-600">•</span>
+                    <span>Upvote helpful posts to surface quality content</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 

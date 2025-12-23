@@ -233,3 +233,32 @@
 - [x] Add visual indicators (arrows, progress lines) to show flow
 - [x] Enhance step cards with better visual hierarchy
 - [x] Add responsive design for mobile flowchart view
+
+
+## Comprehensive Page Enhancements - Maximum Detail
+### How to Play Page
+- [x] Add detailed game rules section with complete explanations
+- [x] Create comprehensive scoring system breakdown for all formats (T20, ODI, Test)
+- [x] Add team composition rules with visual examples
+- [x] Include captain/vice-captain multiplier explanations
+- [x] Add credit system detailed explanation
+- [x] Include strategy tips and best practices section
+- [x] Add FAQ section for common questions
+
+### Tournaments Page
+- [x] Add detailed explanation of tournament types
+- [x] Explain contest formats and entry mechanics
+- [x] Add match format differences (T20 vs ODI vs Test)
+- [x] Include tournament rules and regulations
+
+### Leaderboard Page
+- [x] Add detailed explanation of ranking system
+- [x] Explain point calculation methodology
+- [x] Add badge/achievement system explanation
+- [x] Include leaderboard update frequency details
+
+### Community Page
+- [x] Add detailed community guidelines
+- [x] Explain discussion forum mechanics
+- [x] Add strategy sharing best practices
+- [x] Include community values and conduct rules
