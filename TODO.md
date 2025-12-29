@@ -310,8 +310,18 @@
 
 
 ## Fix Railway Build Errors
-- [ ] Update vite.config.ts to remove missing package reference
-- [ ] Add .nvmrc file to specify Node.js 20+
-- [ ] Add package.json engines field for Node version
-- [ ] Push fixes to GitHub
+- [x] Update vite.config.ts to remove missing package reference
+- [x] Add .nvmrc file to specify Node.js 20+
+- [x] Add package.json engines field for Node version
+- [x] Push fixes to GitHub
 - [ ] Verify Railway build succeeds
+
+
+## Debug Railway Deployment Issues
+- [ ] Check deployed site for errors
+- [ ] Review all configuration files for mistakes
+- [ ] Fix any missing dependencies or build issues
+- [ ] Verify server/index.ts is correct
+- [ ] Check package.json scripts
+- [ ] Push all fixes to GitHub
+- [ ] Verify successful deployment

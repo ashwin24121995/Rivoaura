@@ -38,12 +38,13 @@ app.get('/api/health', (req, res) => {
 
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
-  const clientPath = path.join(__dirname, '../client/dist');
-  app.use(express.static(clientPath));
+  // The build outputs to dist/public (from vite.config.ts)
+  const publicPath = path.join(__dirname, 'public');
+  app.use(express.static(publicPath));
   
   // Serve index.html for all other routes (SPA fallback)
   app.get('*', (req, res) => {
-    res.sendFile(path.join(clientPath, 'index.html'));
+    res.sendFile(path.join(publicPath, 'index.html'));
   });
 }
 
@@ -52,6 +53,6 @@ app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📡 tRPC API available at http://localhost:${PORT}/api/trpc`);
   if (process.env.NODE_ENV === 'production') {
-    console.log(`🌐 Serving static files from client/dist`);
+    console.log(`🌐 Serving static files from dist/public`);
   }
 });
