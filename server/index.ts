@@ -1,33 +1,57 @@
-import express from "express";
-import { createServer } from "http";
-import path from "path";
-import { fileURLToPath } from "url";
+import express from 'express';
+import cors from 'cors';
+import { createExpressMiddleware } from '@trpc/server/adapters/express';
+import { appRouter } from './routers.js';
+import path from 'path';
+import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-async function startServer() {
-  const app = express();
-  const server = createServer(app);
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-  // Serve static files from dist/public in production
-  const staticPath =
-    process.env.NODE_ENV === "production"
-      ? path.resolve(__dirname, "public")
-      : path.resolve(__dirname, "..", "dist", "public");
+// Middleware
+app.use(cors({
+  origin: process.env.FRONTEND_URL || '*',
+  credentials: true
+}));
+app.use(express.json());
 
-  app.use(express.static(staticPath));
+// tRPC API endpoint
+app.use(
+  '/api/trpc',
+  createExpressMiddleware({
+    router: appRouter,
+    createContext: () => ({}),
+  })
+);
 
-  // Handle client-side routing - serve index.html for all routes
-  app.get("*", (_req, res) => {
-    res.sendFile(path.join(staticPath, "index.html"));
-  });
+// Health check endpoint
+app.get('/api/health', (req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
 
-  const port = process.env.PORT || 3000;
-
-  server.listen(port, () => {
-    console.log(`Server running on http://localhost:${port}/`);
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  const clientPath = path.join(__dirname, '../client/dist');
+  app.use(express.static(clientPath));
+  
+  // Serve index.html for all other routes (SPA fallback)
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(clientPath, 'index.html'));
   });
 }
 
-startServer().catch(console.error);
+// Start server
+app.listen(PORT, () => {
+  console.log(`🚀 Server running on port ${PORT}`);
+  console.log(`📡 tRPC API available at http://localhost:${PORT}/api/trpc`);
+  if (process.env.NODE_ENV === 'production') {
+    console.log(`🌐 Serving static files from client/dist`);
+  }
+});

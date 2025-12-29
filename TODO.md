@@ -295,3 +295,15 @@
 - [x] Locate Google and Facebook OAuth buttons in Login page
 - [x] Remove OAuth buttons and "OR CONTINUE WITH" divider
 - [x] Test login page display after removal
+
+
+## Railway Deployment Preparation
+- [ ] Remove all Manus-specific dependencies from package.json
+- [ ] Remove Manus _core modules and imports
+- [ ] Update server configuration for standard Node.js deployment
+- [ ] Create SQL schema files for PostgreSQL
+- [ ] Create Railway configuration files
+- [ ] Update environment variable references
+- [ ] Create GitHub repository named "Rivoaura"
+- [ ] Push code to GitHub
+- [ ] Create Railway deployment guide
