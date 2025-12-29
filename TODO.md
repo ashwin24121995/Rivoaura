@@ -298,12 +298,20 @@
 
 
 ## Railway Deployment Preparation
-- [ ] Remove all Manus-specific dependencies from package.json
-- [ ] Remove Manus _core modules and imports
-- [ ] Update server configuration for standard Node.js deployment
-- [ ] Create SQL schema files for PostgreSQL
-- [ ] Create Railway configuration files
-- [ ] Update environment variable references
-- [ ] Create GitHub repository named "Rivoaura"
-- [ ] Push code to GitHub
-- [ ] Create Railway deployment guide
+- [x] Remove all Manus-specific dependencies from package.json
+- [x] Remove Manus _core modules and imports
+- [x] Update server configuration for standard Node.js deployment
+- [x] Create SQL schema files for PostgreSQL
+- [x] Create Railway configuration files
+- [x] Update environment variable references
+- [x] Create GitHub repository named "Rivoaura"
+- [x] Push code to GitHub
+- [x] Create Railway deployment guide
+
+
+## Fix Railway Build Errors
+- [ ] Update vite.config.ts to remove missing package reference
+- [ ] Add .nvmrc file to specify Node.js 20+
+- [ ] Add package.json engines field for Node version
+- [ ] Push fixes to GitHub
+- [ ] Verify Railway build succeeds
