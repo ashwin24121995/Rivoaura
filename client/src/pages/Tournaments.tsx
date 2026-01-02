@@ -9,12 +9,15 @@ import { getCurrentMatches, getLiveMatches, getUpcomingMatches, type Match } fro
 import { useAutoRefresh } from "@/hooks/useAutoRefresh";
 import { toast } from "sonner";
 import LiveMatchCard from "@/components/LiveMatchCard";
+import MatchDetailsDialog from "@/components/MatchDetailsDialog";
 
 export default function Tournaments() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [matchTypeFilter, setMatchTypeFilter] = useState<'all' | 't20' | 'odi' | 'test'>('all');
+  const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
+  const [detailsOpen, setDetailsOpen] = useState(false);
 
   const loadMatches = async (showToast = false) => {
     try {
@@ -273,7 +276,16 @@ export default function Tournaments() {
               </div>
             ) : (
               filteredMatches.map((match) => (
-                <MatchCard key={match.id} match={match} formatMatchTime={formatMatchTime} getMatchStatus={getMatchStatus} />
+                <MatchCard 
+                  key={match.id} 
+                  match={match} 
+                  formatMatchTime={formatMatchTime} 
+                  getMatchStatus={getMatchStatus}
+                  onViewDetails={() => {
+                    setSelectedMatch(match);
+                    setDetailsOpen(true);
+                  }}
+                />
               ))
             )}
           </TabsContent>
@@ -298,7 +310,15 @@ export default function Tournaments() {
                       autoRefresh={true}
                       refreshInterval={30000}
                     />
-                    <MatchCard match={match} formatMatchTime={formatMatchTime} getMatchStatus={getMatchStatus} />
+                    <MatchCard 
+                      match={match} 
+                      formatMatchTime={formatMatchTime} 
+                      getMatchStatus={getMatchStatus}
+                      onViewDetails={() => {
+                        setSelectedMatch(match);
+                        setDetailsOpen(true);
+                      }}
+                    />
                   </div>
                 ))
             )}
@@ -315,12 +335,28 @@ export default function Tournaments() {
               filteredMatches
                 .filter(m => !m.matchStarted)
                 .map((match) => (
-                  <MatchCard key={match.id} match={match} formatMatchTime={formatMatchTime} getMatchStatus={getMatchStatus} />
+                  <MatchCard 
+                    key={match.id} 
+                    match={match} 
+                    formatMatchTime={formatMatchTime} 
+                    getMatchStatus={getMatchStatus}
+                    onViewDetails={() => {
+                      setSelectedMatch(match);
+                      setDetailsOpen(true);
+                    }}
+                  />
                 ))
             )}
           </TabsContent>
         </Tabs>
       </div>
+
+      {/* Match Details Dialog */}
+      <MatchDetailsDialog
+        match={selectedMatch}
+        open={detailsOpen}
+        onOpenChange={setDetailsOpen}
+      />
     </div>
   );
 }
@@ -329,11 +365,13 @@ export default function Tournaments() {
 function MatchCard({ 
   match, 
   formatMatchTime, 
-  getMatchStatus 
+  getMatchStatus,
+  onViewDetails
 }: { 
   match: Match; 
   formatMatchTime: (dateTimeGMT: string, matchStarted: boolean, matchEnded: boolean) => string;
   getMatchStatus: (match: Match) => { label: string; variant: "default" | "secondary" | "destructive" };
+  onViewDetails: () => void;
 }) {
   const status = getMatchStatus(match);
   const team1 = match.teamInfo[0];
@@ -423,22 +461,33 @@ function MatchCard({
           </div>
         </div>
 
-        {/* Action Button */}
-        <Link href={`/create-team/${match.id}`}>
+        {/* Action Buttons */}
+        <div className="flex gap-3">
           <Button 
-            className="w-full gap-2 group-hover:bg-primary/90 transition-colors" 
+            variant="outline"
+            className="flex-1 gap-2" 
             size="lg"
-            disabled={match.matchEnded}
+            onClick={onViewDetails}
           >
-            {match.matchEnded ? (
-              <>View Results</>
-            ) : match.matchStarted ? (
-              <>Join Live Contest <ChevronRight className="w-4 h-4" /></>
-            ) : (
-              <>Create Team <ChevronRight className="w-4 h-4" /></>
-            )}
+            <Info className="w-4 h-4" />
+            View Details
           </Button>
-        </Link>
+          <Link href={`/create-team/${match.id}`} className="flex-1">
+            <Button 
+              className="w-full gap-2 group-hover:bg-primary/90 transition-colors" 
+              size="lg"
+              disabled={match.matchEnded}
+            >
+              {match.matchEnded ? (
+                <>View Results</>
+              ) : match.matchStarted ? (
+                <>Join Live <ChevronRight className="w-4 h-4" /></>
+              ) : (
+                <>Create Team <ChevronRight className="w-4 h-4" /></>
+              )}
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   );
