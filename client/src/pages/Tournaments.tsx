@@ -12,6 +12,10 @@ import LiveMatchCard from "@/components/LiveMatchCard";
 import MatchDetailsDialog from "@/components/MatchDetailsDialog";
 import { RefreshIndicator } from "@/components/RefreshIndicator";
 import MatchComparison from "@/components/MatchComparison";
+import { Pagination } from "@/components/Pagination";
+import { useFavorites } from "@/hooks/useFavorites";
+import { useNotifications } from "@/hooks/useNotifications";
+import { Star, Bell, BellOff } from "lucide-react";
 
 export default function Tournaments() {
   const [matches, setMatches] = useState<Match[]>([]);
@@ -22,6 +26,33 @@ export default function Tournaments() {
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
   const [comparisonOpen, setComparisonOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [showFavoritesOnly, setShowFavoritesOnly] = useState(false);
+  const MATCHES_PER_PAGE = 20;
+  const { favorites, toggleFavorite, isFavorite } = useFavorites();
+  const { permission, requestPermission, addNotification, removeNotification, hasNotification } = useNotifications();
+
+  const handleNotificationToggle = async (matchId: string, matchName: string, matchTime: string) => {
+    if (hasNotification(matchId)) {
+      removeNotification(matchId);
+      toast.success('Notification removed');
+    } else {
+      if (permission !== 'granted') {
+        const granted = await requestPermission();
+        if (!granted) {
+          toast.error('Please enable notifications in your browser');
+          return;
+        }
+      }
+      
+      const added = addNotification(matchId, matchName, matchTime);
+      if (added) {
+        toast.success('You\'ll be notified 30 minutes before match starts');
+      } else {
+        toast.error('Match starts too soon to set notification');
+      }
+    }
+  };
 
   const loadMatches = async (showToast = false) => {
     try {
@@ -57,7 +88,7 @@ export default function Tournaments() {
     { interval: 30000, enabled: matches.some(m => m.matchStarted && !m.matchEnded) }
   );
 
-  // Filter matches by type and search query
+  // Filter matches by type, search query, and favorites
   const filteredMatches = matches.filter(match => {
     // Filter by match type
     const matchesType = matchTypeFilter === 'all' || match.matchType.toLowerCase() === matchTypeFilter;
@@ -67,8 +98,23 @@ export default function Tournaments() {
       match.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       match.teams.some(team => team.toLowerCase().includes(searchQuery.toLowerCase()));
     
-    return matchesType && matchesSearch;
+    // Filter by favorites
+    const matchesFavorites = !showFavoritesOnly || 
+      match.teams.some(team => isFavorite(team));
+    
+    return matchesType && matchesSearch && matchesFavorites;
   });
+
+  // Pagination logic
+  const totalPages = Math.ceil(filteredMatches.length / MATCHES_PER_PAGE);
+  const startIndex = (currentPage - 1) * MATCHES_PER_PAGE;
+  const endIndex = startIndex + MATCHES_PER_PAGE;
+  const paginatedMatches = filteredMatches.slice(startIndex, endIndex);
+
+  // Reset to page 1 when filters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [matchTypeFilter, searchQuery, showFavoritesOnly]);
 
   const formatMatchTime = (dateTimeGMT: string, matchStarted: boolean, matchEnded: boolean) => {
     if (matchEnded) return "Completed";
@@ -280,6 +326,17 @@ export default function Tournaments() {
                 Test ({matches.filter(m => m.matchType.toLowerCase() === 'test').length})
               </Button>
             </div>
+            <div className="flex items-center gap-2 ml-4 pl-4 border-l border-slate-300">
+              <Button
+                variant={showFavoritesOnly ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setShowFavoritesOnly(!showFavoritesOnly)}
+                className="text-xs gap-2"
+              >
+                <Star className={`w-4 h-4 ${showFavoritesOnly ? 'fill-current' : ''}`} />
+                Favorites Only ({favorites.length})
+              </Button>
+            </div>
             {lastRefresh && (
               <div className="ml-auto text-xs text-slate-400">
                 Last updated: {lastRefresh.toLocaleTimeString()}
@@ -315,18 +372,32 @@ export default function Tournaments() {
                 </p>
               </div>
             ) : (
-              filteredMatches.map((match) => (
-                <MatchCard 
-                  key={match.id} 
-                  match={match} 
-                  formatMatchTime={formatMatchTime} 
-                  getMatchStatus={getMatchStatus}
-                  onViewDetails={() => {
-                    setSelectedMatch(match);
-                    setDetailsOpen(true);
-                  }}
+              <>
+                <div className="mb-4 text-sm text-slate-600">
+                  Showing {startIndex + 1}-{Math.min(endIndex, filteredMatches.length)} of {filteredMatches.length} matches
+                </div>
+                {paginatedMatches.map((match) => (
+                  <MatchCard 
+                    key={match.id} 
+                    match={match} 
+                    formatMatchTime={formatMatchTime} 
+                    getMatchStatus={getMatchStatus}
+                    onViewDetails={() => {
+                      setSelectedMatch(match);
+                      setDetailsOpen(true);
+                    }}
+                    isFavorite={isFavorite}
+                    toggleFavorite={toggleFavorite}
+                    hasNotification={hasNotification}
+                    onNotificationToggle={handleNotificationToggle}
+                  />
+                ))}
+                <Pagination
+                  currentPage={currentPage}
+                  totalPages={totalPages}
+                  onPageChange={setCurrentPage}
                 />
-              ))
+              </>
             )}
           </TabsContent>
 
@@ -358,6 +429,10 @@ export default function Tournaments() {
                         setSelectedMatch(match);
                         setDetailsOpen(true);
                       }}
+                      isFavorite={isFavorite}
+                      toggleFavorite={toggleFavorite}
+                      hasNotification={hasNotification}
+                      onNotificationToggle={handleNotificationToggle}
                     />
                   </div>
                 ))
@@ -384,6 +459,10 @@ export default function Tournaments() {
                       setSelectedMatch(match);
                       setDetailsOpen(true);
                     }}
+                    isFavorite={isFavorite}
+                    toggleFavorite={toggleFavorite}
+                    hasNotification={hasNotification}
+                    onNotificationToggle={handleNotificationToggle}
                   />
                 ))
             )}
@@ -413,16 +492,26 @@ function MatchCard({
   match, 
   formatMatchTime, 
   getMatchStatus,
-  onViewDetails
+  onViewDetails,
+  isFavorite,
+  toggleFavorite,
+  hasNotification,
+  onNotificationToggle
 }: { 
   match: Match; 
   formatMatchTime: (dateTimeGMT: string, matchStarted: boolean, matchEnded: boolean) => string;
   getMatchStatus: (match: Match) => { label: string; variant: "default" | "secondary" | "destructive" };
   onViewDetails: () => void;
+  isFavorite: (teamName: string) => boolean;
+  toggleFavorite: (teamName: string) => void;
+  hasNotification: (matchId: string) => boolean;
+  onNotificationToggle: (matchId: string, matchName: string, matchTime: string) => void;
 }) {
   const status = getMatchStatus(match);
   const team1 = match.teamInfo[0];
   const team2 = match.teamInfo[1];
+  const isMatchFavorited = match.teams.some(team => isFavorite(team));
+  const isUpcoming = !match.matchStarted && !match.matchEnded;
   
   return (
     <div className="bg-white rounded-xl border border-slate-200 hover:border-primary/50 hover:shadow-lg transition-all duration-300 overflow-hidden group">
@@ -459,10 +548,22 @@ function MatchCard({
               alt={team1.name}
               className="w-12 h-12 rounded-full border-2 border-slate-200 object-cover"
             />
-            <div>
+            <div className="flex-1">
               <h3 className="font-bold text-slate-900">{team1.shortname}</h3>
               <p className="text-xs text-slate-500">{team1.name}</p>
             </div>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleFavorite(match.teams[0]);
+              }}
+              className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+              title={isFavorite(match.teams[0]) ? 'Remove from favorites' : 'Add to favorites'}
+            >
+              <Star 
+                className={`w-5 h-5 ${isFavorite(match.teams[0]) ? 'fill-yellow-400 text-yellow-400' : 'text-slate-400'}`} 
+              />
+            </button>
           </div>
 
           {/* VS Badge */}
@@ -474,6 +575,18 @@ function MatchCard({
 
           {/* Team 2 */}
           <div className="flex items-center gap-3 flex-1 justify-end text-right">
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                toggleFavorite(match.teams[1]);
+              }}
+              className="p-2 hover:bg-slate-100 rounded-full transition-colors"
+              title={isFavorite(match.teams[1]) ? 'Remove from favorites' : 'Add to favorites'}
+            >
+              <Star 
+                className={`w-5 h-5 ${isFavorite(match.teams[1]) ? 'fill-yellow-400 text-yellow-400' : 'text-slate-400'}`} 
+              />
+            </button>
             <div>
               <h3 className="font-bold text-slate-900">{team2.shortname}</h3>
               <p className="text-xs text-slate-500">{team2.name}</p>
@@ -515,6 +628,21 @@ function MatchCard({
 
         {/* Action Buttons */}
         <div className="flex gap-3">
+          {isUpcoming && (
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => onNotificationToggle(match.id, match.name, match.dateTimeGMT)}
+              className="gap-2"
+              title={hasNotification(match.id) ? 'Remove notification' : 'Notify me 30 min before'}
+            >
+              {hasNotification(match.id) ? (
+                <Bell className="w-4 h-4 fill-current text-primary" />
+              ) : (
+                <BellOff className="w-4 h-4" />
+              )}
+            </Button>
+          )}
           <Button 
             variant="outline"
             className="flex-1 gap-2" 

@@ -414,3 +414,17 @@
 - [x] Fixed overly strict status string check in getUpcomingMatches()
 - [x] Changed from requiring exact "match not started" to checking !matchStarted flag
 - [x] Test and verify all 76 matches appear correctly
+
+
+## Major Improvements - User Requested
+- [x] Implement match pagination (20 matches per page)
+- [x] Add page navigation controls (Previous/Next, page numbers)
+- [x] Create favorites system for teams and tournaments
+- [x] Add star/unstar buttons on match cards
+- [x] Implement favorites filter to show only favorite team matches
+- [x] Save favorites to localStorage for persistence
+- [x] Create match notification system
+- [x] Add "Notify Me" button on each match card
+- [x] Request browser notification permission
+- [x] Schedule notifications 30 minutes before match start
+- [x] Add visual indicator for matches with notifications set
