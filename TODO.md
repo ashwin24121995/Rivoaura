@@ -428,3 +428,8 @@
 - [x] Request browser notification permission
 - [x] Schedule notifications 30 minutes before match start
 - [x] Add visual indicator for matches with notifications set
+
+
+## UX Improvement - Scroll to Top on Pagination
+- [x] Add scroll-to-top functionality when user clicks pagination buttons
+- [x] Ensure page scrolls to beginning of match list on page change

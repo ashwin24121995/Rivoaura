@@ -116,6 +116,11 @@ export default function Tournaments() {
     setCurrentPage(1);
   }, [matchTypeFilter, searchQuery, showFavoritesOnly]);
 
+  // Scroll to top when page changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [currentPage]);
+
   const formatMatchTime = (dateTimeGMT: string, matchStarted: boolean, matchEnded: boolean) => {
     if (matchEnded) return "Completed";
     if (matchStarted) return "LIVE NOW";
