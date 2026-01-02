@@ -49,7 +49,7 @@
    # JWT Secret (generate a random string)
    JWT_SECRET=your_very_long_random_secret_key_here
    
-   # Cricket API
+   # Cricket Data API (cricketdata.org)
    CRICKET_API_KEY=1a822521-d7e0-46ff-98d3-3e51020863f3
    
    # App Configuration

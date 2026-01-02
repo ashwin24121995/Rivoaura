@@ -1,6 +1,7 @@
 /**
  * Cricket Data API Integration
  * Real-time cricket match data with local storage caching
+ * API Documentation: https://cricketdata.org/
  */
 
 const API_BASE_URL = 'https://api.cricapi.com/v1';
@@ -11,6 +12,8 @@ const CACHE_KEYS = {
   MATCHES: 'rivoaura_matches_cache',
   MATCH_SQUAD: 'rivoaura_squad_cache_',
   MATCH_POINTS: 'rivoaura_points_cache_',
+  FANTASY_SUMMARY: 'rivoaura_fantasy_summary_',
+  SCORECARD: 'rivoaura_scorecard_',
   LAST_FETCH: 'rivoaura_last_fetch',
 };
 
@@ -18,6 +21,8 @@ const CACHE_DURATION = {
   UPCOMING_MATCHES: 2 * 60 * 1000, // 2 minutes
   LIVE_MATCHES: 30 * 1000, // 30 seconds
   SQUAD: 5 * 60 * 1000, // 5 minutes
+  FANTASY_SUMMARY: 30 * 1000, // 30 seconds for live matches
+  SCORECARD: 30 * 1000, // 30 seconds for live matches
 };
 
 // Types
@@ -84,6 +89,33 @@ export interface LiveScore {
   lastUpdate: string;
 }
 
+export interface PlayerFantasyPoints {
+  playerId: string;
+  name: string;
+  points: number;
+  batting: {
+    runs: number;
+    fours: number;
+    sixes: number;
+    strikeRate: number;
+  };
+  bowling: {
+    wickets: number;
+    economy: number;
+    maidens: number;
+  };
+  fielding: {
+    catches: number;
+    runOuts: number;
+  };
+}
+
+export interface FantasySummary {
+  matchId: string;
+  players: PlayerFantasyPoints[];
+  lastUpdate: string;
+}
+
 export interface BallByBall {
   inning: number;
   over: number;
@@ -95,6 +127,45 @@ export interface BallByBall {
   wicket?: boolean;
   wicketType?: string;
   commentary: string;
+}
+
+export interface Scorecard {
+  matchId: string;
+  innings: Array<{
+    inningNumber: number;
+    team: string;
+    batting: Array<{
+      playerId: string;
+      name: string;
+      runs: number;
+      balls: number;
+      fours: number;
+      sixes: number;
+      strikeRate: number;
+      dismissal: string;
+    }>;
+    bowling: Array<{
+      playerId: string;
+      name: string;
+      overs: number;
+      maidens: number;
+      runs: number;
+      wickets: number;
+      economy: number;
+    }>;
+    extras: {
+      total: number;
+      byes: number;
+      legByes: number;
+      wides: number;
+      noBalls: number;
+    };
+    total: {
+      runs: number;
+      wickets: number;
+      overs: number;
+    };
+  }>;
 }
 
 // Standard credit calculation
@@ -161,6 +232,32 @@ function getCache<T>(key: string, maxAge: number): T | null {
   }
 }
 
+// Retry helper for failed requests
+async function fetchWithRetry(
+  url: string,
+  options: RequestInit = {},
+  retries: number = 3
+): Promise<Response> {
+  for (let i = 0; i < retries; i++) {
+    try {
+      const response = await fetch(url, options);
+      if (response.ok) return response;
+      
+      // If rate limited, wait and retry
+      if (response.status === 429 && i < retries - 1) {
+        await new Promise(resolve => setTimeout(resolve, 1000 * (i + 1)));
+        continue;
+      }
+      
+      throw new Error(`API Error: ${response.status}`);
+    } catch (error) {
+      if (i === retries - 1) throw error;
+      await new Promise(resolve => setTimeout(resolve, 500 * (i + 1)));
+    }
+  }
+  throw new Error('Max retries reached');
+}
+
 // API Functions
 
 /**
@@ -175,13 +272,9 @@ export async function getCurrentMatches(): Promise<Match[]> {
       return cached;
     }
     
-    const response = await fetch(
+    const response = await fetchWithRetry(
       `${API_BASE_URL}/currentMatches?apikey=${API_KEY}&offset=0`
     );
-    
-    if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
-    }
     
     const result = await response.json();
     const matches: Match[] = result.data || [];
@@ -210,6 +303,58 @@ export async function getCurrentMatches(): Promise<Match[]> {
 }
 
 /**
+ * Fetch live matches only
+ */
+export async function getLiveMatches(): Promise<Match[]> {
+  const allMatches = await getCurrentMatches();
+  return allMatches.filter(match => match.matchStarted && !match.matchEnded);
+}
+
+/**
+ * Fetch upcoming matches only
+ */
+export async function getUpcomingMatches(): Promise<Match[]> {
+  const allMatches = await getCurrentMatches();
+  return allMatches.filter(match => !match.matchStarted);
+}
+
+/**
+ * Fetch completed matches
+ */
+export async function getCompletedMatches(): Promise<Match[]> {
+  try {
+    const response = await fetchWithRetry(
+      `${API_BASE_URL}/currentMatches?apikey=${API_KEY}&offset=0`
+    );
+    
+    const result = await response.json();
+    const matches: Match[] = result.data || [];
+    
+    return matches.filter(match => match.matchEnded);
+  } catch (error) {
+    console.error('Failed to fetch completed matches:', error);
+    return [];
+  }
+}
+
+/**
+ * Fetch match details by ID
+ */
+export async function getMatchInfo(matchId: string): Promise<Match | null> {
+  try {
+    const response = await fetchWithRetry(
+      `${API_BASE_URL}/match_info?apikey=${API_KEY}&id=${matchId}`
+    );
+    
+    const result = await response.json();
+    return result.data || null;
+  } catch (error) {
+    console.error(`Failed to fetch match info for ${matchId}:`, error);
+    return null;
+  }
+}
+
+/**
  * Fetch squad for a specific match
  */
 export async function getMatchSquad(matchId: string): Promise<MatchSquad[]> {
@@ -221,13 +366,9 @@ export async function getMatchSquad(matchId: string): Promise<MatchSquad[]> {
       return cached;
     }
     
-    const response = await fetch(
+    const response = await fetchWithRetry(
       `${API_BASE_URL}/match_squad?apikey=${API_KEY}&id=${matchId}`
     );
-    
-    if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
-    }
     
     const result = await response.json();
     const squads: MatchSquad[] = result.data || [];
@@ -263,13 +404,9 @@ export async function getMatchSquad(matchId: string): Promise<MatchSquad[]> {
  */
 export async function getMatchPoints(matchId: string): Promise<Record<string, number>> {
   try {
-    const response = await fetch(
+    const response = await fetchWithRetry(
       `${API_BASE_URL}/match_points?apikey=${API_KEY}&id=${matchId}&ruleset=0`
     );
-    
-    if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
-    }
     
     const result = await response.json();
     const innings = result.data?.innings || [];
@@ -297,17 +434,47 @@ export async function getMatchPoints(matchId: string): Promise<Record<string, nu
 }
 
 /**
+ * Fetch detailed fantasy summary with player-wise breakdown
+ */
+export async function getFantasySummary(matchId: string): Promise<FantasySummary | null> {
+  try {
+    const cacheKey = CACHE_KEYS.FANTASY_SUMMARY + matchId;
+    const cached = getCache<FantasySummary>(cacheKey, CACHE_DURATION.FANTASY_SUMMARY);
+    if (cached) {
+      return cached;
+    }
+    
+    const response = await fetchWithRetry(
+      `${API_BASE_URL}/fantasySummary?apikey=${API_KEY}&id=${matchId}`
+    );
+    
+    const result = await response.json();
+    const data = result.data;
+    
+    if (!data) return null;
+    
+    const summary: FantasySummary = {
+      matchId,
+      players: data.players || [],
+      lastUpdate: new Date().toISOString(),
+    };
+    
+    setCache(cacheKey, summary);
+    return summary;
+  } catch (error) {
+    console.error(`Failed to fetch fantasy summary for match ${matchId}:`, error);
+    return null;
+  }
+}
+
+/**
  * Fetch live score for a specific match
  */
 export async function getLiveScore(matchId: string): Promise<LiveScore | null> {
   try {
-    const response = await fetch(
+    const response = await fetchWithRetry(
       `${API_BASE_URL}/match_info?apikey=${API_KEY}&id=${matchId}`
     );
-    
-    if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
-    }
     
     const result = await response.json();
     const match = result.data;
@@ -327,9 +494,9 @@ export async function getLiveScore(matchId: string): Promise<LiveScore | null> {
       if (match.score.length > 1) {
         const firstInning = match.score[0];
         target = firstInning.r + 1;
-        const ballsRemaining = (50 - currentInning.o) * 6; // Assuming ODI
+        const oversRemaining = (match.matchType === 't20' ? 20 : 50) - currentInning.o;
         const runsRequired = target - currentInning.r;
-        requiredRunRate = ballsRemaining > 0 ? (runsRequired / (ballsRemaining / 6)) : 0;
+        requiredRunRate = oversRemaining > 0 ? (runsRequired / oversRemaining) : 0;
       }
     }
     
@@ -352,18 +519,30 @@ export async function getLiveScore(matchId: string): Promise<LiveScore | null> {
 /**
  * Fetch scorecard with detailed player performance
  */
-export async function getMatchScorecard(matchId: string): Promise<any> {
+export async function getMatchScorecard(matchId: string): Promise<Scorecard | null> {
   try {
-    const response = await fetch(
+    const cacheKey = CACHE_KEYS.SCORECARD + matchId;
+    const cached = getCache<Scorecard>(cacheKey, CACHE_DURATION.SCORECARD);
+    if (cached) {
+      return cached;
+    }
+    
+    const response = await fetchWithRetry(
       `${API_BASE_URL}/match_scorecard?apikey=${API_KEY}&id=${matchId}`
     );
     
-    if (!response.ok) {
-      throw new Error(`API Error: ${response.status}`);
-    }
-    
     const result = await response.json();
-    return result.data || null;
+    const data = result.data;
+    
+    if (!data) return null;
+    
+    const scorecard: Scorecard = {
+      matchId,
+      innings: data.innings || [],
+    };
+    
+    setCache(cacheKey, scorecard);
+    return scorecard;
   } catch (error) {
     console.error(`Failed to fetch scorecard for match ${matchId}:`, error);
     return null;
@@ -387,4 +566,29 @@ export function clearAllCaches(): void {
     }
   });
   console.log('All caches cleared');
+}
+
+/**
+ * Get cache statistics
+ */
+export function getCacheStats(): Record<string, any> {
+  const stats: Record<string, any> = {};
+  
+  Object.keys(localStorage).forEach((key) => {
+    if (key.startsWith('rivoaura_')) {
+      try {
+        const cached = JSON.parse(localStorage.getItem(key) || '{}');
+        const age = Date.now() - (cached.timestamp || 0);
+        stats[key] = {
+          size: new Blob([localStorage.getItem(key) || '']).size,
+          age: Math.floor(age / 1000), // seconds
+          timestamp: new Date(cached.timestamp).toISOString(),
+        };
+      } catch (error) {
+        // Ignore parse errors
+      }
+    }
+  });
+  
+  return stats;
 }
