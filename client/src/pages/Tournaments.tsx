@@ -5,7 +5,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Clock, Trophy, ChevronRight, MapPin, Calendar, Info, Filter, RefreshCw } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
-import { getCurrentMatches, type Match } from "@/lib/cricketApi";
+import { getCurrentMatches, getLiveMatches, getUpcomingMatches, type Match } from "@/lib/cricketApi";
+import { useAutoRefresh } from "@/hooks/useAutoRefresh";
 import { toast } from "sonner";
 import LiveMatchCard from "@/components/LiveMatchCard";
 
@@ -13,6 +14,7 @@ export default function Tournaments() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
+  const [matchTypeFilter, setMatchTypeFilter] = useState<'all' | 't20' | 'odi' | 'test'>('all');
 
   const loadMatches = async (showToast = false) => {
     try {
@@ -35,17 +37,24 @@ export default function Tournaments() {
 
   useEffect(() => {
     loadMatches();
-    
-    // Auto-refresh every 30 seconds for live matches
-    const interval = setInterval(() => {
+  }, []);
+
+  // Auto-refresh for live matches
+  const { isRefreshing: autoRefreshing, lastRefresh } = useAutoRefresh(
+    async () => {
       const hasLiveMatches = matches.some(m => m.matchStarted && !m.matchEnded);
       if (hasLiveMatches) {
-        loadMatches();
+        await loadMatches();
       }
-    }, 30000);
-    
-    return () => clearInterval(interval);
-  }, []);
+    },
+    { interval: 30000, enabled: matches.some(m => m.matchStarted && !m.matchEnded) }
+  );
+
+  // Filter matches by type
+  const filteredMatches = matches.filter(match => {
+    if (matchTypeFilter === 'all') return true;
+    return match.matchType.toLowerCase() === matchTypeFilter;
+  });
 
   const formatMatchTime = (dateTimeGMT: string, matchStarted: boolean, matchEnded: boolean) => {
     if (matchEnded) return "Completed";
@@ -164,7 +173,7 @@ export default function Tournaments() {
       {/* Page Header */}
       <div className="bg-white border-b border-slate-200 sticky top-16 z-30 shadow-sm">
         <div className="container max-w-5xl py-4">
-          <div className="flex items-center justify-between">
+          <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-bold text-slate-900">Available Matches</h2>
               <p className="text-slate-500 text-sm mt-1">Select a match to build your fantasy squad</p>
@@ -175,9 +184,9 @@ export default function Tournaments() {
                 size="sm" 
                 className="gap-2 border-slate-300"
                 onClick={() => loadMatches(true)}
-                disabled={refreshing}
+                disabled={refreshing || autoRefreshing}
               >
-                <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} /> 
+                <RefreshCw className={`w-4 h-4 ${(refreshing || autoRefreshing) ? 'animate-spin' : ''}`} /> 
                 Refresh
               </Button>
               <Link href="/my-contests">
@@ -186,6 +195,53 @@ export default function Tournaments() {
                 </Button>
               </Link>
             </div>
+          </div>
+          
+          {/* Match Type Filters */}
+          <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2 text-sm text-slate-600">
+              <Filter className="w-4 h-4" />
+              <span className="font-medium">Filter by Format:</span>
+            </div>
+            <div className="flex gap-2">
+              <Button
+                variant={matchTypeFilter === 'all' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setMatchTypeFilter('all')}
+                className="text-xs"
+              >
+                All ({matches.length})
+              </Button>
+              <Button
+                variant={matchTypeFilter === 't20' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setMatchTypeFilter('t20')}
+                className="text-xs"
+              >
+                T20 ({matches.filter(m => m.matchType.toLowerCase() === 't20').length})
+              </Button>
+              <Button
+                variant={matchTypeFilter === 'odi' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setMatchTypeFilter('odi')}
+                className="text-xs"
+              >
+                ODI ({matches.filter(m => m.matchType.toLowerCase() === 'odi').length})
+              </Button>
+              <Button
+                variant={matchTypeFilter === 'test' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setMatchTypeFilter('test')}
+                className="text-xs"
+              >
+                Test ({matches.filter(m => m.matchType.toLowerCase() === 'test').length})
+              </Button>
+            </div>
+            {lastRefresh && (
+              <div className="ml-auto text-xs text-slate-400">
+                Last updated: {lastRefresh.toLocaleTimeString()}
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -205,28 +261,32 @@ export default function Tournaments() {
           </TabsList>
 
           <TabsContent value="all" className="space-y-4">
-            {matches.length === 0 ? (
+            {filteredMatches.length === 0 ? (
               <div className="bg-white rounded-xl border border-slate-200 p-12 text-center">
                 <Trophy className="w-16 h-16 text-slate-300 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-slate-700 mb-2">No Matches Available</h3>
-                <p className="text-slate-500 text-sm">Check back soon for upcoming cricket matches!</p>
+                <p className="text-slate-500 text-sm">
+                  {matchTypeFilter === 'all' 
+                    ? 'Check back soon for upcoming cricket matches!' 
+                    : `No ${matchTypeFilter.toUpperCase()} matches available at the moment.`}
+                </p>
               </div>
             ) : (
-              matches.map((match) => (
+              filteredMatches.map((match) => (
                 <MatchCard key={match.id} match={match} formatMatchTime={formatMatchTime} getMatchStatus={getMatchStatus} />
               ))
             )}
           </TabsContent>
 
           <TabsContent value="live" className="space-y-4">
-            {matches.filter(m => m.matchStarted && !m.matchEnded).length === 0 ? (
+            {filteredMatches.filter(m => m.matchStarted && !m.matchEnded).length === 0 ? (
               <div className="bg-white rounded-xl border border-slate-200 p-12 text-center">
                 <Clock className="w-16 h-16 text-slate-300 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-slate-700 mb-2">No Live Matches</h3>
                 <p className="text-slate-500 text-sm">All matches are either upcoming or completed.</p>
               </div>
             ) : (
-              matches
+              filteredMatches
                 .filter(m => m.matchStarted && !m.matchEnded)
                 .map((match) => (
                   <div key={match.id} className="space-y-4">
@@ -245,14 +305,14 @@ export default function Tournaments() {
           </TabsContent>
 
           <TabsContent value="upcoming" className="space-y-4">
-            {matches.filter(m => !m.matchStarted).length === 0 ? (
+            {filteredMatches.filter(m => !m.matchStarted).length === 0 ? (
               <div className="bg-white rounded-xl border border-slate-200 p-12 text-center">
                 <Calendar className="w-16 h-16 text-slate-300 mx-auto mb-4" />
                 <h3 className="text-lg font-semibold text-slate-700 mb-2">No Upcoming Matches</h3>
                 <p className="text-slate-500 text-sm">All current matches are either live or completed.</p>
               </div>
             ) : (
-              matches
+              filteredMatches
                 .filter(m => !m.matchStarted)
                 .map((match) => (
                   <MatchCard key={match.id} match={match} formatMatchTime={formatMatchTime} getMatchStatus={getMatchStatus} />

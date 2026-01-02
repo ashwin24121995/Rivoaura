@@ -339,5 +339,15 @@
 - [x] Add cache statistics function
 - [x] Update components to use new API features
 - [x] Create PlayerPointsCard component for detailed fantasy points display
-- [ ] Test all new API integrations
+- [x] Test all new API integrations
+- [x] Push updates to GitHub
+
+
+## Auto-Refresh and Match Type Filters
+- [x] Create useAutoRefresh custom hook for live data
+- [x] Update Tournaments page with match type filter buttons
+- [x] Enhance LiveMatchCard with auto-refresh capability
+- [x] Add loading indicators for refresh states
+- [x] Add last refresh timestamp display
+- [ ] Test auto-refresh with live matches
 - [ ] Push updates to GitHub

@@ -3,6 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Activity, TrendingUp, Target, Clock } from 'lucide-react';
 import { getLiveScore, getMatchPoints, type LiveScore } from '@/lib/cricketApi';
+import { useAutoRefresh } from '@/hooks/useAutoRefresh';
 
 interface LiveMatchCardProps {
   matchId: string;
@@ -49,16 +50,15 @@ export default function LiveMatchCard({
     fetchLiveData();
   }, [matchId]);
 
-  // Auto-refresh
-  useEffect(() => {
-    if (!autoRefresh) return;
-
-    const interval = setInterval(() => {
-      fetchLiveData();
-    }, refreshInterval);
-
-    return () => clearInterval(interval);
-  }, [matchId, autoRefresh, refreshInterval]);
+  // Auto-refresh using custom hook
+  const { isRefreshing, lastRefresh: autoRefreshTime } = useAutoRefresh(
+    fetchLiveData,
+    { 
+      interval: refreshInterval, 
+      enabled: autoRefresh,
+      onlyWhenVisible: true 
+    }
+  );
 
   if (loading) {
     return (
