@@ -2,7 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Clock, Trophy, ChevronRight, MapPin, Calendar, Info, Filter, RefreshCw } from "lucide-react";
+import { Clock, Trophy, ChevronRight, MapPin, Calendar, Info, Filter, RefreshCw, Search } from "lucide-react";
 import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { getCurrentMatches, getLiveMatches, getUpcomingMatches, type Match } from "@/lib/cricketApi";
@@ -10,14 +10,18 @@ import { useAutoRefresh } from "@/hooks/useAutoRefresh";
 import { toast } from "sonner";
 import LiveMatchCard from "@/components/LiveMatchCard";
 import MatchDetailsDialog from "@/components/MatchDetailsDialog";
+import { RefreshIndicator } from "@/components/RefreshIndicator";
+import MatchComparison from "@/components/MatchComparison";
 
 export default function Tournaments() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [matchTypeFilter, setMatchTypeFilter] = useState<'all' | 't20' | 'odi' | 'test'>('all');
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
+  const [comparisonOpen, setComparisonOpen] = useState(false);
 
   const loadMatches = async (showToast = false) => {
     try {
@@ -53,10 +57,17 @@ export default function Tournaments() {
     { interval: 30000, enabled: matches.some(m => m.matchStarted && !m.matchEnded) }
   );
 
-  // Filter matches by type
+  // Filter matches by type and search query
   const filteredMatches = matches.filter(match => {
-    if (matchTypeFilter === 'all') return true;
-    return match.matchType.toLowerCase() === matchTypeFilter;
+    // Filter by match type
+    const matchesType = matchTypeFilter === 'all' || match.matchType.toLowerCase() === matchTypeFilter;
+    
+    // Filter by search query (searches in match name and team names)
+    const matchesSearch = searchQuery === '' || 
+      match.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      match.teams.some(team => team.toLowerCase().includes(searchQuery.toLowerCase()));
+    
+    return matchesType && matchesSearch;
   });
 
   const formatMatchTime = (dateTimeGMT: string, matchStarted: boolean, matchEnded: boolean) => {
@@ -186,6 +197,15 @@ export default function Tournaments() {
                 variant="outline" 
                 size="sm" 
                 className="gap-2 border-slate-300"
+                onClick={() => setComparisonOpen(true)}
+              >
+                <Trophy className="w-4 h-4" /> 
+                Compare Matches
+              </Button>
+              <Button 
+                variant="outline" 
+                size="sm" 
+                className="gap-2 border-slate-300"
                 onClick={() => loadMatches(true)}
                 disabled={refreshing || autoRefreshing}
               >
@@ -200,6 +220,26 @@ export default function Tournaments() {
             </div>
           </div>
           
+          {/* Search Bar */}
+          <div className="relative mb-4">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+            <input
+              type="text"
+              placeholder="Search by team or tournament name..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-2 border border-slate-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery('')}
+                className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600"
+              >
+                ×
+              </button>
+            )}
+          </div>
+
           {/* Match Type Filters */}
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2 text-sm text-slate-600">
@@ -357,6 +397,13 @@ export default function Tournaments() {
         open={detailsOpen}
         onOpenChange={setDetailsOpen}
       />
+
+      {/* Match Comparison Dialog */}
+      <MatchComparison
+        matches={matches}
+        open={comparisonOpen}
+        onOpenChange={setComparisonOpen}
+      />
     </div>
   );
 }
@@ -390,9 +437,14 @@ function MatchCard({
             <span className="text-xs text-slate-500">•</span>
             <span className="text-xs text-slate-500">{match.name}</span>
           </div>
-          <div className="flex items-center gap-2 text-sm text-slate-600">
-            <Clock className="w-4 h-4" />
-            {formatMatchTime(match.dateTimeGMT, match.matchStarted, match.matchEnded)}
+          <div className="flex items-center gap-3">
+            {match.matchStarted && !match.matchEnded && (
+              <RefreshIndicator refreshInterval={30000} />
+            )}
+            <div className="flex items-center gap-2 text-sm text-slate-600">
+              <Clock className="w-4 h-4" />
+              {formatMatchTime(match.dateTimeGMT, match.matchStarted, match.matchEnded)}
+            </div>
           </div>
         </div>
       </div>

@@ -393,3 +393,15 @@
 - [x] Fix getLiveMatches() to check status includes "live"/"in progress"/"innings"
 - [x] Add case-insensitive status checking with .toLowerCase()
 - [x] Test all filtering logic with real API data
+
+
+## New Features - User Requested
+- [x] Add live match auto-refresh UI indicator with countdown timer
+- [x] Show animated icon on live match cards indicating real-time updates
+- [x] Display countdown showing seconds until next refresh (30s interval)
+- [x] Implement match type filters (T20/ODI/Test) on Tournaments page
+- [x] Add search bar for finding specific teams or tournaments
+- [x] Create match comparison view component
+- [x] Build side-by-side comparison interface for two matches
+- [x] Show team stats, player form, and head-to-head records
+- [x] Add fantasy point predictions in comparison view
