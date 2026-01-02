@@ -18,8 +18,8 @@ const CACHE_KEYS = {
 };
 
 const CACHE_DURATION = {
-  UPCOMING_MATCHES: 2 * 60 * 1000, // 2 minutes
-  LIVE_MATCHES: 30 * 1000, // 30 seconds
+  UPCOMING_MATCHES: 60 * 1000, // 60 seconds (as per API guide)
+  LIVE_MATCHES: 30 * 1000, // 30 seconds (as per API guide)
   SQUAD: 5 * 60 * 1000, // 5 minutes
   FANTASY_SUMMARY: 30 * 1000, // 30 seconds for live matches
   SCORECARD: 30 * 1000, // 30 seconds for live matches
@@ -276,13 +276,28 @@ export async function getCurrentMatches(): Promise<Match[]> {
       `${API_BASE_URL}/currentMatches?apikey=${API_KEY}&offset=0`
     );
     
+    // Enhanced error logging as per guide
+    console.log('API Response Status:', response.status);
+    
     const result = await response.json();
+    console.log('API Response Data:', result);
+    
+    if (result.status !== 'success') {
+      console.error('API Error:', result.message || 'Unknown error');
+      throw new Error(`API returned status: ${result.status}`);
+    }
+    
     const matches: Match[] = result.data || [];
     
     // Filter: only fantasy-enabled matches that haven't ended
     const filteredMatches = matches.filter(
       (match) => match.fantasyEnabled && !match.matchEnded
     );
+    
+    // Sort by date (earliest first) as per guide
+    filteredMatches.sort((a, b) => {
+      return new Date(a.dateTimeGMT).getTime() - new Date(b.dateTimeGMT).getTime();
+    });
     
     // Cache the result
     setCache(CACHE_KEYS.MATCHES, filteredMatches);
@@ -304,22 +319,69 @@ export async function getCurrentMatches(): Promise<Match[]> {
 
 /**
  * Fetch live matches only
+ * Filters based on matchStarted, matchEnded, and status field as per API guide
  */
 export async function getLiveMatches(): Promise<Match[]> {
   const allMatches = await getCurrentMatches();
-  return allMatches.filter(match => match.matchStarted && !match.matchEnded);
+  
+  const liveMatches = allMatches.filter((match) => {
+    // Match must have started
+    const hasStarted = match.matchStarted === true;
+    
+    // Match must not have ended
+    const notEnded = match.matchEnded === false;
+    
+    // Status should indicate live play (case-insensitive check)
+    const isLive = match.status && (
+      match.status.toLowerCase().includes("live") ||
+      match.status.toLowerCase().includes("in progress") ||
+      match.status.toLowerCase().includes("innings")
+    );
+    
+    return hasStarted && notEnded && isLive;
+  });
+  
+  // Sort by date (earliest first)
+  liveMatches.sort((a, b) => {
+    return new Date(a.dateTimeGMT).getTime() - new Date(b.dateTimeGMT).getTime();
+  });
+  
+  return liveMatches;
 }
 
 /**
  * Fetch upcoming matches only
+ * Filters based on matchStarted, status field, and future date as per API guide
  */
 export async function getUpcomingMatches(): Promise<Match[]> {
   const allMatches = await getCurrentMatches();
-  return allMatches.filter(match => !match.matchStarted);
+  const now = new Date();
+  
+  const upcomingMatches = allMatches.filter((match) => {
+    // Match must not have started
+    const notStarted = !match.matchStarted;
+    
+    // Status should be "Match not started" (case-insensitive)
+    const statusCheck = match.status && match.status.toLowerCase().includes("match not started");
+    
+    // Match date should be today or in the future
+    const matchDate = new Date(match.dateTimeGMT);
+    const isFuture = matchDate >= now;
+    
+    return notStarted && statusCheck && isFuture;
+  });
+  
+  // Sort by date (earliest first)
+  upcomingMatches.sort((a, b) => {
+    return new Date(a.dateTimeGMT).getTime() - new Date(b.dateTimeGMT).getTime();
+  });
+  
+  return upcomingMatches;
 }
 
 /**
  * Fetch completed matches
+ * Filters based on matchEnded field as per API guide
  */
 export async function getCompletedMatches(): Promise<Match[]> {
   try {
@@ -327,10 +389,26 @@ export async function getCompletedMatches(): Promise<Match[]> {
       `${API_BASE_URL}/currentMatches?apikey=${API_KEY}&offset=0`
     );
     
+    console.log('API Response Status:', response.status);
+    
     const result = await response.json();
+    console.log('API Response Data:', result);
+    
+    if (result.status !== 'success') {
+      console.error('API Error:', result.message || 'Unknown error');
+      return [];
+    }
+    
     const matches: Match[] = result.data || [];
     
-    return matches.filter(match => match.matchEnded);
+    const completedMatches = matches.filter(match => match.matchEnded === true);
+    
+    // Sort by date (most recent first for completed matches)
+    completedMatches.sort((a, b) => {
+      return new Date(b.dateTimeGMT).getTime() - new Date(a.dateTimeGMT).getTime();
+    });
+    
+    return completedMatches;
   } catch (error) {
     console.error('Failed to fetch completed matches:', error);
     return [];
@@ -346,7 +424,16 @@ export async function getMatchInfo(matchId: string): Promise<Match | null> {
       `${API_BASE_URL}/match_info?apikey=${API_KEY}&id=${matchId}`
     );
     
+    console.log(`Match Info API Response Status for ${matchId}:`, response.status);
+    
     const result = await response.json();
+    console.log(`Match Info API Response Data for ${matchId}:`, result);
+    
+    if (result.status !== 'success') {
+      console.error(`Match Info API Error for ${matchId}:`, result.message || 'Unknown error');
+      return null;
+    }
+    
     return result.data || null;
   } catch (error) {
     console.error(`Failed to fetch match info for ${matchId}:`, error);
@@ -370,7 +457,16 @@ export async function getMatchSquad(matchId: string): Promise<MatchSquad[]> {
       `${API_BASE_URL}/match_squad?apikey=${API_KEY}&id=${matchId}`
     );
     
+    console.log(`Squad API Response Status for ${matchId}:`, response.status);
+    
     const result = await response.json();
+    console.log(`Squad API Response Data for ${matchId}:`, result);
+    
+    if (result.status !== 'success') {
+      console.error(`Squad API Error for ${matchId}:`, result.message || 'Unknown error');
+      throw new Error(`API returned status: ${result.status}`);
+    }
+    
     const squads: MatchSquad[] = result.data || [];
     
     // Calculate credits for each player

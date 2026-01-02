@@ -380,3 +380,16 @@
 - [x] Integrate dialog into Tournaments page with "View Details" button
 - [x] Fetch real-time data from Cricket API (squad, live scores)
 - [x] Add loading states and error handling
+
+
+## Cricket API Integration Fixes (Based on Official Guide)
+- [x] Fix match status field checking in cricketApi.ts
+- [x] Add proper status string validation ("Match not started", "Live", "In Progress", "Innings")
+- [x] Implement date-based filtering for upcoming matches (must be in future)
+- [x] Add sorting by dateTimeGMT (earliest first) for all match lists
+- [x] Improve error logging with API response status and data
+- [x] Adjust auto-refresh intervals (60s for upcoming, 30s for live, none for completed)
+- [x] Fix getUpcomingMatches() to check status === "Match not started"
+- [x] Fix getLiveMatches() to check status includes "live"/"in progress"/"innings"
+- [x] Add case-insensitive status checking with .toLowerCase()
+- [x] Test all filtering logic with real API data
