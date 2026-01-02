@@ -97,8 +97,8 @@ export default function Contests() {
                     <div className="text-xs text-slate-500 mb-1">Entry</div>
                     <Button 
                       size="sm" 
-                      className={`h-8 px-6 font-bold ${user?.joinedContests.includes(contest.id.toString()) ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
-                      disabled={user?.joinedContests.includes(contest.id.toString())}
+                      className={`h-8 px-6 font-bold ${user?.joinedContests?.includes(contest.id.toString()) ? 'bg-slate-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}
+                      disabled={user?.joinedContests?.includes(contest.id.toString())}
                       onClick={() => {
                         if (!isAuthenticated) {
                           toast.error("Please login to join contests");
@@ -109,7 +109,7 @@ export default function Contests() {
                         toast.success(`Successfully joined ${contest.name}!`);
                       }}
                     >
-                      {user?.joinedContests.includes(contest.id.toString()) ? 'Joined' : contest.entry}
+                      {user?.joinedContests?.includes(contest.id.toString()) ? 'Joined' : contest.entry}
                     </Button>
                   </div>
                 </div>
@@ -162,8 +162,8 @@ export default function Contests() {
                     <Button 
                       size="sm" 
                       variant="outline" 
-                      className={`h-8 px-6 font-bold ${user?.joinedContests.includes(contest.id.toString()) ? 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed' : 'border-green-600 text-green-600 hover:bg-green-50'}`}
-                      disabled={user?.joinedContests.includes(contest.id.toString())}
+                      className={`h-8 px-6 font-bold ${user?.joinedContests?.includes(contest.id.toString()) ? 'bg-slate-100 text-slate-400 border-slate-200 cursor-not-allowed' : 'border-green-600 text-green-600 hover:bg-green-50'}`}
+                      disabled={user?.joinedContests?.includes(contest.id.toString())}
                       onClick={() => {
                         if (!isAuthenticated) {
                           toast.error("Please login to join contests");
@@ -174,7 +174,7 @@ export default function Contests() {
                         toast.success(`Successfully joined ${contest.name}!`);
                       }}
                     >
-                      {user?.joinedContests.includes(contest.id.toString()) ? 'Joined' : contest.entry}
+                      {user?.joinedContests?.includes(contest.id.toString()) ? 'Joined' : contest.entry}
                     </Button>
                   </div>
                   <div className="flex justify-between items-center text-xs text-slate-500">
@@ -209,7 +209,7 @@ export default function Contests() {
                   size="sm" 
                   variant="secondary" 
                   className="h-8 px-6 font-bold"
-                  disabled={user?.joinedContests.includes(contest.id.toString())}
+                  disabled={user?.joinedContests?.includes(contest.id.toString())}
                   onClick={() => {
                     if (!isAuthenticated) {
                       toast.error("Please login to join contests");
@@ -220,7 +220,7 @@ export default function Contests() {
                     toast.success(`Successfully joined ${contest.name}!`);
                   }}
                 >
-                  {user?.joinedContests.includes(contest.id.toString()) ? 'Joined' : 'Join'}
+                  {user?.joinedContests?.includes(contest.id.toString()) ? 'Joined' : 'Join'}
                 </Button>
               </CardContent>
             </Card>

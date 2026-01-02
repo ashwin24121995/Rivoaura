@@ -52,11 +52,11 @@ export default function UserProfile() {
         <div className="container pt-16 pb-6">
           <div className="flex gap-8 text-sm">
             <div className="text-center">
-              <div className="font-bold text-xl text-slate-900">{user.joinedContests.length}</div>
+              <div className="font-bold text-xl text-slate-900">{user.joinedContests?.length || 0}</div>
               <div className="text-slate-500">Contests</div>
             </div>
             <div className="text-center">
-              <div className="font-bold text-xl text-slate-900">{user.teams.length}</div>
+              <div className="font-bold text-xl text-slate-900">{user.teams?.length || 0}</div>
               <div className="text-slate-500">Teams</div>
             </div>
             <div className="text-center">

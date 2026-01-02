@@ -7,10 +7,11 @@ import { int, mysqlEnum, mysqlTable, text, timestamp, varchar } from "drizzle-or
  */
 export const users = mysqlTable("users", {
   id: int("id").autoincrement().primaryKey(),
-  openId: varchar("openId", { length: 64 }).notNull().unique(),
-  username: varchar("username", { length: 50 }),
+  openId: varchar("openId", { length: 64 }).unique(),
+  username: varchar("username", { length: 50 }).unique(),
   name: text("name"),
-  email: varchar("email", { length: 320 }),
+  email: varchar("email", { length: 320 }).unique(),
+  password: varchar("password", { length: 255 }), // Hashed password for email/password auth
   loginMethod: varchar("loginMethod", { length: 64 }),
   state: varchar("state", { length: 50 }), // Indian state for compliance
   dateOfBirth: timestamp("dateOfBirth"), // For 18+ verification

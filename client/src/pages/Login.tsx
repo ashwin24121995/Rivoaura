@@ -2,10 +2,71 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { ShieldCheck } from "lucide-react";
+import { useState } from "react";
+import { trpc } from "@/lib/trpc";
+import { useAuth } from "@/contexts/AuthContext";
+import { toast } from "sonner";
 
 export default function Login() {
+  const [, setLocation] = useLocation();
+  const { login } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  
+  const loginMutation = trpc.auth.login.useMutation();
+
+  const validateForm = () => {
+    const newErrors: { email?: string; password?: string } = {};
+    
+    if (!email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Invalid email address";
+    }
+    
+    if (!password) {
+      newErrors.password = "Password is required";
+    }
+    
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+    
+    loginMutation.mutate(
+      { email, password },
+      {
+        onSuccess: (result) => {
+          if (result.success && result.token && result.user) {
+            // Store token in localStorage
+            localStorage.setItem("auth_token", result.token);
+            
+            // Update auth context
+            login(result.user);
+            
+            toast.success("Login successful!");
+            
+            // Redirect to tournaments page
+            setLocation("/tournaments");
+          }
+        },
+        onError: (error: any) => {
+          console.error("Login error:", error);
+          toast.error(error.message || "Login failed. Please check your credentials.");
+        },
+      }
+    );
+  };
+
   return (
     <div className="container flex items-center justify-center min-h-[calc(100vh-200px)] py-12">
       <Card className="w-full max-w-md border-slate-200 shadow-lg">
@@ -20,24 +81,57 @@ export default function Login() {
             Enter your credentials to access your account
           </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">Email or Mobile Number</Label>
-            <Input id="email" type="text" placeholder="name@example.com" />
-          </div>
-          <div className="space-y-2">
-            <div className="flex items-center justify-between">
-              <Label htmlFor="password">Password</Label>
-              <Link href="/forgot-password" className="text-xs text-primary hover:underline">
-                Forgot password?
-              </Link>
+        <form onSubmit={handleSubmit}>
+          <CardContent className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="email">Email</Label>
+              <Input 
+                id="email" 
+                type="email" 
+                placeholder="name@example.com" 
+                value={email}
+                onChange={(e) => {
+                  setEmail(e.target.value);
+                  if (errors.email) setErrors({ ...errors, email: undefined });
+                }}
+                className={errors.email ? "border-red-500" : ""}
+                disabled={loginMutation.isPending}
+              />
+              {errors.email && (
+                <p className="text-sm text-red-500">{errors.email}</p>
+              )}
             </div>
-            <Input id="password" type="password" />
-          </div>
-          <Button className="w-full bg-primary hover:bg-primary/90 text-white font-semibold">
-            Sign In
-          </Button>
-        </CardContent>
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <Label htmlFor="password">Password</Label>
+                <Link href="/forgot-password" className="text-xs text-primary hover:underline">
+                  Forgot password?
+                </Link>
+              </div>
+              <Input 
+                id="password" 
+                type="password"
+                value={password}
+                onChange={(e) => {
+                  setPassword(e.target.value);
+                  if (errors.password) setErrors({ ...errors, password: undefined });
+                }}
+                className={errors.password ? "border-red-500" : ""}
+                disabled={loginMutation.isPending}
+              />
+              {errors.password && (
+                <p className="text-sm text-red-500">{errors.password}</p>
+              )}
+            </div>
+            <Button 
+              type="submit"
+              className="w-full bg-primary hover:bg-primary/90 text-white font-semibold"
+              disabled={loginMutation.isPending}
+            >
+              {loginMutation.isPending ? "Signing in..." : "Sign In"}
+            </Button>
+          </CardContent>
+        </form>
         <CardFooter className="flex flex-col space-y-4 text-center text-sm text-slate-600">
           <div>
             Don't have an account?{" "}

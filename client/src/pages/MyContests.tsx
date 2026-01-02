@@ -31,11 +31,11 @@ export default function MyContests() {
           <div className="flex gap-4 text-sm text-blue-200">
             <div className="flex items-center gap-1">
               <Trophy className="w-4 h-4" />
-              <span>{user.joinedContests.length} Joined</span>
+              <span>{user.joinedContests?.length || 0} Joined</span>
             </div>
             <div className="flex items-center gap-1">
               <Users className="w-4 h-4" />
-              <span>{user.teams.length} Teams Created</span>
+              <span>{user.teams?.length || 0} Teams Created</span>
             </div>
           </div>
         </div>
@@ -49,7 +49,7 @@ export default function MyContests() {
             Upcoming Matches
           </h2>
           
-          {user.joinedContests.length === 0 ? (
+          {(user.joinedContests?.length || 0) === 0 ? (
             <Card className="border-dashed border-2 border-slate-200 bg-slate-50/50">
               <CardContent className="flex flex-col items-center justify-center py-12 text-center">
                 <Trophy className="w-12 h-12 text-slate-300 mb-3" />
@@ -65,7 +65,7 @@ export default function MyContests() {
           ) : (
             <div className="space-y-4">
               {/* Mock displaying joined contests - in real app would fetch details by ID */}
-              {user.joinedContests.map((contestId, index) => (
+              {(user.joinedContests || []).map((contestId, index) => (
                 <Card key={index} className="border-slate-200 shadow-sm">
                   <CardHeader className="pb-2 border-b border-slate-50">
                     <div className="flex justify-between items-start">
@@ -104,13 +104,13 @@ export default function MyContests() {
             My Teams
           </h2>
           
-          {user.teams.length === 0 ? (
+          {(user.teams?.length || 0) === 0 ? (
             <div className="text-center py-8 text-slate-500 text-sm">
               No teams created yet.
             </div>
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {user.teams.map((team) => (
+              {(user.teams || []).map((team) => (
                 <Card key={team.id} className="border-slate-200">
                   <CardContent className="p-4">
                     <div className="flex justify-between items-center mb-2">

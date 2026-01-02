@@ -2,16 +2,16 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 // Types
 export interface User {
-  id: string;
-  name: string;
-  email: string;
-  username: string;
+  id: number | string;
+  name: string | null;
+  email: string | null;
+  username: string | null;
   avatar: string;
   credits: number;
-  totalPoints: number;
-  rank: number;
-  joinedContests: string[]; // IDs of joined contests
-  teams: Team[];
+  totalPoints?: number;
+  rank?: number;
+  joinedContests?: string[]; // IDs of joined contests
+  teams?: Team[];
 }
 
 export interface Team {
@@ -26,7 +26,7 @@ export interface Team {
 
 interface AuthContextType {
   user: User | null;
-  login: (email: string) => void;
+  login: (user: User) => void;
   logout: () => void;
   saveTeam: (team: Team) => void;
   joinContest: (contestId: string) => void;
@@ -69,14 +69,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }, [user]);
 
-  const login = (email: string) => {
-    // In a real app, validate credentials here.
-    // For now, we just log in the mock user.
-    setUser({ ...MOCK_USER, email });
+  const login = (userData: User) => {
+    // Set the authenticated user
+    setUser({
+      ...userData,
+      totalPoints: userData.totalPoints || 0,
+      rank: userData.rank || 0,
+      joinedContests: userData.joinedContests || [],
+      teams: userData.teams || [],
+    });
   };
 
   const logout = () => {
     setUser(null);
+    localStorage.removeItem('auth_token');
   };
 
   const saveTeam = (newTeam: Team) => {
@@ -84,18 +90,18 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     
     const updatedUser = {
       ...user,
-      teams: [...user.teams, newTeam]
+      teams: [...(user.teams || []), newTeam]
     };
     setUser(updatedUser);
   };
 
   const joinContest = (contestId: string) => {
     if (!user) return;
-    if (user.joinedContests.includes(contestId)) return;
+    if (user.joinedContests?.includes(contestId)) return;
 
     const updatedUser = {
       ...user,
-      joinedContests: [...user.joinedContests, contestId]
+      joinedContests: [...(user.joinedContests || []), contestId]
     };
     setUser(updatedUser);
   };
