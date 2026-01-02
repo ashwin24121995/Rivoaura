@@ -405,3 +405,12 @@
 - [x] Build side-by-side comparison interface for two matches
 - [x] Show team stats, player form, and head-to-head records
 - [x] Add fantasy point predictions in comparison view
+
+
+## Bug Fix - Upcoming Matches Not Showing
+- [x] Debug why 76 upcoming matches from API are not displaying
+- [x] Check getCurrentMatches() filtering logic
+- [x] Verify getUpcomingMatches() is working correctly
+- [x] Fixed overly strict status string check in getUpcomingMatches()
+- [x] Changed from requiring exact "match not started" to checking !matchStarted flag
+- [x] Test and verify all 76 matches appear correctly

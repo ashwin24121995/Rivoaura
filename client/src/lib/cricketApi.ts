@@ -358,17 +358,24 @@ export async function getUpcomingMatches(): Promise<Match[]> {
   const now = new Date();
   
   const upcomingMatches = allMatches.filter((match) => {
-    // Match must not have started
-    const notStarted = !match.matchStarted;
+    // Match must not have started (primary check)
+    const notStarted = match.matchStarted === false;
     
-    // Status should be "Match not started" (case-insensitive)
-    const statusCheck = match.status && match.status.toLowerCase().includes("match not started");
+    // Match must not have ended
+    const notEnded = match.matchEnded === false;
     
     // Match date should be today or in the future
     const matchDate = new Date(match.dateTimeGMT);
     const isFuture = matchDate >= now;
     
-    return notStarted && statusCheck && isFuture;
+    // Optional: Status check (if status exists, it should not indicate live play)
+    const notLiveStatus = !match.status || (
+      !match.status.toLowerCase().includes("live") &&
+      !match.status.toLowerCase().includes("in progress") &&
+      !match.status.toLowerCase().includes("innings")
+    );
+    
+    return notStarted && notEnded && isFuture && notLiveStatus;
   });
   
   // Sort by date (earliest first)
