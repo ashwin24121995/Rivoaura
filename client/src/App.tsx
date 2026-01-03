@@ -29,6 +29,7 @@ import Contact from "./pages/Contact";
 import Dashboard from "./pages/Dashboard";
 import PasswordReset from "./pages/PasswordReset";
 import Settings from "./pages/Settings";
+import WhyFree from "./pages/WhyFree";
 import Layout from "./components/Layout";
 
 function Router() {
@@ -79,6 +80,11 @@ function Router() {
       <Route path="/about">
         <Layout>
           <About />
+        </Layout>
+      </Route>
+      <Route path="/why-free">
+        <Layout>
+          <WhyFree />
         </Layout>
       </Route>
       <Route path="/faq">

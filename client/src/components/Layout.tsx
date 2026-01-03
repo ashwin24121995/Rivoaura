@@ -293,6 +293,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </Link>
                 </li>
                 <li>
+                  <Link href="/why-free" className="text-slate-400 hover:text-yellow-400 transition-colors flex items-center gap-2">
+                    <span className="w-1 h-1 rounded-full bg-yellow-400"></span>
+                    Why We're Free
+                  </Link>
+                </li>
+                <li>
                   <Link href="/terms" className="text-slate-400 hover:text-yellow-400 transition-colors flex items-center gap-2">
                     <span className="w-1 h-1 rounded-full bg-yellow-400"></span>
                     Terms & Conditions
