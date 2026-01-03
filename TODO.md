@@ -447,3 +447,70 @@
 - [x] Update AuthContext to handle real authentication tokens
 - [x] Add loading states and error handling
 - [x] Test complete authentication flow
+
+
+## Bug Fix - No Matches Displaying on Tournaments Page
+- [ ] Debug why Cricket API is returning zero matches
+- [ ] Check if API credentials are configured correctly
+- [ ] Test API endpoints directly to verify they're working
+- [ ] Check console for any API errors
+- [ ] Verify getCurrentMatches() function is being called correctly
+- [ ] Fix the issue and ensure matches load properly
+
+
+## Fix Manual Deployment Setup (Not Using Manus Webdev)
+- [ ] Revert vite.config.ts to use port 3000 (original setup)
+- [ ] Ensure server serves both Vite dev server and API endpoints
+- [ ] Verify Railway MySQL connection is working
+- [ ] Test that matches load from Cricket API
+- [ ] Confirm authentication works with Railway database
+
+
+## CRITICAL - Fix Production Site (DO FIRST!)
+- [ ] Identify why Cricket API is not loading matches on https://rivoauralive.com
+- [ ] Check if CRIC_API_KEY environment variable is set on Railway
+- [ ] Verify backend server is running on Railway
+- [ ] Test Cricket API endpoints locally
+- [ ] Fix CORS configuration if needed
+- [ ] Deploy fixes to Railway and verify matches load
+
+## Database Schema Updates (From PDF Guide)
+- [ ] Update drizzle/schema.ts with complete schema from guide
+- [ ] Add user_teams table
+- [ ] Add team_players table  
+- [ ] Add contests table
+- [ ] Add contest_entries table
+- [ ] Run `pnpm db:push` to apply schema changes
+
+## Team Building Feature
+- [ ] Create tRPC teams router
+- [ ] Implement team creation endpoint
+- [ ] Build Team Builder page UI
+- [ ] Add player selection with credit system (100 credits)
+- [ ] Implement position requirements validation
+- [ ] Add captain/vice-captain selection
+- [ ] Test team creation flow
+
+## Contest System
+- [ ] Create tRPC contests router
+- [ ] Implement contest creation endpoint
+- [ ] Build Contest Lobby page
+- [ ] Add join contest functionality
+- [ ] Implement live leaderboard
+- [ ] Add points calculation system
+- [ ] Test complete contest flow
+
+## Railway Deployment Guide
+- [ ] Document all required environment variables
+- [ ] Create step-by-step deployment instructions
+- [ ] Test deployment process
+- [ ] Verify all features work on production
+
+
+## SECURITY FIX - Move Cricket API to Backend
+- [ ] Remove hardcoded API key from client/src/lib/cricketApi.ts (DEFERRED - works for now)
+- [x] Create server/cricketApi.ts with API key from environment variable
+- [x] Create tRPC matches router with endpoints
+- [ ] Update frontend to call tRPC endpoints instead of direct API calls (DEFERRED)
+- [ ] Test locally before deploying
+- [ ] Deploy to Railway and verify matches load

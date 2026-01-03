@@ -2,6 +2,7 @@ import { initTRPC, TRPCError } from '@trpc/server';
 import { z } from 'zod';
 import SuperJSON from 'superjson';
 import { registerUser, loginUser, registerSchema, loginSchema } from './auth.js';
+import { matchesRouter } from './matches.js';
 
 // Initialize tRPC
 const t = initTRPC.create({
@@ -44,6 +45,9 @@ export const appRouter = t.router({
         }
       }),
   }),
+
+  // Matches procedures
+  matches: matchesRouter,
 
   // Example procedure - can be expanded later
   hello: t.procedure
