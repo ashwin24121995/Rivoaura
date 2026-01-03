@@ -643,10 +643,10 @@
 - [x] Implement 100-point budget constraint validation
 - [x] Add captain/vice-captain selection (2x/1.5x multipliers)
 - [x] Validate team composition rules (WK/BAT/AR/BOWL counts)
-- [ ] Create team save/submit functionality
+- [x] Create team save/submit functionality
 
 ### Contest System
-- [ ] Create contest listing page per match
+- [x] Create contest listing page (/contests/:matchId)
 - [ ] Implement join contest functionality
 - [ ] Add contest seeding API endpoint
 - [ ] Track entry limits and participants
@@ -662,4 +662,14 @@
 - [ ] Build user dashboard with team overview
 - [ ] Add my-teams page showing all created teams
 - [ ] Implement live score tracking page
+
+
+## Next Steps Implementation
+
+- [x] Add "Create Team" buttons to Tournaments page match cards (already exists)
+- [x] Add "Create Team" buttons to Homepage match cards
+- [x] Create contest listing page (/contests/:matchId)
+- [x] Build backend tRPC router for team save
+- [x] Integrate team save API with CreateTeamNew page
+- [ ] Test team creation end-to-end
 

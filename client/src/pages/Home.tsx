@@ -170,37 +170,41 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {liveMatches.map((match) => (
-                <Link key={match.id} href={`/tournaments`}>
-                  <Card className="group hover:shadow-xl transition-all duration-300 border-red-200 bg-white hover:border-red-400">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <Badge className="bg-red-500 text-white animate-pulse">LIVE</Badge>
-                        <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                <Card key={match.id} className="group hover:shadow-xl transition-all duration-300 border-red-200 bg-white hover:border-red-400">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <Badge className="bg-red-500 text-white animate-pulse">LIVE</Badge>
+                      <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                    </div>
+                    
+                    <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-red-600 transition-colors">
+                      {match.name}
+                    </h3>
+                    
+                    <div className="space-y-2 text-sm text-slate-600 mb-4">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-slate-400" />
+                        <span className="truncate">{match.venue}</span>
                       </div>
-                      
-                      <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-red-600 transition-colors">
-                        {match.name}
-                      </h3>
-                      
-                      <div className="space-y-2 text-sm text-slate-600">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-slate-400" />
-                          <span className="truncate">{match.venue}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-slate-400" />
-                          <span>{new Date(match.dateTimeGMT).toLocaleString()}</span>
-                        </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4 text-slate-400" />
+                        <span>{new Date(match.dateTimeGMT).toLocaleString()}</span>
                       </div>
-                      
-                      {match.status && (
-                        <div className="mt-4 pt-4 border-t border-slate-200">
-                          <p className="text-sm font-semibold text-red-600">{match.status}</p>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </Link>
+                    </div>
+                    
+                    {match.status && (
+                      <div className="mb-4 pb-4 border-b border-slate-200">
+                        <p className="text-sm font-semibold text-red-600">{match.status}</p>
+                      </div>
+                    )}
+                    
+                    <Link href={`/create-team/${match.id}`} className="block">
+                      <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
+                        Join Live Match
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -226,35 +230,39 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {upcomingMatches.map((match) => (
-                <Link key={match.id} href={`/tournaments`}>
-                  <Card className="group hover:shadow-xl transition-all duration-300 border-blue-200 bg-white hover:border-blue-400">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <Badge className="bg-blue-500 text-white">UPCOMING</Badge>
-                        <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                <Card key={match.id} className="group hover:shadow-xl transition-all duration-300 border-blue-200 bg-white hover:border-blue-400">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <Badge className="bg-blue-500 text-white">UPCOMING</Badge>
+                      <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                    </div>
+                    
+                    <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {match.name}
+                    </h3>
+                    
+                    <div className="space-y-2 text-sm text-slate-600 mb-4">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-slate-400" />
+                        <span className="truncate">{match.venue}</span>
                       </div>
-                      
-                      <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
-                        {match.name}
-                      </h3>
-                      
-                      <div className="space-y-2 text-sm text-slate-600">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-slate-400" />
-                          <span className="truncate">{match.venue}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-slate-400" />
-                          <span>{new Date(match.dateTimeGMT).toLocaleDateString()}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Clock className="w-4 h-4 text-slate-400" />
-                          <span>{new Date(match.dateTimeGMT).toLocaleTimeString()}</span>
-                        </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-slate-400" />
+                        <span>{new Date(match.dateTimeGMT).toLocaleDateString()}</span>
                       </div>
-                    </CardContent>
-                  </Card>
-                </Link>
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4 text-slate-400" />
+                        <span>{new Date(match.dateTimeGMT).toLocaleTimeString()}</span>
+                      </div>
+                    </div>
+                    
+                    <Link href={`/create-team/${match.id}`} className="block">
+                      <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                        Create Team
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>
@@ -280,37 +288,41 @@ export default function Home() {
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {completedMatches.map((match) => (
-                <Link key={match.id} href={`/tournaments`}>
-                  <Card className="group hover:shadow-xl transition-all duration-300 border-slate-200 bg-white hover:border-slate-400">
-                    <CardContent className="p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <Badge className="bg-slate-500 text-white">COMPLETED</Badge>
-                        <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                <Card key={match.id} className="group hover:shadow-xl transition-all duration-300 border-slate-200 bg-white hover:border-slate-400">
+                  <CardContent className="p-6">
+                    <div className="flex items-center justify-between mb-4">
+                      <Badge className="bg-slate-500 text-white">COMPLETED</Badge>
+                      <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                    </div>
+                    
+                    <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-slate-600 transition-colors">
+                      {match.name}
+                    </h3>
+                    
+                    <div className="space-y-2 text-sm text-slate-600 mb-4">
+                      <div className="flex items-center gap-2">
+                        <MapPin className="w-4 h-4 text-slate-400" />
+                        <span className="truncate">{match.venue}</span>
                       </div>
-                      
-                      <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-slate-600 transition-colors">
-                        {match.name}
-                      </h3>
-                      
-                      <div className="space-y-2 text-sm text-slate-600">
-                        <div className="flex items-center gap-2">
-                          <MapPin className="w-4 h-4 text-slate-400" />
-                          <span className="truncate">{match.venue}</span>
-                        </div>
-                        <div className="flex items-center gap-2">
-                          <Calendar className="w-4 h-4 text-slate-400" />
-                          <span>{new Date(match.dateTimeGMT).toLocaleDateString()}</span>
-                        </div>
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4 text-slate-400" />
+                        <span>{new Date(match.dateTimeGMT).toLocaleDateString()}</span>
                       </div>
-                      
-                      {match.status && (
-                        <div className="mt-4 pt-4 border-t border-slate-200">
-                          <p className="text-sm font-semibold text-green-600">{match.status}</p>
-                        </div>
-                      )}
-                    </CardContent>
-                  </Card>
-                </Link>
+                    </div>
+                    
+                    {match.status && (
+                      <div className="mb-4 pb-4 border-b border-slate-200">
+                        <p className="text-sm font-semibold text-green-600">{match.status}</p>
+                      </div>
+                    )}
+                    
+                    <Link href={`/tournaments`} className="block">
+                      <Button variant="outline" className="w-full">
+                        View Results
+                      </Button>
+                    </Link>
+                  </CardContent>
+                </Card>
               ))}
             </div>
           </div>

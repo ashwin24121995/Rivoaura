@@ -19,6 +19,7 @@ import HowToPlay from "./pages/HowToPlay";
 import AboutUs from "./pages/AboutUs";
 import CreateTeam from "./pages/CreateTeam";
 import CreateTeamNew from "./pages/CreateTeamNew";
+import ContestListing from "./pages/ContestListing";
 import Contests from "./pages/Contests";
 import MyContests from "./pages/MyContests";
 import Leaderboard from "./pages/Leaderboard";
@@ -111,6 +112,11 @@ function Router() {
       <Route path="/create-team/:matchId">
         <Layout>
           <CreateTeamNew />
+        </Layout>
+      </Route>
+      <Route path="/contests/:matchId">
+        <Layout>
+          <ContestListing />
         </Layout>
       </Route>
       <Route path="/password-reset">
