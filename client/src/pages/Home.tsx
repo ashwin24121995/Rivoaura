@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Trophy, Users, BarChart3, CheckCircle2, PlayCircle, Zap, Target, Award, TrendingUp, Lock, Globe, Calendar, MapPin, Clock } from "lucide-react";
-import { Link } from "wouter";
+import { Link } from 'wouter';
+import LiveMatchDetailCard from '@/components/LiveMatchDetailCard';
 import { useEffect, useState } from "react";
 import { getCurrentMatches, getLiveMatches, getUpcomingMatches, getCompletedMatches, type Match } from "@/lib/cricketApi";
 import { Badge } from "@/components/ui/badge";
@@ -164,45 +165,27 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {liveMatches.map((match) => (
-                <Card key={match.id} className="group hover:shadow-xl transition-all duration-300 border-red-200 bg-white hover:border-red-400">
-                  <CardContent className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <Badge className="bg-red-500 text-white animate-pulse">LIVE</Badge>
-                      <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
-                    </div>
-                    
-                    <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-red-600 transition-colors">
-                      {match.name}
-                    </h3>
-                    
-                    <div className="space-y-2 text-sm text-slate-600 mb-4">
-                      <div className="flex items-center gap-2">
-                        <MapPin className="w-4 h-4 text-slate-400" />
-                        <span className="truncate">{match.venue}</span>
-                      </div>
-                      <div className="flex items-center gap-2">
-                        <Clock className="w-4 h-4 text-slate-400" />
-                        <span>{new Date(match.dateTimeGMT).toLocaleString()}</span>
-                      </div>
-                    </div>
-                    
-                    {match.status && (
-                      <div className="mb-4 pb-4 border-b border-slate-200">
-                        <p className="text-sm font-semibold text-red-600">{match.status}</p>
-                      </div>
-                    )}
-                    
-                    <Link href={`/create-team/${match.id}`} className="block">
-                      <Button className="w-full bg-red-600 hover:bg-red-700 text-white">
-                        Join Live Match
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {liveMatches.slice(0, 2).map((match) => (
+                <LiveMatchDetailCard
+                  key={match.id}
+                  matchId={match.id}
+                  matchName={match.name}
+                  venue={match.venue}
+                />
               ))}
             </div>
+            
+            {liveMatches.length > 2 && (
+              <div className="mt-8 text-center">
+                <Link href="/tournaments">
+                  <Button size="lg" className="bg-red-600 hover:bg-red-700 text-white px-8">
+                    View All {liveMatches.length} Live Matches
+                    <Trophy className="w-5 h-5 ml-2" />
+                  </Button>
+                </Link>
+              </div>
+            )}
           </div>
         </section>
       )}

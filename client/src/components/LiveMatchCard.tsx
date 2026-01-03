@@ -20,7 +20,7 @@ export default function LiveMatchCard({
   teams,
   venue,
   autoRefresh = true,
-  refreshInterval = 30000, // 30 seconds default
+  refreshInterval = 5000, // 5 seconds for real-time updates
 }: LiveMatchCardProps) {
   const [liveScore, setLiveScore] = useState<LiveScore | null>(null);
   const [playerPoints, setPlayerPoints] = useState<Record<string, number>>({});
@@ -173,7 +173,7 @@ export default function LiveMatchCard({
         {autoRefresh && (
           <div className="flex items-center justify-center gap-2 text-xs text-slate-500 pt-2 border-t border-slate-200">
             <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
-            <span>Auto-updating every {refreshInterval / 1000}s</span>
+            <span>Auto-updating every {refreshInterval / 1000} seconds</span>
           </div>
         )}
       </CardContent>
