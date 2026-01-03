@@ -4,6 +4,7 @@ import SuperJSON from 'superjson';
 import { registerUser, loginUser, registerSchema, loginSchema } from './auth.js';
 import { matchesRouter } from './matches.js';
 import { teamsRouter } from './teams.js';
+import { matchSquadRouter } from './matchesSquad.js';
 
 // Initialize tRPC
 const t = initTRPC.create({
@@ -52,6 +53,9 @@ export const appRouter = t.router({
 
   // Teams procedures
   teams: teamsRouter,
+
+  // Match squad procedures
+  matchSquad: matchSquadRouter,
 
   // Example procedure - can be expanded later
   hello: t.procedure

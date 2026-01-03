@@ -199,3 +199,16 @@ export async function testCricketApiConnection(): Promise<boolean> {
     return false;
   }
 }
+
+/**
+ * Get match squad (players for both teams)
+ */
+export async function getMatchSquad(matchId: string): Promise<any> {
+  try {
+    const squad = await cricketApiRequest<any>(`/match_squad?id=${matchId}`);
+    return squad;
+  } catch (error) {
+    console.error(`Error fetching squad for ${matchId}:`, error);
+    throw error;
+  }
+}
