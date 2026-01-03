@@ -98,9 +98,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                     <div className="flex items-center gap-3 px-4 py-2 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:border-yellow-400 transition-all group">
                       <div className="text-right hidden lg:block">
                         <div className="text-sm font-bold text-slate-900">{user.username}</div>
-                        <div className="text-xs text-slate-500">
-                          <span className="text-yellow-600 font-semibold">{user.credits}</span> Credits
-                        </div>
                       </div>
                       <Avatar className="h-10 w-10 border-2 border-yellow-400 group-hover:border-yellow-500 transition-colors">
                         <AvatarImage src={`https://api.dicebear.com/7.x/initials/svg?seed=${user.avatar}`} />
@@ -188,9 +185,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                       </Avatar>
                       <div>
                         <div className="text-sm font-bold text-slate-900">{user.username}</div>
-                        <div className="text-xs text-slate-500">
-                          <span className="text-yellow-600 font-semibold">{user.credits}</span> Credits
-                        </div>
                       </div>
                     </div>
                   </Link>

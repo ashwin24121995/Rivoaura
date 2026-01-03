@@ -7,7 +7,6 @@ export interface User {
   email: string | null;
   username: string | null;
   avatar: string;
-  credits: number;
   totalPoints?: number;
   rank?: number;
   joinedContests?: string[]; // IDs of joined contests
@@ -42,7 +41,6 @@ const MOCK_USER: User = {
   email: 'demo@elitesquad.com',
   username: 'CricketKing_99',
   avatar: 'CK',
-  credits: 500, // Virtual currency for fun
   totalPoints: 1250,
   rank: 45,
   joinedContests: [],

@@ -182,8 +182,8 @@ export default function Terms() {
                   </p>
                   <p className="text-slate-700 leading-relaxed text-sm">
                     <strong>Detection & Penalties:</strong> We employ advanced fraud detection systems to identify duplicate 
-                    accounts based on email addresses, phone numbers, IP addresses, device fingerprints, and payment methods. 
-                    If multiple accounts are detected, all accounts will be permanently banned, and any winnings will be forfeited.
+                    accounts based on email addresses, phone numbers, IP addresses, and device fingerprints. 
+                    If multiple accounts are detected, all accounts will be permanently banned, and leaderboard rankings will be removed.
                   </p>
                 </div>
               </div>

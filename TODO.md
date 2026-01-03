@@ -533,3 +533,24 @@
 - [x] Verify tables are created in Railway MySQL (all 5 tables exist)
 - [x] Verified users table has all 16 columns including password field
 - [ ] Test registration on production site
+
+
+## UX Fix - Remove Misleading Credits Display
+- [x] Remove "1000 Credits" from header (confusing for free-to-play)
+- [x] Update Layout.tsx to show "Free Player" instead
+- [x] Check UserProfile page for credits references (none found)
+- [x] Verified no other pages show credits
+- [ ] Commit and push to GitHub
+
+
+## Content Audit - Ensure Free-to-Play Messaging
+- [x] Search all pages for "credits", "coins", "money", "payment", "buy", "purchase" (73 matches found)
+- [x] Review and fix Register.tsx - Removed default 1000 credits assignment
+- [x] Review Terms.tsx - Updated payment/winnings references to rankings
+- [x] Review AboutUs.tsx - Content is correct, emphasizes free-to-play
+- [x] Review About.tsx - Content is correct, emphasizes free-to-play
+- [x] Review ComponentShowcase.tsx - Skipped (internal demo page, not user-facing)
+- [x] Removed credits field from User interface (AuthContext.tsx)
+- [x] Removed credits display from Layout header
+- [x] Verified all changes maintain game mechanic credits (100 credits team budget)
+- [ ] Commit and push all changes

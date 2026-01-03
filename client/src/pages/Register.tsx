@@ -106,7 +106,6 @@ export default function Register() {
             login({
               ...result.user,
               avatar: result.user.username?.substring(0, 2).toUpperCase() || 'U',
-              credits: 1000, // Default starting credits
             });
 
             toast.success("Registration successful! Welcome to RIVOAURA!");
