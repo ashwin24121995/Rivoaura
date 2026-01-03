@@ -488,7 +488,7 @@
 - [ ] Build Team Builder page UI
 - [ ] Add player selection with credit system (100 credits)
 - [ ] Implement position requirements validation
-- [ ] Add captain/vice-captain selection
+- [x] Add captain/vice-captain selection (2x/1.5x multipliers)
 - [ ] Test team creation flow
 
 ## Contest System
@@ -628,3 +628,38 @@
 - [x] Show match status and timing
 - [x] Add "View All" links to tournaments page
 - [ ] Test dynamic homepage loads correctly
+
+## Fantasy Cricket Core Features Implementation (from PDF Guide)
+
+### Database Schema
+- [x] Create user_teams table (already exists)
+- [x] Create team_players table (already exists as userTeamPlayers)
+- [x] Create contests table
+- [x] Create contest_entries table
+- [x] Run database migration
+
+### Team Creation System
+- [x] Build player selection UI with role filtering
+- [x] Implement 100-point budget constraint validation
+- [x] Add captain/vice-captain selection (2x/1.5x multipliers)
+- [x] Validate team composition rules (WK/BAT/AR/BOWL counts)
+- [ ] Create team save/submit functionality
+
+### Contest System
+- [ ] Create contest listing page per match
+- [ ] Implement join contest functionality
+- [ ] Add contest seeding API endpoint
+- [ ] Track entry limits and participants
+
+### Live Scoring
+- [ ] Fetch live scores from Cricket API
+- [ ] Calculate fantasy points (runs, wickets, catches, etc.)
+- [ ] Apply captain/vice-captain multipliers
+- [ ] Implement auto-refresh (30-60 seconds)
+
+### Leaderboard & Dashboard
+- [ ] Create contest leaderboard page
+- [ ] Build user dashboard with team overview
+- [ ] Add my-teams page showing all created teams
+- [ ] Implement live score tracking page
+

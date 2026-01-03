@@ -18,6 +18,7 @@ import PointSystem from "./pages/PointSystem";
 import HowToPlay from "./pages/HowToPlay";
 import AboutUs from "./pages/AboutUs";
 import CreateTeam from "./pages/CreateTeam";
+import CreateTeamNew from "./pages/CreateTeamNew";
 import Contests from "./pages/Contests";
 import MyContests from "./pages/MyContests";
 import Leaderboard from "./pages/Leaderboard";
@@ -105,6 +106,11 @@ function Router() {
       <Route path="/dashboard">
         <Layout>
           <Dashboard />
+        </Layout>
+      </Route>
+      <Route path="/create-team/:matchId">
+        <Layout>
+          <CreateTeamNew />
         </Layout>
       </Route>
       <Route path="/password-reset">

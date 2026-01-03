@@ -70,7 +70,33 @@ export const userTeamPlayers = mysqlTable("userTeamPlayers", {
   playerId: int("playerId").notNull(),
 });
 
+// Contests table
+export const contests = mysqlTable("contests", {
+  id: int("id").autoincrement().primaryKey(),
+  matchId: varchar("matchId", { length: 255 }).notNull(), // Cricket API match ID
+  name: varchar("name", { length: 255 }).notNull(),
+  entryFee: int("entryFee").default(0).notNull(), // Always 0 for free platform
+  prizePool: int("prizePool").default(0).notNull(), // Points-based prizes
+  maxEntries: int("maxEntries").notNull(),
+  currentEntries: int("currentEntries").default(0).notNull(),
+  status: mysqlEnum("status", ["upcoming", "live", "completed"]).default("upcoming").notNull(),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
+// Contest Entries table (tracks user participation)
+export const contestEntries = mysqlTable("contestEntries", {
+  id: int("id").autoincrement().primaryKey(),
+  contestId: int("contestId").notNull(),
+  userId: int("userId").notNull(),
+  teamId: int("teamId").notNull(),
+  points: int("points").default(0).notNull(),
+  rankPosition: int("rankPosition"),
+  createdAt: timestamp("createdAt").defaultNow().notNull(),
+});
+
 export type Match = typeof matches.$inferSelect;
 export type Player = typeof players.$inferSelect;
 export type UserTeam = typeof userTeams.$inferSelect;
 export type UserTeamPlayer = typeof userTeamPlayers.$inferSelect;
+export type Contest = typeof contests.$inferSelect;
+export type ContestEntry = typeof contestEntries.$inferSelect;
