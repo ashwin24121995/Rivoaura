@@ -553,4 +553,10 @@
 - [x] Removed credits field from User interface (AuthContext.tsx)
 - [x] Removed credits display from Layout header
 - [x] Verified all changes maintain game mechanic credits (100 credits team budget)
-- [ ] Commit and push all changes
+- [x] Commit and push all changes (commit e9b8ed7)
+
+
+## Domain Change - Update Email References
+- [x] Search for all "elitesquadsports.com" references (4 matches found)
+- [x] Replace with "rivoauralive.com" in Layout.tsx, AuthContext.tsx, Terms.tsx
+- [ ] Commit and push to GitHub

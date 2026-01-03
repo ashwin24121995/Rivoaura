@@ -64,7 +64,7 @@ export default function Terms() {
 
               <div className="space-y-4">
                 {[
-                  { term: "Platform", def: "Refers to the RIVOAURA website (elitesquadsports.com), mobile applications, and all associated services provided by RIVOAURA PRIVATE LIMITED." },
+                  { term: "Platform", def: "Refers to the RIVOAURA website (rivoauralive.com), mobile applications, and all associated services provided by RIVOAURA PRIVATE LIMITED." },
                   { term: "User/You", def: "Any individual who accesses, browses, registers, or participates in contests on the Platform." },
                   { term: "Contest", def: "Any fantasy cricket competition hosted on the Platform where Users create virtual teams and compete based on real-world cricket match performances." },
                   { term: "Game of Skill", def: "A game where success depends predominantly on the knowledge, training, attention, experience, and adroitness of the player, rather than chance or luck." },

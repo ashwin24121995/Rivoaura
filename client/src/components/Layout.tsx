@@ -333,8 +333,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Mail className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-slate-400 mb-1">Email Support</div>
-                    <a href="mailto:support@elitesquadsports.com" className="text-white hover:text-yellow-400 transition-colors">
-                      support@elitesquadsports.com
+                    <a href="mailto:support@rivoauralive.com" className="text-white hover:text-yellow-400 transition-colors">
+                      support@rivoauralive.com
                     </a>
                   </div>
                 </li>
