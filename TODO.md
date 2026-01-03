@@ -713,3 +713,25 @@
 - [x] Add match timer/elapsed time display
 - [x] Test live updates with real matches
 
+
+## SEO Optimization for Google Bot
+
+- [x] Add meta tags (title, description, keywords) to all pages
+- [x] Add Open Graph tags for social sharing
+- [x] Create robots.txt file
+- [x] Create sitemap.xml with all pages
+- [x] Add structured data (JSON-LD) for Organization and WebSite
+- [x] Add canonical URLs to prevent duplicate content
+- [x] Verify all pages are crawlable
+
+
+## Complete Scorecard View for Homepage
+
+- [x] Create FullScorecardView component with batting table
+- [x] Add bowling figures table with O, M, R, W, NB, WD, ER
+- [x] Add partnerships section
+- [x] Add match result/status banner
+- [x] Add tabs for innings switching
+- [x] Integrate with Cricket API scorecard endpoint
+- [x] Replace LiveMatchDetailCard with FullScorecardView on homepage
+

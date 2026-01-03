@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Shield, Trophy, Users, BarChart3, CheckCircle2, PlayCircle, Zap, Target, Award, TrendingUp, Lock, Globe, Calendar, MapPin, Clock } from "lucide-react";
 import { Link } from 'wouter';
-import LiveMatchDetailCard from '@/components/LiveMatchDetailCard';
+import FullScorecardView from '@/components/FullScorecardView';
+import SEO from '@/components/SEO';
 import { useEffect, useState } from "react";
 import { getCurrentMatches, getLiveMatches, getUpcomingMatches, getCompletedMatches, type Match } from "@/lib/cricketApi";
 import { Badge } from "@/components/ui/badge";
@@ -36,7 +37,13 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
+      <SEO
+        title="Home - Free Fantasy Cricket Platform"
+        description="RIVOAURA is India's most transparent and educational fantasy cricket platform. 100% free-to-play. Build dream teams, compete with cricket enthusiasts, and sharpen your strategic thinking without spending money."
+        keywords="fantasy cricket, free fantasy cricket, cricket game, fantasy sports, RIVOAURA, cricket contest, online cricket, fantasy cricket app, free cricket game, cricket strategy"
+        ogType="website"
+      />
       
       {/* HERO SECTION - Immersive Introduction */}
       <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155]">
@@ -165,9 +172,9 @@ export default function Home() {
               </Link>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              {liveMatches.slice(0, 2).map((match) => (
-                <LiveMatchDetailCard
+            <div className="grid grid-cols-1 gap-8">
+              {liveMatches.slice(0, 1).map((match) => (
+                <FullScorecardView
                   key={match.id}
                   matchId={match.id}
                   matchName={match.name}
