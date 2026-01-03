@@ -522,7 +522,7 @@
 - [x] Found bug: fantasyEnabled filter removing all matches
 - [x] Fixed: Removed fantasyEnabled check from getCurrentMatches()
 - [ ] Test locally and verify matches display
-- [ ] Commit and push to GitHub
+- [x] Commit and push to GitHub
 - [ ] Deploy fix to Railway
 
 
@@ -540,7 +540,7 @@
 - [x] Update Layout.tsx to show "Free Player" instead
 - [x] Check UserProfile page for credits references (none found)
 - [x] Verified no other pages show credits
-- [ ] Commit and push to GitHub
+- [x] Commit and push to GitHub
 
 
 ## Content Audit - Ensure Free-to-Play Messaging
@@ -589,4 +589,15 @@
 - [x] Create trust-building FAQ section
 - [x] Add page to App.tsx routing
 - [x] Add link to footer navigation
-- [ ] Commit and push to GitHub
+- [x] Commit and push to GitHub
+
+## Cricket API Integration (cricapi.com)
+- [x] Set up CRICKET_API_KEY environment variable
+- [x] Create cricketApi.ts backend service file
+- [x] Implement getCurrentMatches() function
+- [x] Implement getMatchInfo() function
+- [x] Implement getMatchScorecard() function
+- [x] Implement getFantasyMatchPoints() function
+- [x] Update Tournaments page to show real matches
+- [x] Test API integration with live data
+- [ ] Save checkpoint and push to GitHub

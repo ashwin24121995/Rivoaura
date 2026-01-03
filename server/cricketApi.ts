@@ -69,9 +69,15 @@ export interface LiveScore {
  */
 export async function getCurrentMatches(): Promise<Match[]> {
   try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+    
     const response = await fetch(
-      `${API_BASE_URL}/currentMatches?apikey=${API_KEY}&offset=0`
+      `${API_BASE_URL}/currentMatches?apikey=${API_KEY}&offset=0`,
+      { signal: controller.signal }
     );
+    
+    clearTimeout(timeout);
 
     if (!response.ok) {
       console.error(`Cricket API error: ${response.status} ${response.statusText}`);

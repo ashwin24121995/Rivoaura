@@ -36,6 +36,17 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
 
+// Test endpoint for cricket matches
+app.get('/api/test/matches', async (req, res) => {
+  try {
+    const { getCurrentMatches } = await import('./cricketApi.js');
+    const matches = await getCurrentMatches();
+    res.json({ success: true, count: matches.length, matches });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error instanceof Error ? error.message : 'Unknown error' });
+  }
+});
+
 // Serve static files in production
 if (process.env.NODE_ENV === 'production') {
   // The build outputs to dist/public (from vite.config.ts)
