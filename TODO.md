@@ -514,3 +514,13 @@
 - [ ] Update frontend to call tRPC endpoints instead of direct API calls (DEFERRED)
 - [ ] Test locally before deploying
 - [ ] Deploy to Railway and verify matches load
+
+
+## CRITICAL BUG - Matches Not Displaying
+- [x] API is returning 25 matches successfully (Status 200)
+- [x] Frontend filtering logic was hiding all matches
+- [x] Found bug: fantasyEnabled filter removing all matches
+- [x] Fixed: Removed fantasyEnabled check from getCurrentMatches()
+- [ ] Test locally and verify matches display
+- [ ] Commit and push to GitHub
+- [ ] Deploy fix to Railway

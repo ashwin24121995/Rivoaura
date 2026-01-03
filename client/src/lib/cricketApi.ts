@@ -289,9 +289,10 @@ export async function getCurrentMatches(): Promise<Match[]> {
     
     const matches: Match[] = result.data || [];
     
-    // Filter: only fantasy-enabled matches that haven't ended
+    // Filter: only matches that haven't ended
+    // Note: fantasyEnabled field is not reliable from API, so we show all matches
     const filteredMatches = matches.filter(
-      (match) => match.fantasyEnabled && !match.matchEnded
+      (match) => !match.matchEnded
     );
     
     // Sort by date (earliest first) as per guide
