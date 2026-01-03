@@ -1,9 +1,39 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Shield, Trophy, Users, BarChart3, CheckCircle2, PlayCircle, Zap, Target, Award, TrendingUp, Lock, Globe } from "lucide-react";
+import { Shield, Trophy, Users, BarChart3, CheckCircle2, PlayCircle, Zap, Target, Award, TrendingUp, Lock, Globe, Calendar, MapPin, Clock } from "lucide-react";
 import { Link } from "wouter";
+import { useEffect, useState } from "react";
+import { getCurrentMatches, getLiveMatches, getUpcomingMatches, getCompletedMatches, type Match } from "@/lib/cricketApi";
+import { Badge } from "@/components/ui/badge";
 
 export default function Home() {
+  const [liveMatches, setLiveMatches] = useState<Match[]>([]);
+  const [upcomingMatches, setUpcomingMatches] = useState<Match[]>([]);
+  const [completedMatches, setCompletedMatches] = useState<Match[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchMatches = async () => {
+      try {
+        const [live, upcoming, completed] = await Promise.all([
+          getLiveMatches(),
+          getUpcomingMatches(),
+          getCompletedMatches()
+        ]);
+        
+        setLiveMatches(live.slice(0, 3)); // Show top 3 live matches
+        setUpcomingMatches(upcoming.slice(0, 6)); // Show top 6 upcoming
+        setCompletedMatches(completed.slice(0, 3)); // Show top 3 completed
+      } catch (error) {
+        console.error('Failed to fetch matches:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchMatches();
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-white">
       
@@ -120,6 +150,172 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* LIVE MATCHES SECTION */}
+      {!loading && liveMatches.length > 0 && (
+        <section className="py-16 bg-gradient-to-br from-red-50 to-orange-50">
+          <div className="container">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-black text-slate-900 mb-2">🔴 Live Matches</h2>
+                <p className="text-slate-600">Happening right now - Join the action!</p>
+              </div>
+              <Link href="/tournaments">
+                <Button variant="outline" className="gap-2">
+                  View All Matches
+                  <Trophy className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {liveMatches.map((match) => (
+                <Link key={match.id} href={`/tournaments`}>
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-red-200 bg-white hover:border-red-400">
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge className="bg-red-500 text-white animate-pulse">LIVE</Badge>
+                        <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                      </div>
+                      
+                      <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-red-600 transition-colors">
+                        {match.name}
+                      </h3>
+                      
+                      <div className="space-y-2 text-sm text-slate-600">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-slate-400" />
+                          <span className="truncate">{match.venue}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-4 h-4 text-slate-400" />
+                          <span>{new Date(match.dateTimeGMT).toLocaleString()}</span>
+                        </div>
+                      </div>
+                      
+                      {match.status && (
+                        <div className="mt-4 pt-4 border-t border-slate-200">
+                          <p className="text-sm font-semibold text-red-600">{match.status}</p>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* UPCOMING MATCHES SECTION */}
+      {!loading && upcomingMatches.length > 0 && (
+        <section className="py-16 bg-gradient-to-br from-blue-50 to-indigo-50">
+          <div className="container">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-black text-slate-900 mb-2">📅 Upcoming Matches</h2>
+                <p className="text-slate-600">Create your team before these matches start</p>
+              </div>
+              <Link href="/tournaments">
+                <Button variant="outline" className="gap-2">
+                  View All Matches
+                  <Trophy className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {upcomingMatches.map((match) => (
+                <Link key={match.id} href={`/tournaments`}>
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-blue-200 bg-white hover:border-blue-400">
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge className="bg-blue-500 text-white">UPCOMING</Badge>
+                        <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                      </div>
+                      
+                      <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-blue-600 transition-colors">
+                        {match.name}
+                      </h3>
+                      
+                      <div className="space-y-2 text-sm text-slate-600">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-slate-400" />
+                          <span className="truncate">{match.venue}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-slate-400" />
+                          <span>{new Date(match.dateTimeGMT).toLocaleDateString()}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Clock className="w-4 h-4 text-slate-400" />
+                          <span>{new Date(match.dateTimeGMT).toLocaleTimeString()}</span>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* COMPLETED MATCHES SECTION */}
+      {!loading && completedMatches.length > 0 && (
+        <section className="py-16 bg-gradient-to-br from-slate-50 to-slate-100">
+          <div className="container">
+            <div className="flex items-center justify-between mb-8">
+              <div>
+                <h2 className="text-3xl font-black text-slate-900 mb-2">✅ Completed Matches</h2>
+                <p className="text-slate-600">Recent match results</p>
+              </div>
+              <Link href="/tournaments">
+                <Button variant="outline" className="gap-2">
+                  View All Results
+                  <Trophy className="w-4 h-4" />
+                </Button>
+              </Link>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {completedMatches.map((match) => (
+                <Link key={match.id} href={`/tournaments`}>
+                  <Card className="group hover:shadow-xl transition-all duration-300 border-slate-200 bg-white hover:border-slate-400">
+                    <CardContent className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <Badge className="bg-slate-500 text-white">COMPLETED</Badge>
+                        <Badge variant="outline" className="uppercase">{match.matchType}</Badge>
+                      </div>
+                      
+                      <h3 className="font-bold text-lg text-slate-900 mb-3 group-hover:text-slate-600 transition-colors">
+                        {match.name}
+                      </h3>
+                      
+                      <div className="space-y-2 text-sm text-slate-600">
+                        <div className="flex items-center gap-2">
+                          <MapPin className="w-4 h-4 text-slate-400" />
+                          <span className="truncate">{match.venue}</span>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <Calendar className="w-4 h-4 text-slate-400" />
+                          <span>{new Date(match.dateTimeGMT).toLocaleDateString()}</span>
+                        </div>
+                      </div>
+                      
+                      {match.status && (
+                        <div className="mt-4 pt-4 border-t border-slate-200">
+                          <p className="text-sm font-semibold text-green-600">{match.status}</p>
+                        </div>
+                      )}
+                    </CardContent>
+                  </Card>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* SECTION 1: BUILD YOUR TEAM (Visual Left) */}
       <section className="py-24 bg-white">

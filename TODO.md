@@ -610,3 +610,21 @@
 - [x] Show user profile/logout when logged in
 - [x] Test match display with all formats
 - [x] Test login state changes
+
+## Remove Mock Data from Homepage
+
+- [ ] Find mock data in Home.tsx
+- [ ] Replace with real API calls to getCurrentMatches()
+- [ ] Update homepage to show real live matches
+- [ ] Test homepage displays correctly
+
+## Dynamic Homepage with Real Match Data
+
+- [x] Add Live Matches section to homepage
+- [x] Add Upcoming Matches section with date/time
+- [x] Add Completed Matches section with scores
+- [x] Fetch real data from Cricket API
+- [x] Display team names, logos, venue, format
+- [x] Show match status and timing
+- [x] Add "View All" links to tournaments page
+- [ ] Test dynamic homepage loads correctly
