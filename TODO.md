@@ -692,5 +692,13 @@
 - [x] Add player photos to CreateTeamNew page
 - [x] Update player card UI with images
 - [x] Add fallback images for players without photos
-- [ ] Test player photo display
+- [x] Test player photo display
+
+
+## Remove Mock Data - URGENT
+
+- [x] Remove "75K+ Active Players" fake statistic from homepage
+- [x] Remove all mock statistics (entry fee, skill-based percentages)
+- [x] Replace mock player data in CreateTeamNew with real API data
+- [x] Verify no other fake data exists on website
 

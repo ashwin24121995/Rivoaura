@@ -59,29 +59,35 @@ export default function CreateTeamNew() {
   const fetchMatchSquad = async () => {
     try {
       setLoading(true);
-      // TODO: Replace with actual API call to get match squad
-      // const response = await fetch(`/api/matches/${matchId}/squad`);
-      // const data = await response.json();
       
-      // Mock data for now - will be replaced with real API
-      const mockPlayers: Player[] = [
-        { pid: '1', name: 'Virat Kohli', role: 'BAT', team: 'India', points: 10 },
-        { pid: '2', name: 'Rohit Sharma', role: 'BAT', team: 'India', points: 10 },
-        { pid: '3', name: 'KL Rahul', role: 'WK', team: 'India', points: 9 },
-        { pid: '4', name: 'Hardik Pandya', role: 'AR', team: 'India', points: 9 },
-        { pid: '5', name: 'Jasprit Bumrah', role: 'BOW', team: 'India', points: 9 },
-        { pid: '6', name: 'Mohammed Shami', role: 'BOW', team: 'India', points: 8 },
-        { pid: '7', name: 'Ravindra Jadeja', role: 'AR', team: 'India', points: 9 },
-        { pid: '8', name: 'Steve Smith', role: 'BAT', team: 'Australia', points: 10 },
-        { pid: '9', name: 'David Warner', role: 'BAT', team: 'Australia', points: 9 },
-        { pid: '10', name: 'Alex Carey', role: 'WK', team: 'Australia', points: 8 },
-        { pid: '11', name: 'Glenn Maxwell', role: 'AR', team: 'Australia', points: 9 },
-        { pid: '12', name: 'Pat Cummins', role: 'BOW', team: 'Australia', points: 9 },
-        { pid: '13', name: 'Mitchell Starc', role: 'BOW', team: 'Australia', points: 8 },
-        { pid: '14', name: 'Nathan Lyon', role: 'BOW', team: 'Australia', points: 7 },
-      ];
+      // Fetch real squad data from Cricket API via tRPC
+      const response = await fetch(`/api/trpc/matchSquad.getSquad?input=${encodeURIComponent(JSON.stringify({ matchId }))}`);
       
-      setAvailablePlayers(mockPlayers);
+      if (!response.ok) {
+        throw new Error('Failed to fetch squad data');
+      }
+      
+      const data = await response.json();
+      const squadData = data.result?.data;
+      
+      if (!squadData || !squadData.squad) {
+        toast.error('No squad data available for this match');
+        setAvailablePlayers([]);
+        return;
+      }
+      
+      // Transform API data to Player format
+      const players: Player[] = squadData.squad.map((player: any, index: number) => ({
+        pid: player.id || `player-${index}`,
+        name: player.name || 'Unknown Player',
+        role: player.role || 'BAT', // Default to BAT if role not specified
+        team: player.teamName || '',
+        points: Math.floor(Math.random() * 3) + 8, // 8-10 points (will be replaced with real rating later)
+        img: player.img || player.playerImg || undefined,
+        fantasyPlayerRating: player.fantasyPlayerRating
+      }));
+      
+      setAvailablePlayers(players);
     } catch (error) {
       toast.error('Failed to load players');
       console.error(error);

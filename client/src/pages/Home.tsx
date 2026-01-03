@@ -64,7 +64,7 @@ export default function Home() {
               <p className="text-xl text-slate-300 leading-relaxed border-l-4 border-amber-500 pl-6">
                 Welcome to India's most transparent and educational fantasy cricket platform. 
                 <strong className="text-white"> RIVOAURA</strong> is a 100% free-to-play community where you build dream teams, 
-                compete with thousands of cricket enthusiasts, and sharpen your strategic thinking—all without spending a single rupee.
+                compete with cricket enthusiasts, and sharpen your strategic thinking—all without spending a single rupee.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-5 pt-6">
@@ -82,11 +82,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              <div className="grid grid-cols-3 gap-8 pt-10 border-t border-white/20">
-                <div>
-                  <div className="text-4xl font-black text-amber-400 mb-2">75K+</div>
-                  <div className="text-sm text-slate-400 font-medium">Active Players</div>
-                </div>
+              <div className="grid grid-cols-2 gap-8 pt-10 border-t border-white/20">
                 <div>
                   <div className="text-4xl font-black text-amber-400 mb-2">₹0</div>
                   <div className="text-sm text-slate-400 font-medium">Entry Fee Forever</div>
@@ -634,7 +630,7 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-slate-600 leading-relaxed">
-                Join thousands of cricket fans competing in free contests across every major cricket match. 
+                Compete in free contests across every major cricket match. 
                 Score points based on real player performance, climb rankings, and establish yourself as a fantasy cricket champion—all without spending money.
               </p>
 
@@ -688,7 +684,7 @@ export default function Home() {
                       <div className="flex items-center gap-3 p-3 bg-slate-50 rounded-lg">
                         <Users className="w-5 h-5 text-blue-600 flex-shrink-0" />
                         <div>
-                          <strong>Mega Leagues:</strong> Compete with thousands of players
+                          <strong>Mega Leagues:</strong> Compete with multiple players
                         </div>
                       </div>
 
@@ -826,7 +822,7 @@ export default function Home() {
             </h2>
 
             <p className="text-2xl text-amber-50 leading-relaxed">
-              Join 75,000+ cricket fans already playing on RIVOAURA. 
+              Start playing on RIVOAURA today. 
               It's free, it's fun, and it's the smartest way to enjoy cricket.
             </p>
 
