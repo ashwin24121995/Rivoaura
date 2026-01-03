@@ -80,7 +80,7 @@ export default function Dashboard() {
           <div className="flex items-center justify-between">
             <div>
               <h1 className="text-4xl font-bold mb-2">Welcome Back, Champion!</h1>
-              <p className="text-slate-300">Ready to build your next winning team?</p>
+              <p className="text-slate-300">Ready to build your next high-scoring team?</p>
             </div>
             <div className="hidden md:flex items-center gap-4">
               <div className="text-right">
@@ -268,7 +268,7 @@ export default function Dashboard() {
               <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <h3 className="text-2xl font-bold mb-2">Ready for Your Next Challenge?</h3>
-                  <p className="text-slate-300">Browse upcoming matches and create your winning team.</p>
+                  <p className="text-slate-300">Browse upcoming matches and create your high-scoring team.</p>
                 </div>
                 <Link href="/tournaments">
                   <Button size="lg" className="bg-yellow-500 hover:bg-yellow-600 text-slate-900 font-bold px-8">

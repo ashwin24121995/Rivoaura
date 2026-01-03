@@ -217,11 +217,11 @@ export default function Terms() {
               <div className="space-y-4">
                 <h3 className="font-bold text-slate-900 text-lg">Why Fantasy Cricket is a Game of Skill:</h3>
                 {[
-                  { title: "Player Selection Strategy", desc: "Users must analyze player statistics, recent form, pitch conditions, weather forecasts, and opposition strengths to select the optimal 11-player team within a 100-credit budget. This requires deep cricket knowledge and analytical thinking." },
+                  { title: "Player Selection Strategy", desc: "Users must analyze player statistics, recent form, pitch conditions, weather forecasts, and opposition strengths to select the optimal 11-player team within a 100-point budget. This requires deep cricket knowledge and analytical thinking." },
                   { title: "Captain & Vice-Captain Choice", desc: "Selecting the right captain (2x points) and vice-captain (1.5x points) requires predicting which players will perform best in specific match conditions. This decision significantly impacts final scores and requires strategic foresight." },
                   { title: "Team Composition Balance", desc: "Users must balance their team across four roles (Wicket Keepers, Batsmen, All-Rounders, Bowlers) while adhering to strict composition rules. This requires understanding cricket tactics and match dynamics." },
                   { title: "Match Condition Analysis", desc: "Success depends on analyzing pitch reports, venue history, toss impact, team news, and weather conditions. Users who invest time in research consistently outperform those who make random selections." },
-                  { title: "Budget Management", desc: "With a limited 100-credit budget, users must identify undervalued players and make trade-offs between premium stars and budget options. This requires financial planning and value assessment skills." }
+                  { title: "Budget Management", desc: "With a limited 100-point budget, users must identify undervalued players and make trade-offs between premium stars and budget options. This requires financial planning and value assessment skills." }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 bg-white rounded-lg p-4 border border-green-200">
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center font-bold">

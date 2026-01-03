@@ -33,7 +33,7 @@ const faqs: { category: string; items: FAQItem[] }[] = [
     items: [
       {
         question: "How do I create a team?",
-        answer: "Navigate to the 'Tournaments' page, select an upcoming match, and click 'Create Team'. You will be given 100 credits to select 11 players from both teams. Your squad must include 1-4 Wicket Keepers, 3-6 Batsmen, 1-4 All-Rounders, and 3-6 Bowlers. You can select a maximum of 7 players from one team."
+        answer: "Navigate to the 'Tournaments' page, select an upcoming match, and click 'Create Team'. You will be given a 100-point budget to select 11 players from both teams. Your squad must include 1-4 Wicket Keepers, 3-6 Batsmen, 1-4 All-Rounders, and 3-6 Bowlers. You can select a maximum of 7 players from one team."
       },
       {
         question: "What is the role of Captain and Vice-Captain?",

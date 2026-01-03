@@ -509,7 +509,7 @@ export default function About() {
                 <div className="flex items-start gap-3">
                   <CheckCircle2 className="w-6 h-6 text-green-600 flex-shrink-0 mt-1" />
                   <div>
-                    <strong>No Deposits:</strong> You cannot add money to your account. There is no wallet, no payment gateway, and no option to purchase credits or coins.
+                    <strong>No Deposits:</strong> You cannot add money to your account. There is no wallet, no payment gateway, and no option to purchase anything.
                   </div>
                 </div>
                 
@@ -572,7 +572,7 @@ export default function About() {
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2">1. Credit Budget System</h4>
                     <p className="text-slate-700 leading-relaxed">
-                      Every user gets <strong>100 credits</strong> to build their 11-player team. Players are assigned credit values based on their real-world performance, form, and role. Star players cost more credits, while emerging talents are more affordable. This forces strategic trade-offs—do you spend heavily on 2-3 superstars, or build a balanced squad of consistent performers?
+                      Every user works within a <strong>100-point team budget constraint</strong> to build their 11-player team. Players are assigned point values based on their real-world performance, form, and role. Star players have higher point values, while emerging talents have lower values. This is a game mechanic that teaches strategic trade-offs—do you select 2-3 superstars, or build a balanced squad of consistent performers?
                     </p>
                   </div>
                   

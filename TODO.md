@@ -559,4 +559,24 @@
 ## Domain Change - Update Email References
 - [x] Search for all "elitesquadsports.com" references (4 matches found)
 - [x] Replace with "rivoauralive.com" in Layout.tsx, AuthContext.tsx, Terms.tsx
-- [ ] Commit and push to GitHub
+- [x] Commit and push to GitHub (commit 2921fee)
+
+## Content Audit - Remove ALL Misleading Free-to-Play Language
+- [ ] Audit Home.tsx for misleading content (credits, prizes, winnings)
+- [ ] Audit About.tsx for misleading content
+- [ ] Audit HowToPlay.tsx for misleading content
+- [ ] Audit Tournaments.tsx for misleading content
+- [ ] Audit CreateTeam.tsx for misleading content
+- [ ] Audit Leaderboard.tsx for misleading content
+- [ ] Audit Community.tsx for misleading content
+- [ ] Audit all legal pages (Terms, Privacy, FairPlay, ResponsibleGaming)
+- [ ] Rewrite ALL problematic sections to emphasize 100% free educational platform
+- [ ] Remove any language suggesting financial value or real-world rewards
+- [ ] Commit and push changes to GitHub
+
+## Content Audit Results - COMPLETED
+- [x] Replaced all "credits" with "points" or "team budget constraint"
+- [x] Clarified 100-point system is a game mechanic, not currency
+- [x] Removed "winning" language, replaced with "high-scoring" or "successful"
+- [x] All pages now emphasize 100% free educational platform
+- [x] No language suggesting financial value or real-world rewards

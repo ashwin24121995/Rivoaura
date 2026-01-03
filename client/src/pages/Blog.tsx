@@ -25,7 +25,7 @@ const blogPosts = [
   {
     id: 3,
     title: "Budget Allocation Strategies: The 70-20-10 Rule",
-    excerpt: "How should you distribute your 100 credits? Learn the proven budget allocation framework used by top fantasy players to build balanced, high-scoring teams.",
+    excerpt: "How should you distribute your 100-point budget? Learn the proven budget allocation framework used by top fantasy players to build balanced, high-scoring teams.",
     author: "RIVOAURA Coaching",
     date: "December 5, 2024",
     category: "Beginner Guide",

@@ -204,7 +204,7 @@ export default function FairPlay() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-yellow-600">✗</span>
-                    <span>Manipulating credit system loopholes to create illegal team compositions</span>
+                    <span>Manipulating point value system loopholes to create illegal team compositions</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-yellow-600">✗</span>

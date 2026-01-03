@@ -363,7 +363,7 @@ export default function AboutUs() {
                     },
                     {
                       subtitle: "Strategic Planning",
-                      text: "Master the art of balancing your team within credit constraints, choosing the right captain and vice-captain, and adapting strategies for different match formats."
+                      text: "Master the art of balancing your team within the 100-point budget constraint, choosing the right captain and vice-captain, and adapting strategies for different match formats."
                     },
                     {
                       subtitle: "Risk Management",
@@ -409,7 +409,7 @@ export default function AboutUs() {
                     },
                     {
                       subtitle: "Level Playing Field",
-                      text: "Everyone starts with the same credit budget and access to the same player pool. Success is determined purely by your cricket knowledge and strategic thinking."
+                      text: "Everyone starts with the same 100-point team budget and access to the same player pool. Success is determined purely by your cricket knowledge and strategic thinking."
                     },
                     {
                       subtitle: "Zero Pay-to-Win",
@@ -728,7 +728,7 @@ export default function AboutUs() {
                     {[
                       {
                         title: "No Deposits",
-                        text: "You cannot add money to your account. There is no wallet, no payment gateway, and no option to purchase credits or coins."
+                        text: "You cannot add money to your account. There is no wallet, no payment gateway, and no option to purchase anything."
                       },
                       {
                         title: "No Withdrawals",
@@ -794,7 +794,7 @@ export default function AboutUs() {
                   step: "2",
                   title: "Build Your Team",
                   icon: <Users className="w-8 h-8 text-green-600" />,
-                  desc: "Select 11 players from the two competing teams within a 100-credit budget. Each player has a credit value based on their role and recent performance. You must follow team composition rules: 1-4 Wicketkeepers, 3-6 Batsmen, 1-4 All-Rounders, and 3-6 Bowlers.",
+                  desc: "Select 11 players from the two competing teams within a 100-point budget. Each player has a point value based on their role and recent performance. You must follow team composition rules: 1-4 Wicketkeepers, 3-6 Batsmen, 1-4 All-Rounders, and 3-6 Bowlers.",
                   color: "green",
                   position: "right"
                 },

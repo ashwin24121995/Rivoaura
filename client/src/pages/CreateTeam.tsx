@@ -45,7 +45,7 @@ export default function CreateTeam() {
   
   const [selectedRole, setSelectedRole] = useState("WK");
   const [selectedPlayers, setSelectedPlayers] = useState<string[]>([]);
-  const [creditsLeft, setCreditsLeft] = useState(100);
+  const [pointsLeft, setPointsLeft] = useState(100);
   const { saveTeam, isAuthenticated } = useAuth();
   const [, setLocation] = useLocation();
 
@@ -79,7 +79,7 @@ export default function CreateTeam() {
               displayRole: ROLE_MAP[player.role] || 'BAT',
               team: squad.shortname,
               shortName: player.name.split(' ').map(n => n[0]).join(''),
-              credit: parseFloat(player.credit.toFixed(1)), // Round to 1 decimal
+              credit: parseFloat(player.credit.toFixed(1)), // Player point value
             });
           });
         });
@@ -101,14 +101,14 @@ export default function CreateTeam() {
   const togglePlayer = (player: ProcessedPlayer) => {
     if (selectedPlayers.includes(player.id)) {
       setSelectedPlayers(prev => prev.filter(id => id !== player.id));
-      setCreditsLeft(prev => prev + player.credit);
+      setPointsLeft(prev => prev + player.credit);
     } else {
       if (selectedPlayers.length >= 11) {
         toast.error("Maximum 11 players allowed");
         return;
       }
-      if (creditsLeft - player.credit < 0) {
-        toast.error("Insufficient credits");
+      if (pointsLeft - player.credit < 0) {
+        toast.error("Insufficient points in budget");
         return;
       }
       
@@ -128,7 +128,7 @@ export default function CreateTeam() {
       }
       
       setSelectedPlayers(prev => [...prev, player.id]);
-      setCreditsLeft(prev => prev - player.credit);
+      setPointsLeft(prev => prev - player.credit);
     }
   };
 
@@ -222,8 +222,8 @@ export default function CreateTeam() {
           </div>
           <div className="flex items-center gap-4 text-xs">
             <div className="text-center">
-              <div className="text-slate-400">Credits Left</div>
-              <div className="font-bold text-base">{creditsLeft.toFixed(1)}</div>
+              <div className="text-slate-400">Points Left</div>
+              <div className="font-bold text-base">{pointsLeft.toFixed(1)}</div>
             </div>
             <div className="w-px h-8 bg-slate-700"></div>
             <div className="text-center">
@@ -279,7 +279,7 @@ export default function CreateTeam() {
           <span>Player</span>
           <div className="flex gap-6">
             <span>Role</span>
-            <span>Credits</span>
+            <span>Points</span>
           </div>
         </div>
         

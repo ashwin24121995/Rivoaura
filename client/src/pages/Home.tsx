@@ -150,8 +150,8 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-slate-600 leading-relaxed">
-                Every great fantasy team starts with smart selection. At RIVOAURA, you get <strong>100 credits</strong> to assemble 
-                your perfect 11-player squad from real cricket matches happening worldwide.
+                Every great fantasy team starts with smart selection. At RIVOAURA, you work within a <strong>100-point team budget constraint</strong> to assemble 
+                your perfect 11-player squad from real cricket matches happening worldwide. This is a game mechanic that teaches strategic resource allocation.
               </p>
 
               <div className="space-y-4 bg-slate-50 p-6 rounded-xl border-l-4 border-blue-600">
@@ -162,7 +162,7 @@ export default function Home() {
                     <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                     <div>
                       <strong className="text-slate-900">Wicket-Keepers:</strong>
-                      <span className="text-slate-600"> Select 1-4 players (usually 8.5-10 credits each)</span>
+                      <span className="text-slate-600"> Select 1-4 players (usually 8.5-10 points each)</span>
                     </div>
                   </div>
 
@@ -170,7 +170,7 @@ export default function Home() {
                     <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                     <div>
                       <strong className="text-slate-900">Batsmen:</strong>
-                      <span className="text-slate-600"> Select 3-6 players (premium batsmen cost 9-10.5 credits)</span>
+                      <span className="text-slate-600"> Select 3-6 players (premium batsmen have 9-10.5 point values)</span>
                     </div>
                   </div>
 
@@ -178,7 +178,7 @@ export default function Home() {
                     <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                     <div>
                       <strong className="text-slate-900">All-Rounders:</strong>
-                      <span className="text-slate-600"> Select 1-4 players (top all-rounders cost 9-10 credits)</span>
+                      <span className="text-slate-600"> Select 1-4 players (top all-rounders have 9-10 point values)</span>
                     </div>
                   </div>
 
@@ -186,7 +186,7 @@ export default function Home() {
                     <CheckCircle2 className="w-5 h-5 text-green-600 mt-1 flex-shrink-0" />
                     <div>
                       <strong className="text-slate-900">Bowlers:</strong>
-                      <span className="text-slate-600"> Select 3-6 players (regular bowlers cost 8-9 credits)</span>
+                      <span className="text-slate-600"> Select 3-6 players (regular bowlers have 8-9 point values)</span>
                     </div>
                   </div>
                 </div>
@@ -198,9 +198,9 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold text-amber-900 mb-2">Pro Strategy Tip:</h4>
                     <p className="text-amber-800 leading-relaxed">
-                      Balance your budget wisely! Don't spend all credits on star batsmen. 
-                      Budget bowlers (7-8 credits) can earn massive points through wickets and economy rates. 
-                      Mix premium players with value picks to maximize your team's potential.
+                      Balance your team wisely within the 100-point constraint! Don't use all your budget on star batsmen. 
+                      Lower-value bowlers (7-8 points) can score heavily through wickets and economy rates. 
+                      Mix high-value players with smart picks to maximize your team's potential.
                     </p>
                   </div>
                 </div>
@@ -286,7 +286,7 @@ export default function Home() {
                       <h4 className="font-bold text-blue-900 mb-2">Captain & Vice-Captain Multipliers:</h4>
                       <p className="text-blue-800 leading-relaxed">
                         Your <strong>Captain earns 2x points</strong> and your <strong>Vice-Captain earns 1.5x points</strong>. 
-                        Choose wisely! Selecting the right captain can be the difference between winning and losing a contest.
+                        Choose wisely! Selecting the right captain can significantly impact your final score and leaderboard ranking.
                       </p>
                     </div>
                   </div>
@@ -347,7 +347,7 @@ export default function Home() {
               <p className="text-lg text-slate-600 leading-relaxed">
                 RIVOAURA isn't just about picking your favorite players—it's about making <strong>informed, strategic decisions</strong>. 
                 We provide you with comprehensive player statistics, recent form analysis, and head-to-head matchup data 
-                to help you build winning teams.
+                to help you build high-scoring teams and improve your cricket knowledge.
               </p>
 
               <div className="space-y-4">
@@ -427,14 +427,14 @@ export default function Home() {
 
               <p className="text-lg text-slate-600 leading-relaxed">
                 Join thousands of cricket fans competing in free contests across every major cricket match. 
-                Earn points, climb rankings, and establish yourself as a fantasy cricket champion—all without spending money.
+                Score points based on real player performance, climb rankings, and establish yourself as a fantasy cricket champion—all without spending money.
               </p>
 
               <div className="space-y-4">
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-2 border-amber-300 rounded-xl p-6">
                   <h3 className="font-bold text-amber-900 text-xl mb-4 flex items-center gap-2">
                     <Trophy className="w-6 h-6 text-amber-600" />
-                    What You Win at RIVOAURA
+                    What You Achieve at RIVOAURA
                   </h3>
                   
                   <div className="space-y-3">

@@ -101,7 +101,7 @@ export default function Community() {
             </div>
             <h1 className="text-5xl md:text-6xl font-black tracking-tight">The Dugout</h1>
             <p className="text-xl text-purple-200 max-w-2xl mx-auto leading-relaxed">
-              Join the conversation. Share your winning strategies, discuss match predictions, 
+              Join the conversation. Share your successful strategies, discuss match predictions, 
               and connect with India's most passionate fantasy cricket community.
             </p>
           </div>
@@ -229,7 +229,7 @@ export default function Community() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-orange-600 font-bold">✓</span>
-                    <span>Share winning strategies and lessons learned</span>
+                    <span>Share successful strategies and lessons learned</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600 font-bold">✗</span>

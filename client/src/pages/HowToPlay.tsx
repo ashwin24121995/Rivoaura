@@ -27,7 +27,7 @@ export default function HowToPlay() {
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
               Master the art of fantasy cricket with our comprehensive guide covering rules, scoring, 
-              strategies, and everything you need to build championship-winning teams.
+              strategies, and everything you need to build championship-high-scoring teams.
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function HowToPlay() {
               step: "2",
               title: "Build Your Squad",
               icon: <Users className="w-8 h-8 text-green-600" />,
-              desc: "Select 11 players within 100 credits following team composition rules.",
+              desc: "Select 11 players within a 100-point budget constraint following team composition rules.",
               color: "green"
             },
             {
@@ -130,7 +130,7 @@ export default function HowToPlay() {
                         <h4 className="font-bold text-slate-900 text-lg">Credit Budget</h4>
                       </div>
                       <p className="text-slate-700 text-sm">
-                        You have 100 credits to spend on your 11 players. Each player has a credit value based on their role and recent performance.
+                        You have a 100-point team budget for your 11 players. Each player has a point value based on their role and recent performance. This is a game mechanic, not a currency.
                       </p>
                     </div>
 
@@ -234,9 +234,9 @@ export default function HowToPlay() {
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-16">
             <Calculator className="w-16 h-16 text-purple-600 mx-auto mb-6" />
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Understanding the Credit System</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Understanding the Team Budget System</h2>
             <p className="text-lg text-slate-600">
-              Every player has a credit value that reflects their recent performance, role, and expected impact
+              Every player has a point value that reflects their recent performance, role, and expected impact. This is a game mechanic, not a currency.
             </p>
           </div>
 
@@ -244,24 +244,24 @@ export default function HowToPlay() {
             <Card className="border-2 border-purple-200 shadow-xl overflow-hidden">
               <div className="h-3 bg-gradient-to-r from-purple-500 to-purple-600"></div>
               <CardContent className="p-10 space-y-6">
-                <h3 className="text-3xl font-bold text-slate-900 mb-4">How Player Credits Work</h3>
+                <h3 className="text-3xl font-bold text-slate-900 mb-4">How Player Point Values Work</h3>
                 <p className="text-lg text-slate-700 leading-relaxed">
-                  Each player in the squad pool is assigned a credit value between <strong>7.0 and 11.0 credits</strong>. 
+                  Each player in the squad pool is assigned a point value between <strong>7.0 and 11.0 points</strong>. 
                   This value is determined by multiple factors including recent form, batting/bowling averages, strike rates, 
-                  and overall impact in similar match conditions.
+                  and overall impact in similar match conditions. This is purely a game constraint to teach strategic selection.
                 </p>
 
                 <div className="bg-purple-50 rounded-xl p-6 border border-purple-200">
                   <h4 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
                     <Info className="w-5 h-5 text-purple-600" />
-                    Credit Value Ranges
+                    Player Point Value Ranges
                   </h4>
                   <div className="space-y-3">
                     {[
-                      { range: "10.5 - 11.0 Credits", type: "Premium Players", desc: "Star performers, captains, match-winners (e.g., Virat Kohli, Jasprit Bumrah, Babar Azam)" },
-                      { range: "9.5 - 10.0 Credits", type: "Core Players", desc: "Consistent performers, key team members, reliable all-rounders" },
-                      { range: "8.5 - 9.0 Credits", type: "Value Picks", desc: "Form players, emerging talents, situational specialists" },
-                      { range: "7.0 - 8.0 Credits", type: "Budget Options", desc: "Lower-order batsmen, part-time bowlers, backup players" }
+                      { range: "10.5 - 11.0 Points", type: "Premium Players", desc: "Star performers, captains, match-winners (e.g., Virat Kohli, Jasprit Bumrah, Babar Azam)" },
+                      { range: "9.5 - 10.0 Points", type: "Core Players", desc: "Consistent performers, key team members, reliable all-rounders" },
+                      { range: "8.5 - 9.0 Points", type: "Value Picks", desc: "Form players, emerging talents, situational specialists" },
+                      { range: "7.0 - 8.0 Points", type: "Budget Options", desc: "Lower-order batsmen, part-time bowlers, backup players" }
                     ].map((item, i) => (
                       <div key={i} className="flex gap-4 bg-white rounded-lg p-4">
                         <div className="flex-shrink-0 w-32">
@@ -282,9 +282,9 @@ export default function HowToPlay() {
                     Strategic Tip: Balancing Your Budget
                   </h4>
                   <p className="text-slate-700 leading-relaxed">
-                    With only 100 credits for 11 players (average ~9.1 credits per player), you cannot afford all premium players. 
-                    Successful teams balance 2-3 premium stars with 4-5 mid-range performers and 3-4 budget picks who offer value. 
-                    Look for underpriced players in good form or favorable matchups.
+                    With only 100 points for 11 players (average ~9.1 points per player), you cannot select all premium players. 
+                    High-scoring teams balance 2-3 premium stars with 4-5 mid-range performers and 3-4 lower-value picks who offer strategic value. 
+                    Look for undervalued players in good form or favorable matchups.
                   </p>
                 </div>
               </CardContent>
