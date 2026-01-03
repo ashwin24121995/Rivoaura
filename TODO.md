@@ -524,3 +524,12 @@
 - [ ] Test locally and verify matches display
 - [ ] Commit and push to GitHub
 - [ ] Deploy fix to Railway
+
+
+## Database Schema Issue - Users Table Missing
+- [x] Check drizzle/schema.ts for users table definition
+- [x] Set DATABASE_URL environment variable locally
+- [x] Run `pnpm db:push` to create tables in Railway MySQL
+- [x] Verify tables are created in Railway MySQL (all 5 tables exist)
+- [x] Verified users table has all 16 columns including password field
+- [ ] Test registration on production site
