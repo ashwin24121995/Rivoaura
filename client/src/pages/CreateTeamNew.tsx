@@ -12,6 +12,7 @@ interface Player {
   team: string;
   points: number; // Point value (1-10)
   fantasyPlayerRating?: number;
+  img?: string; // Player photo URL
 }
 
 interface SelectedPlayer extends Player {
@@ -312,6 +313,30 @@ export default function CreateTeamNew() {
               <Card key={player.pid} className={`p-4 ${isSelected ? 'border-primary border-2' : ''}`}>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-4 flex-1">
+                    {/* Player Photo */}
+                    <div className="relative w-16 h-16 rounded-full overflow-hidden bg-slate-200 flex-shrink-0">
+                      {player.img ? (
+                        <img 
+                          src={player.img} 
+                          alt={player.name}
+                          className="w-full h-full object-cover"
+                          onError={(e) => {
+                            (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=random&size=128`;
+                          }}
+                        />
+                      ) : (
+                        <img 
+                          src={`https://ui-avatars.com/api/?name=${encodeURIComponent(player.name)}&background=random&size=128`}
+                          alt={player.name}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                      {/* Role badge on photo */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-black/70 text-white text-xs text-center py-0.5">
+                        {player.role}
+                      </div>
+                    </div>
+                    
                     <div className="flex-1">
                       <div className="flex items-center gap-2 mb-1">
                         <h3 className="font-semibold">{player.name}</h3>

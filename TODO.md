@@ -686,3 +686,11 @@
 - [ ] Fix any critical bugs
 - [ ] Final checkpoint before production deployment
 
+
+## Player Photos Enhancement
+
+- [x] Add player photos to CreateTeamNew page
+- [x] Update player card UI with images
+- [x] Add fallback images for players without photos
+- [ ] Test player photo display
+
