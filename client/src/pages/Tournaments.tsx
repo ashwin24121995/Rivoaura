@@ -21,7 +21,7 @@ export default function Tournaments() {
   const [matches, setMatches] = useState<Match[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [matchTypeFilter, setMatchTypeFilter] = useState<'all' | 't20' | 'odi' | 'test'>('all');
+  const [matchTypeFilter, setMatchTypeFilter] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [detailsOpen, setDetailsOpen] = useState(false);
@@ -297,7 +297,7 @@ export default function Tournaments() {
               <Filter className="w-4 h-4" />
               <span className="font-medium">Filter by Format:</span>
             </div>
-            <div className="flex gap-2">
+            <div className="flex gap-2 flex-wrap">
               <Button
                 variant={matchTypeFilter === 'all' ? 'default' : 'outline'}
                 size="sm"
@@ -306,30 +306,18 @@ export default function Tournaments() {
               >
                 All ({matches.length})
               </Button>
-              <Button
-                variant={matchTypeFilter === 't20' ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => setMatchTypeFilter('t20')}
-                className="text-xs"
-              >
-                T20 ({matches.filter(m => m.matchType.toLowerCase() === 't20').length})
-              </Button>
-              <Button
-                variant={matchTypeFilter === 'odi' ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => setMatchTypeFilter('odi')}
-                className="text-xs"
-              >
-                ODI ({matches.filter(m => m.matchType.toLowerCase() === 'odi').length})
-              </Button>
-              <Button
-                variant={matchTypeFilter === 'test' ? 'default' : 'outline'}
-                size="sm"
-                onClick={() => setMatchTypeFilter('test')}
-                className="text-xs"
-              >
-                Test ({matches.filter(m => m.matchType.toLowerCase() === 'test').length})
-              </Button>
+              {/* Dynamically generate filter buttons for all match types found in data */}
+              {Array.from(new Set(matches.map(m => m.matchType.toLowerCase()))).sort().map(type => (
+                <Button
+                  key={type}
+                  variant={matchTypeFilter === type ? 'default' : 'outline'}
+                  size="sm"
+                  onClick={() => setMatchTypeFilter(type)}
+                  className="text-xs uppercase"
+                >
+                  {type.toUpperCase()} ({matches.filter(m => m.matchType.toLowerCase() === type).length})
+                </Button>
+              ))}
             </div>
             <div className="flex items-center gap-2 ml-4 pl-4 border-l border-slate-300">
               <Button

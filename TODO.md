@@ -601,3 +601,12 @@
 - [x] Update Tournaments page to show real matches
 - [x] Test API integration with live data
 - [ ] Save checkpoint and push to GitHub
+
+## Fix Match Display and Login State
+
+- [x] Remove match type filter restrictions (show ALL formats, not just T20/ODI/Test)
+- [x] Update Tournaments page to display all match types from API
+- [x] Fix CTA buttons (Join Free/Log In) to change after user login
+- [x] Show user profile/logout when logged in
+- [x] Test match display with all formats
+- [x] Test login state changes
