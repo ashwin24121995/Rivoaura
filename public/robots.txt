@@ -1,0 +1,26 @@
+# robots.txt for RIVOAURA Fantasy Cricket Platform
+# Allow all search engines to crawl the site
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rivoauralive.com/sitemap.xml
+
+# Disallow admin and API routes (if any)
+Disallow: /api/
+Disallow: /admin/
+
+# Allow important pages
+Allow: /
+Allow: /tournaments
+Allow: /how-to-play
+Allow: /about
+Allow: /why-free
+Allow: /blog
+Allow: /faq
+Allow: /terms
+Allow: /privacy
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1
