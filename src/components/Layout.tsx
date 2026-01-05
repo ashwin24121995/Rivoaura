@@ -57,7 +57,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition-opacity"></div>
                 <img 
-                  src="/images/logo-rivoaura.png" 
+                  src="/logo-rivoaura.png" 
                   alt="RIVOAURA" 
                   className="relative h-12 w-12 object-contain"
                 />
@@ -230,7 +230,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-3 mb-6">
-                <img src="/images/logo-rivoaura.png" alt="RIVOAURA" className="h-12 w-12" />
+                <img src="/logo-rivoaura.png" alt="RIVOAURA" className="h-12 w-12" />
                 <div>
                   <div className="font-bold text-xl text-white">RIVOAURA</div>
                   <div className="text-xs text-yellow-400 font-semibold">FANTASY CRICKET EXCELLENCE</div>
