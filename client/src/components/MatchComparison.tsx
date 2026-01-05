@@ -75,7 +75,7 @@ export default function MatchComparison({ matches, open, onOpenChange }: MatchCo
                         <div className="flex items-center gap-4 flex-1">
                           <div className="flex items-center gap-2">
                             <img 
-                              src={match.teamInfo[0]?.img || '/images/logo-rivoaura.png'} 
+                              src={match.teamInfo[0]?.img || '/logo-rivoaura.png'} 
                               alt={match.teamInfo[0]?.name}
                               className="w-10 h-10 rounded-full"
                             />
@@ -84,7 +84,7 @@ export default function MatchComparison({ matches, open, onOpenChange }: MatchCo
                           <span className="text-slate-500">vs</span>
                           <div className="flex items-center gap-2">
                             <img 
-                              src={match.teamInfo[1]?.img || '/images/logo-rivoaura.png'} 
+                              src={match.teamInfo[1]?.img || '/logo-rivoaura.png'} 
                               alt={match.teamInfo[1]?.name}
                               className="w-10 h-10 rounded-full"
                             />
@@ -183,7 +183,7 @@ function ComparisonCard({ match }: { match: Match }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img 
-                src={match.teamInfo[0]?.img || '/images/logo-rivoaura.png'} 
+                src={match.teamInfo[0]?.img || '/logo-rivoaura.png'} 
                 alt={match.teamInfo[0]?.name}
                 className="w-12 h-12 rounded-full border-2 border-slate-200"
               />
@@ -201,7 +201,7 @@ function ComparisonCard({ match }: { match: Match }) {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3">
               <img 
-                src={match.teamInfo[1]?.img || '/images/logo-rivoaura.png'} 
+                src={match.teamInfo[1]?.img || '/logo-rivoaura.png'} 
                 alt={match.teamInfo[1]?.name}
                 className="w-12 h-12 rounded-full border-2 border-slate-200"
               />
