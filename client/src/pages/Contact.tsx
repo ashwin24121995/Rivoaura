@@ -60,7 +60,7 @@ export default function Contact() {
                     For account issues, technical problems, contest questions, or general inquiries.
                   </p>
                   <div className="bg-white rounded-lg p-4 border border-blue-200">
-                    <p className="text-slate-900 font-bold">📧 support@rivoaura.com</p>
+                    <p className="text-slate-900 font-bold">📧 support@dayhaat.com</p>
                     <p className="text-slate-600 text-xs mt-1">Response Time: 24-48 hours</p>
                   </div>
                   <div className="mt-4">
@@ -85,7 +85,7 @@ export default function Contact() {
                     Report suspected cheating, multiple accounts, collusion, or security vulnerabilities.
                   </p>
                   <div className="bg-white rounded-lg p-4 border border-red-200">
-                    <p className="text-slate-900 font-bold">📧 fairplay@rivoaura.com</p>
+                    <p className="text-slate-900 font-bold">📧 fairplay@dayhaat.com</p>
                     <p className="text-slate-600 text-xs mt-1">Response Time: 48-72 hours (investigations take time)</p>
                   </div>
                   <div className="mt-4">
@@ -110,7 +110,7 @@ export default function Contact() {
                     Data access requests, privacy concerns, GDPR/data protection inquiries, or account deletion.
                   </p>
                   <div className="bg-white rounded-lg p-4 border border-purple-200">
-                    <p className="text-slate-900 font-bold">📧 privacy@rivoaura.com</p>
+                    <p className="text-slate-900 font-bold">📧 privacy@dayhaat.com</p>
                     <p className="text-slate-600 text-xs mt-1">Response Time: 30 days (as required by law)</p>
                   </div>
                   <div className="mt-4">
@@ -135,7 +135,7 @@ export default function Contact() {
                     Self-exclusion requests, gaming habit concerns, or responsible gaming support.
                   </p>
                   <div className="bg-white rounded-lg p-4 border border-green-200">
-                    <p className="text-slate-900 font-bold">📧 wellness@rivoaura.com</p>
+                    <p className="text-slate-900 font-bold">📧 wellness@dayhaat.com</p>
                     <p className="text-slate-600 text-xs mt-1">Response Time: 24 hours (priority support)</p>
                   </div>
                   <div className="mt-4">
@@ -160,7 +160,7 @@ export default function Contact() {
                     Media inquiries, partnership opportunities, sponsorship requests, or business development.
                   </p>
                   <div className="bg-white rounded-lg p-4 border border-orange-200">
-                    <p className="text-slate-900 font-bold">📧 business@rivoaura.com</p>
+                    <p className="text-slate-900 font-bold">📧 business@dayhaat.com</p>
                     <p className="text-slate-600 text-xs mt-1">Response Time: 5-7 business days</p>
                   </div>
                   <div className="mt-4">
@@ -185,7 +185,7 @@ export default function Contact() {
                     Report security bugs, vulnerabilities, or exploits (responsible disclosure).
                   </p>
                   <div className="bg-white rounded-lg p-4 border border-yellow-200">
-                    <p className="text-slate-900 font-bold">📧 security@rivoaura.com</p>
+                    <p className="text-slate-900 font-bold">📧 security@dayhaat.com</p>
                     <p className="text-slate-600 text-xs mt-1">Response Time: 24-48 hours (high priority)</p>
                   </div>
                   <div className="mt-4">
@@ -215,10 +215,10 @@ export default function Contact() {
                     <h3 className="font-bold text-slate-900">Registered Address</h3>
                   </div>
                   <p className="text-slate-700 text-sm leading-relaxed">
-                    <strong>RIVOAURA PRIVATE LIMITED</strong><br />
-                    A-96 SHANKER GARDEN, VIKASPURI<br />
-                    NEW DELHI, West Delhi<br />
-                    Delhi, India - 110018
+                    <strong>DAYHAAT SERVICES PRIVATE LIMITED</strong><br />
+                    C/O SUPRATIK INFRAVENTURE<br />
+                    BLOCK NO-A-06, KURDA, BALASORE<br />
+                    Baleshwar, Orissa, India - 756001
                   </p>
                 </div>
 
@@ -285,7 +285,7 @@ export default function Contact() {
                 <div className="bg-white rounded-lg p-5 border border-blue-200">
                   <h3 className="font-bold text-slate-900 mb-3">🔍 About Us Page</h3>
                   <p className="text-slate-700 text-sm leading-relaxed">
-                    Learn about RIVOAURA's mission, legal status, business model, and educational approach on our About page.
+                    Learn about DAYHAAT's mission, legal status, business model, and educational approach on our About page.
                   </p>
                 </div>
               </div>
@@ -323,8 +323,8 @@ export default function Contact() {
               <div className="bg-orange-50 rounded-xl p-6 border border-orange-200 mt-6">
                 <h3 className="font-bold text-slate-900 mb-3">⚠️ Important Security Reminder:</h3>
                 <p className="text-slate-700 text-sm leading-relaxed">
-                  RIVOAURA staff will NEVER ask for your password via email. If someone claiming to be from RIVOAURA requests 
-                  your password, it's a scam. Report it immediately to security@rivoaura.com.
+                  DAYHAAT staff will NEVER ask for your password via email. If someone claiming to be from DAYHAAT requests 
+                  your password, it's a scam. Report it immediately to security@dayhaat.com.
                 </p>
               </div>
             </CardContent>
@@ -384,7 +384,7 @@ export default function Contact() {
               </p>
               <div className="pt-4">
                 <Badge className="bg-blue-600 text-white px-6 py-3 text-base">
-                  📧 support@rivoaura.com
+                  📧 support@dayhaat.com
                 </Badge>
               </div>
             </CardContent>

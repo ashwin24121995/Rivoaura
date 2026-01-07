@@ -661,7 +661,7 @@ export default function HowToPlay() {
             <HelpCircle className="w-16 h-16 text-blue-600 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
             <p className="text-lg text-slate-600">
-              Quick answers to common questions about playing fantasy cricket on RIVOAURA
+              Quick answers to common questions about playing fantasy cricket on DAYHAAT
             </p>
           </div>
 

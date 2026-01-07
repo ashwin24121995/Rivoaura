@@ -13,7 +13,7 @@ export default function Privacy() {
             <h1 className="text-5xl md:text-6xl font-black">Privacy Policy</h1>
             <p className="text-xl text-blue-200 max-w-3xl mx-auto leading-relaxed">
               Your privacy is our priority. Learn how we collect, use, protect, and share your personal information 
-              when you use RIVOAURA.
+              when you use DAYHAAT.
             </p>
             <Badge className="bg-blue-500 text-white px-4 py-2 text-sm">
               Last Updated: December 23, 2025
@@ -28,12 +28,12 @@ export default function Privacy() {
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Commitment to Your Privacy</h2>
             <p className="text-slate-700 leading-relaxed mb-4">
-              RIVOAURA PRIVATE LIMITED is committed to protecting your personal information and your 
+              DAYHAAT PRIVATE LIMITED is committed to protecting your personal information and your 
               right to privacy. This Privacy Policy explains what information we collect, how we use it, how we protect it, 
               and your rights regarding your data.
             </p>
             <p className="text-slate-700 leading-relaxed">
-              By using RIVOAURA, you agree to the collection and use of information in accordance with this Privacy Policy. 
+              By using DAYHAAT, you agree to the collection and use of information in accordance with this Privacy Policy. 
               If you do not agree with our policies and practices, please do not use our platform.
             </p>
           </CardContent>
@@ -88,7 +88,7 @@ export default function Privacy() {
                   Information Collected Automatically
                 </h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  When you access and use RIVOAURA, we automatically collect certain technical information:
+                  When you access and use DAYHAAT, we automatically collect certain technical information:
                 </p>
                 <ul className="space-y-2 text-slate-700 text-sm">
                   <li className="flex items-start gap-2">
@@ -200,7 +200,7 @@ export default function Privacy() {
 
               <div className="bg-slate-100 rounded-xl p-6 border border-slate-300 mt-6">
                 <p className="text-slate-700 text-sm leading-relaxed">
-                  To exercise any of these rights, contact our Data Protection Officer at <strong>privacy@rivoaura.com</strong>. 
+                  To exercise any of these rights, contact our Data Protection Officer at <strong>privacy@dayhaat.com</strong>. 
                   We will respond within 30 days.
                 </p>
               </div>
@@ -215,9 +215,9 @@ export default function Privacy() {
                 If you have questions or requests regarding this Privacy Policy, please contact our Data Protection Officer:
               </p>
               <div className="space-y-2 text-slate-700">
-                <p><strong>Data Protection Officer:</strong> privacy@rivoaura.com</p>
-                <p><strong>Support:</strong> support@rivoaura.com</p>
-                <p><strong>Address:</strong> RIVOAURA PRIVATE LIMITED, Bangalore, Karnataka, India</p>
+                <p><strong>Data Protection Officer:</strong> privacy@dayhaat.com</p>
+                <p><strong>Support:</strong> support@dayhaat.com</p>
+                <p><strong>Address:</strong> DAYHAAT PRIVATE LIMITED, Bangalore, Karnataka, India</p>
               </div>
             </CardContent>
           </Card>

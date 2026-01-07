@@ -108,7 +108,7 @@ export default function Register() {
               avatar: result.user.username?.substring(0, 2).toUpperCase() || 'U',
             });
 
-            toast.success("Registration successful! Welcome to RIVOAURA!");
+            toast.success("Registration successful! Welcome to DAYHAAT!");
 
             // Redirect to tournaments page
             setLocation("/tournaments");

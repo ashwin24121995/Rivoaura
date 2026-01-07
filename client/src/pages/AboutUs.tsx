@@ -20,7 +20,7 @@ export default function AboutUs() {
               🏏 Built for Cricket Lovers, By Cricket Lovers
             </Badge>
             <h1 className="text-5xl md:text-7xl font-black tracking-tight">
-              About <span className="bg-gradient-to-r from-secondary via-green-400 to-blue-400 bg-clip-text text-transparent">RIVOAURA</span>
+              About <span className="bg-gradient-to-r from-secondary via-green-400 to-blue-400 bg-clip-text text-transparent">DAYHAAT</span>
             </h1>
             <p className="text-xl md:text-2xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
               India's most transparent free-to-play fantasy cricket platform, dedicated to education, 
@@ -41,7 +41,7 @@ export default function AboutUs() {
           <div className="space-y-8">
             <div className="prose prose-lg max-w-none text-slate-700 leading-relaxed space-y-6">
               <p className="text-xl text-slate-800 font-medium">
-                <strong className="text-secondary">RIVOAURA</strong> is not just another fantasy cricket platform—we are a movement 
+                <strong className="text-secondary">DAYHAAT</strong> is not just another fantasy cricket platform—we are a movement 
                 to democratize fantasy sports education in India. We believe that fantasy cricket is more than entertainment; 
                 it is a powerful tool for learning cricket strategy, understanding player analytics, and developing critical thinking skills.
               </p>
@@ -105,7 +105,7 @@ export default function AboutUs() {
                     <h3 className="text-2xl font-bold text-slate-900">Legal Entity</h3>
                   </div>
                   <p className="text-slate-700 leading-relaxed">
-                    RIVOAURA is owned and operated by <strong className="text-slate-900">RIVOAURA PRIVATE LIMITED</strong>, 
+                    DAYHAAT is owned and operated by <strong className="text-slate-900">DAYHAAT PRIVATE LIMITED</strong>, 
                     a legally registered Indian private limited company incorporated under the Companies Act, 2013.
                   </p>
                   <div className="pt-4 border-t border-slate-200">
@@ -342,7 +342,7 @@ export default function AboutUs() {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">What We Focus On</h2>
               <p className="text-lg text-slate-600">
-                Our platform is built around four core pillars that define the RIVOAURA experience
+                Our platform is built around four core pillars that define the DAYHAAT experience
               </p>
             </div>
 
@@ -487,7 +487,7 @@ export default function AboutUs() {
               <CardContent className="p-10 space-y-6">
                 <h3 className="text-3xl font-bold text-slate-900 mb-4">How Do We Make Money?</h3>
                 <p className="text-xl text-slate-700 font-medium">
-                  <strong className="text-blue-600">Short answer: We don't.</strong> RIVOAURA operates on a <strong>pre-funded model</strong>. 
+                  <strong className="text-blue-600">Short answer: We don't.</strong> DAYHAAT operates on a <strong>pre-funded model</strong>. 
                   We are backed by private investors who believe in the educational and social value of fantasy sports. These investors have 
                   provided capital to build and maintain the platform without expecting immediate financial returns.
                 </p>
@@ -620,7 +620,7 @@ export default function AboutUs() {
                   </div>
                   <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-6">
                     <p className="text-red-200 font-semibold text-lg mb-3">
-                      Only users who are 18 years of age or older are permitted to use RIVOAURA.
+                      Only users who are 18 years of age or older are permitted to use DAYHAAT.
                     </p>
                     <p className="text-slate-300 leading-relaxed">
                       This is a strict legal requirement under Indian law. During registration, users must provide their date of birth, 
@@ -651,7 +651,7 @@ export default function AboutUs() {
                   </div>
                   <div className="bg-orange-500/10 border border-orange-500/30 rounded-lg p-6">
                     <p className="text-orange-200 font-semibold text-lg mb-4">
-                      RIVOAURA is NOT available to residents of the following Indian states:
+                      DAYHAAT is NOT available to residents of the following Indian states:
                     </p>
                     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                       {["Andhra Pradesh", "Assam", "Nagaland", "Odisha", "Sikkim", "Telangana"].map((state, i) => (
@@ -722,7 +722,7 @@ export default function AboutUs() {
                     <h3 className="text-3xl font-bold text-white">Zero Financial Risk</h3>
                   </div>
                   <p className="text-slate-300 leading-relaxed mb-6">
-                    We have deliberately designed our platform to eliminate all financial risk and pressure. There is <strong className="text-blue-400">no real money involved at any stage</strong> of the RIVOAURA experience. This is not a marketing claim—it is a fundamental design principle that shapes every aspect of our platform.
+                    We have deliberately designed our platform to eliminate all financial risk and pressure. There is <strong className="text-blue-400">no real money involved at any stage</strong> of the DAYHAAT experience. This is not a marketing claim—it is a fundamental design principle that shapes every aspect of our platform.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {[
@@ -771,7 +771,7 @@ export default function AboutUs() {
             <Calculator className="w-16 h-16 text-purple-600 mx-auto mb-6" />
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">How Our Platform Works</h2>
             <p className="text-lg text-slate-600">
-              A step-by-step visual guide to understanding the RIVOAURA fantasy cricket experience
+              A step-by-step visual guide to understanding the DAYHAAT fantasy cricket experience
             </p>
           </div>
 

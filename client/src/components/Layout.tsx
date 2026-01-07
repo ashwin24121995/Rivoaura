@@ -55,14 +55,14 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition-opacity"></div>
                 <img 
-                  src="/logo-rivoaura.png" 
-                  alt="RIVOAURA" 
+                  src="/logo-dayhaat.png" 
+                  alt="DAYHAAT" 
                   className="relative h-12 w-12 object-contain"
                 />
               </div>
               <div className="hidden sm:block">
                 <div className="font-bold text-xl bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">
-                  RIVOAURA
+                  DAYHAAT
                 </div>
                 <div className="text-[10px] text-slate-500 font-medium tracking-wider uppercase">
                   FANTASY CRICKET EXCELLENCE
@@ -228,9 +228,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-3 mb-6">
-                <img src="/logo-rivoaura.png" alt="RIVOAURA" className="h-12 w-12" />
+                <img src="/logo-dayhaat.png" alt="DAYHAAT" className="h-12 w-12" />
                 <div>
-                  <div className="font-bold text-xl text-white">RIVOAURA</div>
+                  <div className="font-bold text-xl text-white">DAYHAAT</div>
                   <div className="text-xs text-yellow-400 font-semibold">FANTASY CRICKET EXCELLENCE</div>
                 </div>
               </div>
@@ -339,8 +339,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   <Mail className="w-4 h-4 text-yellow-400 mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="text-slate-400 mb-1">Email Support</div>
-                    <a href="mailto:support@rivoauralive.com" className="text-white hover:text-yellow-400 transition-colors">
-                      support@rivoauralive.com
+                    <a href="mailto:support@dayhaatlive.com" className="text-white hover:text-yellow-400 transition-colors">
+                      support@dayhaatlive.com
                     </a>
                   </div>
                 </li>
@@ -356,9 +356,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {/* Trust Badges */}
               <div className="mt-6 pt-6 border-t border-slate-700">
                 <div className="flex items-center gap-3">
-                  <img src="/images/badge-18plus-rivoaura.png" alt="18+" className="h-10 w-10 object-contain" />
-                  <img src="/images/badge-fairplay-rivoaura.png" alt="Fair Play" className="h-10 w-10 object-contain" />
-                  <img src="/images/badge-nomoney-rivoaura.png" alt="No Real Money" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-18plus-dayhaat.png" alt="18+" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-fairplay-dayhaat.png" alt="Fair Play" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-nomoney-dayhaat.png" alt="No Real Money" className="h-10 w-10 object-contain" />
                 </div>
               </div>
             </div>
@@ -369,13 +369,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6">
               <div className="text-xs text-slate-400 max-w-3xl">
                 <p className="mb-3">
-                  &copy; {new Date().getFullYear()} <strong className="text-white">RIVOAURA PRIVATE LIMITED</strong>. All rights reserved.
+                  &copy; {new Date().getFullYear()} <strong className="text-white">DAYHAAT SERVICES PRIVATE LIMITED</strong>. All rights reserved.
                 </p>
                 <p className="mb-2 text-slate-500">
-                  Operating as <strong className="text-slate-300">RIVOAURA</strong> | CIN: <strong className="text-slate-300">U74999DL2016PTC306805</strong> | PAN: <strong className="text-slate-300">AAHCR9551P</strong>
+                  CIN: <strong className="text-slate-300">U74999OR2018PTC030004</strong> | PAN: <strong className="text-slate-300">AAGCD9822Q</strong> | TAN: <strong className="text-slate-300">BBND02812F</strong>
                 </p>
                 <p className="text-[10px] text-slate-500">
-                  Registered Office: A-96 SHANKER GARDEN, VIKASPURI, NEW DELHI, West Delhi, Delhi, India, 110018
+                  Registered Office: C/O SUPRATIK INFRAVENTURE BLOCK NO-A-06, KURDA, BALASORE, Baleshwar, Orissa, India, 756001
                 </p>
               </div>
               

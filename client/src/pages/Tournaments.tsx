@@ -537,7 +537,7 @@ function MatchCard({
           {/* Team 1 */}
           <div className="flex items-center gap-3 flex-1">
             <img 
-              src={team1.img || '/logo-rivoaura.png'} 
+              src={team1.img || '/logo-dayhaat.png'} 
               alt={team1.name}
               className="w-12 h-12 rounded-full border-2 border-slate-200 object-cover"
             />
@@ -585,7 +585,7 @@ function MatchCard({
               <p className="text-xs text-slate-500">{team2.name}</p>
             </div>
             <img 
-              src={team2.img || '/logo-rivoaura.png'} 
+              src={team2.img || '/logo-dayhaat.png'} 
               alt={team2.name}
               className="w-12 h-12 rounded-full border-2 border-slate-200 object-cover"
             />

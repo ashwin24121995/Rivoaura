@@ -12,7 +12,7 @@ export default function FairPlay() {
             <ShieldCheck className="w-16 h-16 text-green-300 mx-auto" />
             <h1 className="text-5xl md:text-6xl font-black">Fair Play Policy</h1>
             <p className="text-xl text-green-200 max-w-3xl mx-auto leading-relaxed">
-              RIVOAURA is committed to providing a fair, transparent, and ethical gaming environment. 
+              DAYHAAT is committed to providing a fair, transparent, and ethical gaming environment. 
               Learn about our rules, prohibited activities, and enforcement measures.
             </p>
             <Badge className="bg-green-500 text-white px-4 py-2 text-sm">
@@ -28,7 +28,7 @@ export default function FairPlay() {
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Commitment to Fair Play</h2>
             <p className="text-slate-700 leading-relaxed mb-4">
-              Fair play is the foundation of RIVOAURA. Every user deserves an equal opportunity to compete based on skill, 
+              Fair play is the foundation of DAYHAAT. Every user deserves an equal opportunity to compete based on skill, 
               knowledge, and strategy—not through cheating, exploitation, or unfair advantages. This Fair Play Policy outlines 
               the rules that all users must follow to maintain the integrity of our platform.
             </p>
@@ -52,7 +52,7 @@ export default function FairPlay() {
               </div>
 
               <p className="text-slate-700 leading-relaxed mb-6">
-                All users must adhere to these fundamental principles when participating in contests on RIVOAURA:
+                All users must adhere to these fundamental principles when participating in contests on DAYHAAT:
               </p>
 
               <div className="space-y-4">
@@ -89,7 +89,7 @@ export default function FairPlay() {
               </div>
 
               <p className="text-slate-700 leading-relaxed mb-6">
-                The following activities are strictly prohibited on RIVOAURA. Engaging in any of these behaviors will result 
+                The following activities are strictly prohibited on DAYHAAT. Engaging in any of these behaviors will result 
                 in immediate enforcement action:
               </p>
 
@@ -100,7 +100,7 @@ export default function FairPlay() {
                   Multiple Accounts (Multi-Accounting)
                 </h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Creating or operating more than one account on RIVOAURA is strictly forbidden. This includes:
+                  Creating or operating more than one account on DAYHAAT is strictly forbidden. This includes:
                 </p>
                 <ul className="space-y-2 text-slate-700 text-sm">
                   <li className="flex items-start gap-2">
@@ -162,7 +162,7 @@ export default function FairPlay() {
                   Bots, Scripts & Automation
                 </h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
-                  Using automated tools, bots, or scripts to interact with RIVOAURA is strictly prohibited:
+                  Using automated tools, bots, or scripts to interact with DAYHAAT is strictly prohibited:
                 </p>
                 <ul className="space-y-2 text-slate-700 text-sm">
                   <li className="flex items-start gap-2">
@@ -218,7 +218,7 @@ export default function FairPlay() {
                 <div className="bg-white rounded-lg p-4 border border-yellow-200 mt-4">
                   <p className="text-slate-700 text-sm leading-relaxed">
                     <strong>Responsible Disclosure:</strong> If you discover a bug or vulnerability, please report it immediately 
-                    to <strong>security@rivoaura.com</strong>. We appreciate responsible disclosure and may reward users who help 
+                    to <strong>security@dayhaat.com</strong>. We appreciate responsible disclosure and may reward users who help 
                     us identify security issues. Do NOT exploit bugs before reporting them.
                   </p>
                 </div>
@@ -240,7 +240,7 @@ export default function FairPlay() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600">✗</span>
-                    <span>Accessing RIVOAURA staff accounts or internal data to predict contest outcomes</span>
+                    <span>Accessing DAYHAAT staff accounts or internal data to predict contest outcomes</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-blue-600">✗</span>
@@ -262,7 +262,7 @@ export default function FairPlay() {
               </div>
 
               <p className="text-slate-700 leading-relaxed mb-6">
-                RIVOAURA employs a multi-layered approach to detect and prevent unfair play:
+                DAYHAAT employs a multi-layered approach to detect and prevent unfair play:
               </p>
 
               <div className="space-y-6">
@@ -356,7 +356,7 @@ export default function FairPlay() {
                 <ol className="space-y-3 text-slate-700 text-sm">
                   <li className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold">1</span>
-                    <span>Email <strong>fairplay@rivoaura.com</strong> within 7 days of receiving your suspension/ban notice</span>
+                    <span>Email <strong>fairplay@dayhaat.com</strong> within 7 days of receiving your suspension/ban notice</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold">2</span>
@@ -392,9 +392,9 @@ export default function FairPlay() {
                 All reports are confidential and investigated thoroughly.
               </p>
               <div className="space-y-2 text-slate-700">
-                <p><strong>Fair Play Team:</strong> fairplay@rivoaura.com</p>
-                <p><strong>Security Issues:</strong> security@rivoaura.com</p>
-                <p><strong>General Support:</strong> support@rivoaura.com</p>
+                <p><strong>Fair Play Team:</strong> fairplay@dayhaat.com</p>
+                <p><strong>Security Issues:</strong> security@dayhaat.com</p>
+                <p><strong>General Support:</strong> support@dayhaat.com</p>
               </div>
             </CardContent>
           </Card>

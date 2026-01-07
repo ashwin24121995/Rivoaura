@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const NOTIFICATIONS_KEY = 'rivoaura_match_notifications';
+const NOTIFICATIONS_KEY = 'dayhaat_match_notifications';
 
 interface MatchNotification {
   matchId: string;
@@ -46,7 +46,7 @@ export function useNotifications() {
           if (Notification.permission === 'granted') {
             new Notification('Match Starting Soon!', {
               body: `${notification.matchName} starts in 30 minutes`,
-              icon: '/images/logo-rivoaura.png',
+              icon: '/images/logo-dayhaat.png',
               tag: notification.matchId,
             });
           }

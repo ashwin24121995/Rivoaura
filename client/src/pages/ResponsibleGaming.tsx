@@ -28,7 +28,7 @@ export default function ResponsibleGaming() {
           <CardContent className="p-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-4">Our Commitment to Your Well-Being</h2>
             <p className="text-slate-700 leading-relaxed mb-4">
-              RIVOAURA is 100% free to play with no real money involved, which eliminates financial risk. However, we recognize 
+              DAYHAAT is 100% free to play with no real money involved, which eliminates financial risk. However, we recognize 
               that even skill-based games can become unhealthy if played excessively or compulsively. Responsible gaming means 
               enjoying fantasy cricket as a fun, educational hobby without letting it interfere with your daily life, 
               relationships, or mental health.
@@ -99,7 +99,7 @@ export default function ResponsibleGaming() {
                     Set Time Limits & Stick to Them
                   </h3>
                   <p className="text-slate-700 leading-relaxed mb-4">
-                    Decide in advance how much time you'll spend on RIVOAURA each day or week:
+                    Decide in advance how much time you'll spend on DAYHAAT each day or week:
                   </p>
                   <ul className="space-y-2 text-slate-700 text-sm">
                     <li className="flex items-start gap-2">
@@ -209,7 +209,7 @@ export default function ResponsibleGaming() {
               </div>
 
               <p className="text-slate-700 leading-relaxed mb-6">
-                Even though RIVOAURA is free to play, excessive or compulsive gaming can still negatively impact your life. 
+                Even though DAYHAAT is free to play, excessive or compulsive gaming can still negatively impact your life. 
                 Watch for these warning signs:
               </p>
 
@@ -217,7 +217,7 @@ export default function ResponsibleGaming() {
                 <h3 className="font-bold text-slate-900 text-lg mb-4">Behavioral Warning Signs:</h3>
                 <div className="space-y-3 text-slate-700 text-sm">
                   {[
-                    "Spending multiple hours per day on RIVOAURA, neglecting work, studies, or personal responsibilities",
+                    "Spending multiple hours per day on DAYHAAT, neglecting work, studies, or personal responsibilities",
                     "Feeling anxious, irritable, or restless when you can't access the platform",
                     "Lying to family or friends about how much time you spend on fantasy cricket",
                     "Losing interest in hobbies, social activities, or relationships due to gaming",
@@ -264,7 +264,7 @@ export default function ResponsibleGaming() {
 
               <div className="space-y-4">
                 {[
-                  "Do you spend more than 2 hours per day on RIVOAURA (excluding watching actual cricket matches)?",
+                  "Do you spend more than 2 hours per day on DAYHAAT (excluding watching actual cricket matches)?",
                   "Have you missed work, classes, or important events because of fantasy cricket?",
                   "Do you feel anxious or upset when you can't check your teams or leaderboard?",
                   "Have family or friends expressed concern about your gaming habits?",
@@ -315,18 +315,18 @@ export default function ResponsibleGaming() {
               </div>
 
               <p className="text-slate-700 leading-relaxed mb-6">
-                RIVOAURA provides tools to help you maintain healthy gaming habits, and we can connect you with professional 
+                DAYHAAT provides tools to help you maintain healthy gaming habits, and we can connect you with professional 
                 support if needed.
               </p>
 
               <div className="space-y-6">
                 {/* Platform Tools */}
                 <div className="bg-blue-50 rounded-xl p-6 border-2 border-blue-200">
-                  <h3 className="font-bold text-slate-900 text-lg mb-4">RIVOAURA Platform Tools:</h3>
+                  <h3 className="font-bold text-slate-900 text-lg mb-4">DAYHAAT Platform Tools:</h3>
                   <ul className="space-y-3 text-slate-700 text-sm">
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
-                      <span><strong>Self-Exclusion:</strong> Temporarily suspend your account for 7, 30, or 90 days to take a break. Contact support@rivoaura.com to request self-exclusion.</span>
+                      <span><strong>Self-Exclusion:</strong> Temporarily suspend your account for 7, 30, or 90 days to take a break. Contact support@dayhaat.com to request self-exclusion.</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-blue-600 flex-shrink-0 mt-0.5" />
@@ -365,16 +365,16 @@ export default function ResponsibleGaming() {
                   </div>
                 </div>
 
-                {/* Contact RIVOAURA */}
+                {/* Contact DAYHAAT */}
                 <div className="bg-purple-50 rounded-xl p-6 border-2 border-purple-200">
-                  <h3 className="font-bold text-slate-900 text-lg mb-4">Contact RIVOAURA Support:</h3>
+                  <h3 className="font-bold text-slate-900 text-lg mb-4">Contact DAYHAAT Support:</h3>
                   <p className="text-slate-700 text-sm leading-relaxed mb-3">
                     If you need help managing your account, setting limits, or have concerns about your gaming habits, 
                     our support team is here to assist:
                   </p>
                   <div className="space-y-2 text-slate-700 text-sm">
-                    <p><strong>Email:</strong> support@rivoaura.com</p>
-                    <p><strong>Responsible Gaming Inquiries:</strong> wellness@rivoaura.com</p>
+                    <p><strong>Email:</strong> support@dayhaat.com</p>
+                    <p><strong>Responsible Gaming Inquiries:</strong> wellness@dayhaat.com</p>
                   </div>
                 </div>
               </div>
@@ -387,7 +387,7 @@ export default function ResponsibleGaming() {
               <h2 className="text-3xl font-bold text-slate-900 mb-4">6. For Parents & Guardians</h2>
               
               <p className="text-slate-700 leading-relaxed mb-6">
-                While RIVOAURA is strictly 18+ only, we encourage parents to discuss responsible gaming with young adults 
+                While DAYHAAT is strictly 18+ only, we encourage parents to discuss responsible gaming with young adults 
                 in their households:
               </p>
 
@@ -427,9 +427,9 @@ export default function ResponsibleGaming() {
                 we're here to listen and support you.
               </p>
               <div className="space-y-2 text-slate-700">
-                <p><strong>Wellness Team:</strong> wellness@rivoaura.com</p>
-                <p><strong>General Support:</strong> support@rivoaura.com</p>
-                <p><strong>Self-Exclusion Requests:</strong> support@rivoaura.com</p>
+                <p><strong>Wellness Team:</strong> wellness@dayhaat.com</p>
+                <p><strong>General Support:</strong> support@dayhaat.com</p>
+                <p><strong>Self-Exclusion Requests:</strong> support@dayhaat.com</p>
               </div>
             </CardContent>
           </Card>

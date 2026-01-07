@@ -13,7 +13,7 @@ export default function Terms() {
             <Scale className="w-16 h-16 text-blue-400 mx-auto" />
             <h1 className="text-5xl md:text-6xl font-black">Terms & Conditions</h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-              Please read these terms carefully before using RIVOAURA. By accessing our platform, 
+              Please read these terms carefully before using DAYHAAT. By accessing our platform, 
               you agree to be legally bound by these terms.
             </p>
             <Badge className="bg-blue-500 text-white px-4 py-2 text-sm">
@@ -33,13 +33,13 @@ export default function Terms() {
                 <h3 className="text-xl font-bold text-slate-900 mb-3">Important Legal Notice</h3>
                 <p className="text-slate-700 leading-relaxed mb-4">
                   These Terms and Conditions constitute a legally binding agreement between you (the "User") and 
-                  <strong> RIVOAURA PRIVATE LIMITED</strong> (the "Company"). By creating an account, accessing our website, 
+                  <strong> DAYHAAT PRIVATE LIMITED</strong> (the "Company"). By creating an account, accessing our website, 
                   or participating in any contests, you acknowledge that you have read, understood, and agree to be bound by 
                   these terms in their entirety.
                 </p>
                 <p className="text-slate-700 leading-relaxed">
                   If you do not agree with any part of these terms, you must immediately discontinue use of our platform. 
-                  Continued use of RIVOAURA constitutes acceptance of these terms and any future modifications.
+                  Continued use of DAYHAAT constitutes acceptance of these terms and any future modifications.
                 </p>
               </div>
             </div>
@@ -64,7 +64,7 @@ export default function Terms() {
 
               <div className="space-y-4">
                 {[
-                  { term: "Platform", def: "Refers to the RIVOAURA website (rivoauralive.com), mobile applications, and all associated services provided by RIVOAURA PRIVATE LIMITED." },
+                  { term: "Platform", def: "Refers to the DAYHAAT website (dayhaatlive.com), mobile applications, and all associated services provided by DAYHAAT PRIVATE LIMITED." },
                   { term: "User/You", def: "Any individual who accesses, browses, registers, or participates in contests on the Platform." },
                   { term: "Contest", def: "Any fantasy cricket competition hosted on the Platform where Users create virtual teams and compete based on real-world cricket match performances." },
                   { term: "Game of Skill", def: "A game where success depends predominantly on the knowledge, training, attention, experience, and adroitness of the player, rather than chance or luck." },
@@ -91,7 +91,7 @@ export default function Terms() {
               </div>
 
               <p className="text-slate-700 leading-relaxed mb-6">
-                To use RIVOAURA and participate in contests, you must meet ALL of the following eligibility criteria. 
+                To use DAYHAAT and participate in contests, you must meet ALL of the following eligibility criteria. 
                 Failure to meet any requirement will result in immediate account termination and forfeiture of any winnings.
               </p>
 
@@ -121,7 +121,7 @@ export default function Terms() {
                     Residency Requirement (India Only)
                   </h3>
                   <p className="text-slate-700 leading-relaxed mb-3">
-                    You must be a <strong>legal resident of India</strong>. RIVOAURA is only available to individuals physically 
+                    You must be a <strong>legal resident of India</strong>. DAYHAAT is only available to individuals physically 
                     located within the territory of India at the time of contest participation. Use of VPNs, proxies, or other 
                     location-masking technologies to circumvent this restriction is strictly prohibited.
                   </p>
@@ -139,7 +139,7 @@ export default function Terms() {
                   </h3>
                   <p className="text-slate-700 leading-relaxed mb-4">
                     Residents of the following Indian states are <strong>strictly prohibited</strong> from participating in 
-                    any contests on RIVOAURA due to state-specific gambling and gaming laws:
+                    any contests on DAYHAAT due to state-specific gambling and gaming laws:
                   </p>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-4">
                     {["Andhra Pradesh", "Assam", "Nagaland", "Odisha", "Sikkim", "Telangana"].map((state, i) => (
@@ -176,7 +176,7 @@ export default function Terms() {
                     Single Account Policy (One User, One Account)
                   </h3>
                   <p className="text-slate-700 leading-relaxed mb-3">
-                    Each individual user is permitted to create and maintain <strong>only ONE account</strong> on RIVOAURA. 
+                    Each individual user is permitted to create and maintain <strong>only ONE account</strong> on DAYHAAT. 
                     Creating multiple accounts (also known as "multi-accounting") is strictly prohibited and constitutes a 
                     violation of our Fair Play Policy.
                   </p>
@@ -196,7 +196,7 @@ export default function Terms() {
               <h2 className="text-3xl font-bold text-slate-900 mb-4">3. Game of Skill Declaration</h2>
               
               <p className="text-slate-700 leading-relaxed mb-6">
-                RIVOAURA is a platform exclusively for <strong>"Games of Skill"</strong> as defined under Indian law. 
+                DAYHAAT is a platform exclusively for <strong>"Games of Skill"</strong> as defined under Indian law. 
                 This section explains the legal basis for our operations and your acknowledgment of the skill-based nature 
                 of fantasy cricket.
               </p>
@@ -238,7 +238,7 @@ export default function Terms() {
               <div className="bg-blue-50 rounded-xl p-6 border border-blue-200 mt-6">
                 <h3 className="font-bold text-slate-900 mb-3">Your Acknowledgment</h3>
                 <p className="text-slate-700 leading-relaxed">
-                  By participating in contests on RIVOAURA, you explicitly acknowledge and agree that:
+                  By participating in contests on DAYHAAT, you explicitly acknowledge and agree that:
                 </p>
                 <ul className="mt-3 space-y-2 text-slate-700 text-sm">
                   <li className="flex items-start gap-2">
@@ -251,7 +251,7 @@ export default function Terms() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle2 className="w-4 h-4 text-green-600 flex-shrink-0 mt-0.5" />
-                    <span>You will not claim that RIVOAURA operates games of chance or violates any gambling laws.</span>
+                    <span>You will not claim that DAYHAAT operates games of chance or violates any gambling laws.</span>
                   </li>
                 </ul>
               </div>
@@ -264,7 +264,7 @@ export default function Terms() {
               <h2 className="text-3xl font-bold text-slate-900 mb-4">4. User Accounts & Responsibilities</h2>
               
               <p className="text-slate-700 leading-relaxed mb-6">
-                To access certain features of RIVOAURA, you must register for an account. This section outlines your 
+                To access certain features of DAYHAAT, you must register for an account. This section outlines your 
                 responsibilities regarding account creation, maintenance, and security.
               </p>
 
@@ -316,7 +316,7 @@ export default function Terms() {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
-                      <span>Never share your password with anyone, including RIVOAURA staff (we will never ask for your password)</span>
+                      <span>Never share your password with anyone, including DAYHAAT staff (we will never ask for your password)</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-orange-600 flex-shrink-0 mt-0.5" />
@@ -329,7 +329,7 @@ export default function Terms() {
                   </ul>
                   <p className="text-slate-700 leading-relaxed mt-3 text-sm">
                     <strong>Liability:</strong> You are solely responsible for all activities that occur under your account, 
-                    whether or not authorized by you. RIVOAURA is not liable for any loss or damage arising from unauthorized 
+                    whether or not authorized by you. DAYHAAT is not liable for any loss or damage arising from unauthorized 
                     account access due to your failure to maintain security.
                   </p>
                 </div>
@@ -337,7 +337,7 @@ export default function Terms() {
                 <div className="bg-red-50 rounded-xl p-6 border border-red-200">
                   <h3 className="font-bold text-slate-900 text-lg mb-3">Account Termination</h3>
                   <p className="text-slate-700 leading-relaxed mb-3">
-                    RIVOAURA reserves the right to suspend or terminate your account at any time, with or without notice, for any reason, including but not limited to:
+                    DAYHAAT reserves the right to suspend or terminate your account at any time, with or without notice, for any reason, including but not limited to:
                   </p>
                   <ul className="space-y-2 text-slate-700 text-sm">
                     <li className="flex items-start gap-2">
@@ -358,7 +358,7 @@ export default function Terms() {
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-red-600">✗</span>
-                      <span>Abusive behavior toward other users or RIVOAURA staff</span>
+                      <span>Abusive behavior toward other users or DAYHAAT staff</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="text-red-600">✗</span>
@@ -376,7 +376,7 @@ export default function Terms() {
               <h2 className="text-3xl font-bold text-slate-900 mb-4">5. Intellectual Property Rights</h2>
               
               <p className="text-slate-700 leading-relaxed mb-6">
-                All content, features, and functionality on the RIVOAURA platform are owned by RIVOAURA PRIVATE LIMITED, 
+                All content, features, and functionality on the DAYHAAT platform are owned by DAYHAAT PRIVATE LIMITED, 
                 its licensors, or other content providers, and are protected by Indian and international intellectual property laws.
               </p>
 
@@ -385,7 +385,7 @@ export default function Terms() {
                 <ul className="space-y-2 text-slate-700 text-sm">
                   <li className="flex items-start gap-2">
                     <span className="text-purple-600">•</span>
-                    <span>RIVOAURA name, logo, and all related trademarks</span>
+                    <span>DAYHAAT name, logo, and all related trademarks</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-purple-600">•</span>
@@ -422,7 +422,7 @@ export default function Terms() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600">✗</span>
-                    <span>Use RIVOAURA trademarks, logos, or branding in any manner</span>
+                    <span>Use DAYHAAT trademarks, logos, or branding in any manner</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-red-600">✗</span>
@@ -443,7 +443,7 @@ export default function Terms() {
               <h2 className="text-3xl font-bold text-slate-900 mb-4">6. Limitation of Liability</h2>
               
               <p className="text-slate-700 leading-relaxed mb-6">
-                To the maximum extent permitted by Indian law, RIVOAURA PRIVATE LIMITED, its directors, officers, employees, 
+                To the maximum extent permitted by Indian law, DAYHAAT PRIVATE LIMITED, its directors, officers, employees, 
                 and agents shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising 
                 from your use of the platform.
               </p>
@@ -483,7 +483,7 @@ export default function Terms() {
               
               <p className="text-slate-700 leading-relaxed mb-6">
                 These Terms and Conditions shall be governed by and construed in accordance with the laws of India. 
-                Any disputes arising from these terms or your use of RIVOAURA shall be subject to the exclusive jurisdiction 
+                Any disputes arising from these terms or your use of DAYHAAT shall be subject to the exclusive jurisdiction 
                 of the courts in Bangalore, Karnataka, India.
               </p>
 
@@ -492,7 +492,7 @@ export default function Terms() {
                 <ol className="space-y-3 text-slate-700 text-sm">
                   <li className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold">1</span>
-                    <span><strong>Contact Support:</strong> First, attempt to resolve the dispute by contacting our support team at support@rivoaura.com</span>
+                    <span><strong>Contact Support:</strong> First, attempt to resolve the dispute by contacting our support team at support@dayhaat.com</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold">2</span>
@@ -513,7 +513,7 @@ export default function Terms() {
               <h2 className="text-3xl font-bold text-slate-900 mb-4">8. Changes to These Terms</h2>
               
               <p className="text-slate-700 leading-relaxed mb-4">
-                RIVOAURA reserves the right to modify, update, or replace these Terms and Conditions at any time, at our sole discretion. 
+                DAYHAAT reserves the right to modify, update, or replace these Terms and Conditions at any time, at our sole discretion. 
                 When we make changes, we will:
               </p>
 
@@ -534,7 +534,7 @@ export default function Terms() {
 
               <div className="bg-orange-50 rounded-xl p-6 border border-orange-200 mt-6">
                 <p className="text-slate-700 leading-relaxed">
-                  <strong>Your Continued Use Constitutes Acceptance:</strong> By continuing to access or use RIVOAURA after 
+                  <strong>Your Continued Use Constitutes Acceptance:</strong> By continuing to access or use DAYHAAT after 
                   any modifications to these Terms, you agree to be bound by the revised terms. If you do not agree to the new 
                   terms, you must stop using the platform immediately.
                 </p>
@@ -551,9 +551,9 @@ export default function Terms() {
                 please contact our legal team:
               </p>
               <div className="space-y-2 text-slate-700">
-                <p><strong>Email:</strong> legal@rivoaura.com</p>
-                <p><strong>Support:</strong> support@rivoaura.com</p>
-                <p><strong>Address:</strong> RIVOAURA PRIVATE LIMITED, Bangalore, Karnataka, India</p>
+                <p><strong>Email:</strong> legal@dayhaat.com</p>
+                <p><strong>Support:</strong> support@dayhaat.com</p>
+                <p><strong>Address:</strong> DAYHAAT PRIVATE LIMITED, Bangalore, Karnataka, India</p>
               </div>
             </CardContent>
           </Card>

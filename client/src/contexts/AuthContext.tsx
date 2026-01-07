@@ -38,7 +38,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 const MOCK_USER: User = {
   id: 'u1',
   name: 'Demo User',
-  email: 'demo@rivoauralive.com',
+  email: 'demo@dayhaatlive.com',
   username: 'CricketKing_99',
   avatar: 'CK',
   totalPoints: 1250,

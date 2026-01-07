@@ -11,12 +11,12 @@ const faqs: { category: string; items: FAQItem[] }[] = [
     category: "Getting Started",
     items: [
       {
-        question: "What is RIVOAURA?",
-        answer: "RIVOAURA is India's premier free-to-play fantasy cricket platform. We provide a 100% skill-based gaming environment where users can create virtual cricket teams, compete in contests, and climb leaderboards—all without spending a single rupee. Our platform is designed for education and entertainment, not gambling."
+        question: "What is DAYHAAT?",
+        answer: "DAYHAAT is India's premier free-to-play fantasy cricket platform. We provide a 100% skill-based gaming environment where users can create virtual cricket teams, compete in contests, and climb leaderboards—all without spending a single rupee. Our platform is designed for education and entertainment, not gambling."
       },
       {
         question: "Is it really free? How do you make money?",
-        answer: "Yes, it is completely free. We do not charge entry fees, subscription costs, or hidden charges. RIVOAURA is funded by private investors who believe in fantasy sports as an educational tool. We do not operate on a profit-maximization model. Our goal is to create a safe space for cricket fans to learn and compete."
+        answer: "Yes, it is completely free. We do not charge entry fees, subscription costs, or hidden charges. DAYHAAT is funded by private investors who believe in fantasy sports as an educational tool. We do not operate on a profit-maximization model. Our goal is to create a safe space for cricket fans to learn and compete."
       },
       {
         question: "Do I need to be 18+ to play?",
@@ -24,7 +24,7 @@ const faqs: { category: string; items: FAQItem[] }[] = [
       },
       {
         question: "Which states are restricted?",
-        answer: "Due to government compliance requirements, RIVOAURA is NOT available to residents of: Andhra Pradesh, Assam, Nagaland, Odisha, Sikkim, and Telangana. Users from these states cannot register or participate in contests."
+        answer: "Due to government compliance requirements, DAYHAAT is NOT available to residents of: Andhra Pradesh, Assam, Nagaland, Odisha, Sikkim, and Telangana. Users from these states cannot register or participate in contests."
       }
     ]
   },
@@ -58,7 +58,7 @@ const faqs: { category: string; items: FAQItem[] }[] = [
       },
       {
         question: "What do winners receive?",
-        answer: "Winners receive digital badges, leaderboard rankings, and bragging rights. We do NOT offer cash prizes, real money rewards, or any form of monetary compensation. RIVOAURA is purely for entertainment and skill development."
+        answer: "Winners receive digital badges, leaderboard rankings, and bragging rights. We do NOT offer cash prizes, real money rewards, or any form of monetary compensation. DAYHAAT is purely for entertainment and skill development."
       },
       {
         question: "How does the leaderboard work?",
@@ -96,11 +96,11 @@ const faqs: { category: string; items: FAQItem[] }[] = [
     items: [
       {
         question: "Is fantasy cricket legal in India?",
-        answer: "Yes. Fantasy cricket is classified as a 'Game of Skill' under Indian law, as recognized by multiple court rulings. However, it must NOT involve real money wagering. RIVOAURA operates in full compliance with the Public Gambling Act, 1867, and state-specific regulations."
+        answer: "Yes. Fantasy cricket is classified as a 'Game of Skill' under Indian law, as recognized by multiple court rulings. However, it must NOT involve real money wagering. DAYHAAT operates in full compliance with the Public Gambling Act, 1867, and state-specific regulations."
       },
       {
-        question: "Who owns RIVOAURA?",
-        answer: "RIVOAURA is owned and operated by RIVOAURA PRIVATE LIMITED, a legally registered Indian private limited company based in New Delhi, Delhi."
+        question: "Who owns DAYHAAT?",
+        answer: "DAYHAAT is owned and operated by DAYHAAT PRIVATE LIMITED, a legally registered Indian private limited company based in New Delhi, Delhi."
       },
       {
         question: "Do you have a Fair Play Policy?",
@@ -135,7 +135,7 @@ export default function FAQ() {
           <HelpCircle className="w-16 h-16 mx-auto mb-6 text-yellow-400" />
           <h1 className="text-5xl font-bold mb-4">Frequently Asked Questions</h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-            Everything you need to know about RIVOAURA, answered with complete transparency.
+            Everything you need to know about DAYHAAT, answered with complete transparency.
           </p>
         </div>
       </section>

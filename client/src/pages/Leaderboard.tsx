@@ -58,7 +58,7 @@ export default function Leaderboard() {
             <Trophy className="w-20 h-20 text-yellow-400 mx-auto animate-pulse" />
             <h1 className="text-5xl md:text-6xl font-black tracking-tight">Hall of Fame</h1>
             <p className="text-xl text-blue-200 max-w-2xl mx-auto leading-relaxed">
-              Celebrate the champions of RIVOAURA. Compete against thousands of cricket enthusiasts, 
+              Celebrate the champions of DAYHAAT. Compete against thousands of cricket enthusiasts, 
               climb the ranks, and earn your place in fantasy cricket history.
             </p>
           </div>

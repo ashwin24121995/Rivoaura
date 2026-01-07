@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const FAVORITES_KEY = 'rivoaura_favorite_teams';
+const FAVORITES_KEY = 'dayhaat_favorite_teams';
 
 export function useFavorites() {
   const [favorites, setFavorites] = useState<string[]>([]);

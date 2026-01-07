@@ -13,14 +13,14 @@ interface SEOProps {
 export default function SEO({
   title,
   description,
-  keywords = 'fantasy cricket, free fantasy cricket, cricket game, fantasy sports, RIVOAURA, cricket contest',
-  ogImage = 'https://rivoauralive.com/og-image.jpg',
+  keywords = 'fantasy cricket, free fantasy cricket, cricket game, fantasy sports, DAYHAAT, cricket contest',
+  ogImage = 'https://dayhaatlive.com/og-image.jpg',
   ogType = 'website',
   canonical,
   noindex = false,
 }: SEOProps) {
-  const fullTitle = `${title} | RIVOAURA - Free Fantasy Cricket`;
-  const siteUrl = 'https://rivoauralive.com';
+  const fullTitle = `${title} | DAYHAAT - Free Fantasy Cricket`;
+  const siteUrl = 'https://dayhaatlive.com';
   const canonicalUrl = canonical || (typeof window !== 'undefined' ? window.location.href : siteUrl);
 
   useEffect(() => {
@@ -46,7 +46,7 @@ export default function SEO({
     updateMetaTag('keywords', keywords);
     updateMetaTag('robots', noindex ? 'noindex, nofollow' : 'index, follow');
     updateMetaTag('googlebot', noindex ? 'noindex, nofollow' : 'index, follow');
-    updateMetaTag('author', 'RIVOAURA');
+    updateMetaTag('author', 'DAYHAAT');
     updateMetaTag('viewport', 'width=device-width, initial-scale=1.0');
 
     // Open Graph tags
@@ -55,7 +55,7 @@ export default function SEO({
     updateMetaTag('og:image', ogImage, true);
     updateMetaTag('og:url', canonicalUrl, true);
     updateMetaTag('og:type', ogType, true);
-    updateMetaTag('og:site_name', 'RIVOAURA', true);
+    updateMetaTag('og:site_name', 'DAYHAAT', true);
     updateMetaTag('og:locale', 'en_IN', true);
 
     // Twitter Card tags

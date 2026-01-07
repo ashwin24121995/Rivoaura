@@ -40,8 +40,8 @@ export default function Home() {
     <div className="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50">
       <SEO
         title="Home - Free Fantasy Cricket Platform"
-        description="RIVOAURA is India's most transparent and educational fantasy cricket platform. 100% free-to-play. Build dream teams, compete with cricket enthusiasts, and sharpen your strategic thinking without spending money."
-        keywords="fantasy cricket, free fantasy cricket, cricket game, fantasy sports, RIVOAURA, cricket contest, online cricket, fantasy cricket app, free cricket game, cricket strategy"
+        description="DAYHAAT is India's most transparent and educational fantasy cricket platform. 100% free-to-play. Build dream teams, compete with cricket enthusiasts, and sharpen your strategic thinking without spending money."
+        keywords="fantasy cricket, free fantasy cricket, cricket game, fantasy sports, DAYHAAT, cricket contest, online cricket, fantasy cricket app, free cricket game, cricket strategy"
         ogType="website"
       />
       
@@ -65,13 +65,13 @@ export default function Home() {
               <h1 className="text-6xl md:text-7xl font-black leading-tight">
                 Master Fantasy Cricket with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">
-                  RIVOAURA
+                  DAYHAAT
                 </span>
               </h1>
 
               <p className="text-xl text-slate-300 leading-relaxed border-l-4 border-amber-500 pl-6">
                 Welcome to India's most transparent and educational fantasy cricket platform. 
-                <strong className="text-white"> RIVOAURA</strong> is a 100% free-to-play community where you build dream teams, 
+                <strong className="text-white"> DAYHAAT</strong> is a 100% free-to-play community where you build dream teams, 
                 compete with cricket enthusiasts, and sharpen your strategic thinking—all without spending a single rupee.
               </p>
 
@@ -108,16 +108,16 @@ export default function Home() {
               <Card className="relative z-10 bg-slate-800/50 backdrop-blur-xl border-slate-700 shadow-2xl">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-4 pb-6 border-b border-slate-700">
-                    <img src="/logo-rivoaura.png" alt="RIVOAURA" className="w-16 h-16" />
+                    <img src="/logo-dayhaat.png" alt="DAYHAAT" className="w-16 h-16" />
                     <div>
-                      <div className="text-2xl font-bold text-white">RIVOAURA</div>
+                      <div className="text-2xl font-bold text-white">DAYHAAT</div>
                       <div className="text-sm text-slate-400">Educational Fantasy Cricket</div>
                     </div>
                   </div>
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
-                      <img src="/badge-nomoney-rivoaura.png" alt="No Money" className="w-14 h-14" />
+                      <img src="/badge-nomoney-dayhaat.png" alt="No Money" className="w-14 h-14" />
                       <div>
                         <div className="font-bold text-white">100% Free to Play</div>
                         <div className="text-sm text-slate-400">No deposits, no withdrawals</div>
@@ -125,7 +125,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
-                      <img src="/badge-18plus-rivoaura.png" alt="18+" className="w-14 h-14" />
+                      <img src="/badge-18plus-dayhaat.png" alt="18+" className="w-14 h-14" />
                       <div>
                         <div className="font-bold text-white">Age Verified Platform</div>
                         <div className="text-sm text-slate-400">Strictly 18+ community</div>
@@ -133,7 +133,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
-                      <img src="/badge-fairplay-rivoaura.png" alt="Fair Play" className="w-14 h-14" />
+                      <img src="/badge-fairplay-dayhaat.png" alt="Fair Play" className="w-14 h-14" />
                       <div>
                         <div className="font-bold text-white">Fair Play Certified</div>
                         <div className="text-sm text-slate-400">Transparent & ethical</div>
@@ -143,7 +143,7 @@ export default function Home() {
 
                   <div className="pt-6 border-t border-slate-700 text-center">
                     <p className="text-xs text-slate-500 leading-relaxed">
-                      Operated by <strong className="text-slate-400">RIVOAURA PRIVATE LIMITED</strong><br />
+                      Operated by <strong className="text-slate-400">DAYHAAT PRIVATE LIMITED</strong><br />
                       CIN: U74999DL2016PTC306805 • Registered in New Delhi, India
                     </p>
                   </div>
@@ -344,7 +344,7 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-slate-600 leading-relaxed">
-                Every great fantasy team starts with smart selection. At RIVOAURA, you work within a <strong>100-point team budget constraint</strong> to assemble 
+                Every great fantasy team starts with smart selection. At DAYHAAT, you work within a <strong>100-point team budget constraint</strong> to assemble 
                 your perfect 11-player squad from real cricket matches happening worldwide. This is a game mechanic that teaches strategic resource allocation.
               </p>
 
@@ -431,7 +431,7 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-slate-600 leading-relaxed">
-                Once the real cricket match begins, RIVOAURA's advanced scoring engine tracks every single delivery 
+                Once the real cricket match begins, DAYHAAT's advanced scoring engine tracks every single delivery 
                 and instantly calculates fantasy points for your selected players. Experience the thrill of watching 
                 your team's score climb in real-time!
               </p>
@@ -539,7 +539,7 @@ export default function Home() {
               </h2>
 
               <p className="text-lg text-slate-600 leading-relaxed">
-                RIVOAURA isn't just about picking your favorite players—it's about making <strong>informed, strategic decisions</strong>. 
+                DAYHAAT isn't just about picking your favorite players—it's about making <strong>informed, strategic decisions</strong>. 
                 We provide you with comprehensive player statistics, recent form analysis, and head-to-head matchup data 
                 to help you build high-scoring teams and improve your cricket knowledge.
               </p>
@@ -578,7 +578,7 @@ export default function Home() {
                       Community Expert Tips
                     </h3>
                     <p className="text-slate-600 leading-relaxed">
-                      Learn from top-performing RIVOAURA players in our community forums. 
+                      Learn from top-performing DAYHAAT players in our community forums. 
                       Share strategies, discuss team combinations, and improve your fantasy cricket IQ together.
                     </p>
                   </CardContent>
@@ -591,7 +591,7 @@ export default function Home() {
                   <div>
                     <h4 className="font-bold text-purple-900 mb-2">Skill Development Focus:</h4>
                     <p className="text-purple-800 leading-relaxed">
-                      RIVOAURA is designed to be <strong>educational</strong>. The more you play, the better you understand 
+                      DAYHAAT is designed to be <strong>educational</strong>. The more you play, the better you understand 
                       cricket dynamics, player roles, and match situations. It's not gambling—it's skill-building.
                     </p>
                   </div>
@@ -628,7 +628,7 @@ export default function Home() {
                 <div className="bg-gradient-to-r from-amber-50 to-amber-100 border-2 border-amber-300 rounded-xl p-6">
                   <h3 className="font-bold text-amber-900 text-xl mb-4 flex items-center gap-2">
                     <Trophy className="w-6 h-6 text-amber-600" />
-                    What You Achieve at RIVOAURA
+                    What You Achieve at DAYHAAT
                   </h3>
                   
                   <div className="space-y-3">
@@ -729,12 +729,12 @@ export default function Home() {
             </div>
 
             <h2 className="text-5xl font-black leading-tight">
-              Why RIVOAURA is <span className="text-amber-400">Completely Legal & Safe</span>
+              Why DAYHAAT is <span className="text-amber-400">Completely Legal & Safe</span>
             </h2>
 
             <p className="text-xl text-slate-300 leading-relaxed max-w-3xl mx-auto">
               We understand your concerns about online fantasy sports platforms. 
-              Here's exactly how RIVOAURA operates and why we're different from gambling websites.
+              Here's exactly how DAYHAAT operates and why we're different from gambling websites.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
@@ -745,7 +745,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">No Real Money Involved</h3>
                   <p className="text-slate-300 leading-relaxed">
-                    RIVOAURA is <strong className="text-white">100% free to play</strong>. 
+                    DAYHAAT is <strong className="text-white">100% free to play</strong>. 
                     There are no deposits, no withdrawals, no payment gateways, and no cash prizes. 
                     You cannot lose money because you never spend money.
                   </p>
@@ -772,7 +772,7 @@ export default function Home() {
                   </div>
                   <h3 className="text-2xl font-bold text-white">Legally Registered Company</h3>
                   <p className="text-slate-300 leading-relaxed">
-                    RIVOAURA is operated by <strong className="text-white">RIVOAURA PRIVATE LIMITED</strong>, 
+                    DAYHAAT is operated by <strong className="text-white">DAYHAAT PRIVATE LIMITED</strong>, 
                     a company registered with the Ministry of Corporate Affairs (CIN: U74999DL2016PTC306805).
                   </p>
                 </CardContent>
@@ -812,7 +812,7 @@ export default function Home() {
             </h2>
 
             <p className="text-2xl text-amber-50 leading-relaxed">
-              Start playing on RIVOAURA today. 
+              Start playing on DAYHAAT today. 
               It's free, it's fun, and it's the smartest way to enjoy cricket.
             </p>
 

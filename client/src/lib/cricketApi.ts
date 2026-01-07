@@ -9,12 +9,12 @@ const API_KEY = '1a822521-d7e0-46ff-98d3-3e51020863f3';
 
 // Cache configuration
 const CACHE_KEYS = {
-  MATCHES: 'rivoaura_matches_cache',
-  MATCH_SQUAD: 'rivoaura_squad_cache_',
-  MATCH_POINTS: 'rivoaura_points_cache_',
-  FANTASY_SUMMARY: 'rivoaura_fantasy_summary_',
-  SCORECARD: 'rivoaura_scorecard_',
-  LAST_FETCH: 'rivoaura_last_fetch',
+  MATCHES: 'dayhaat_matches_cache',
+  MATCH_SQUAD: 'dayhaat_squad_cache_',
+  MATCH_POINTS: 'dayhaat_points_cache_',
+  FANTASY_SUMMARY: 'dayhaat_fantasy_summary_',
+  SCORECARD: 'dayhaat_scorecard_',
+  LAST_FETCH: 'dayhaat_last_fetch',
 };
 
 const CACHE_DURATION = {
@@ -679,7 +679,7 @@ export function getCacheStats(): Record<string, any> {
   const stats: Record<string, any> = {};
   
   Object.keys(localStorage).forEach((key) => {
-    if (key.startsWith('rivoaura_')) {
+    if (key.startsWith('dayhaat_')) {
       try {
         const cached = JSON.parse(localStorage.getItem(key) || '{}');
         const age = Date.now() - (cached.timestamp || 0);

@@ -119,7 +119,7 @@ export default function PointSystem() {
               The <span className="text-primary">Science</span> Behind Your Score
             </h1>
             <p className="text-lg text-slate-300 leading-relaxed max-w-2xl">
-              RIVOAURA uses a precision-based scoring algorithm designed to reward pure cricketing skill. 
+              DAYHAAT uses a precision-based scoring algorithm designed to reward pure cricketing skill. 
               Every run, wicket, and catch is quantified to ensure the best manager wins.
             </p>
           </div>

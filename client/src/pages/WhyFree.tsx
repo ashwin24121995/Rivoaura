@@ -19,7 +19,7 @@ export default function WhyFree() {
             100% Free Forever - No Catch, No Hidden Fees
           </div>
           <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tight">
-            Why Is RIVOAURA <span className="text-green-400">Completely Free?</span>
+            Why Is DAYHAAT <span className="text-green-400">Completely Free?</span>
           </h1>
           <p className="text-xl md:text-2xl text-green-100 max-w-4xl mx-auto leading-relaxed">
             The #1 question we get asked. Here's the complete, transparent answer about our funding, 
@@ -40,7 +40,7 @@ export default function WhyFree() {
                 <div>
                   <h2 className="text-3xl font-bold text-slate-900 mb-4">The Short Answer</h2>
                   <p className="text-lg text-slate-700 leading-relaxed mb-4">
-                    <strong>RIVOAURA is funded by private investors who believe fantasy sports should be educational, not exploitative.</strong> We don't need to charge users because our investors cover all operational costs. 
+                    <strong>DAYHAAT is funded by private investors who believe fantasy sports should be educational, not exploitative.</strong> We don't need to charge users because our investors cover all operational costs. 
                     Our goal isn't to maximize profit—it's to create India's most trusted fantasy cricket platform where users learn, compete, and grow their cricket knowledge without financial pressure.
                   </p>
                   <div className="bg-green-50 border-l-4 border-green-500 p-4 rounded">
@@ -77,10 +77,10 @@ export default function WhyFree() {
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-slate-900 mb-4">1. Our Educational Mission Comes First</h3>
                     <p className="text-slate-700 leading-relaxed mb-4">
-                      RIVOAURA was founded on a simple belief: <strong>fantasy cricket is one of the best ways to learn cricket strategy, player analysis, and statistical thinking.</strong> But in India, most fantasy platforms are designed around real-money gambling, which creates financial stress, addiction risks, and excludes millions of fans who can't afford to play.
+                      DAYHAAT was founded on a simple belief: <strong>fantasy cricket is one of the best ways to learn cricket strategy, player analysis, and statistical thinking.</strong> But in India, most fantasy platforms are designed around real-money gambling, which creates financial stress, addiction risks, and excludes millions of fans who can't afford to play.
                     </p>
                     <p className="text-slate-700 leading-relaxed mb-4">
-                      We asked ourselves: <em>"What if we removed money entirely and focused purely on education?"</em> The result is RIVOAURA—a platform where:
+                      We asked ourselves: <em>"What if we removed money entirely and focused purely on education?"</em> The result is DAYHAAT—a platform where:
                     </p>
                     <ul className="space-y-2 ml-6">
                       <li className="flex items-start gap-2">
@@ -115,7 +115,7 @@ export default function WhyFree() {
                   <div className="flex-1">
                     <h3 className="text-2xl font-bold text-slate-900 mb-4">2. How We're Funded (Complete Transparency)</h3>
                     <p className="text-slate-700 leading-relaxed mb-4">
-                      <strong>RIVOAURA is funded by private investors</strong> who share our vision of fantasy sports as an educational tool. These investors provide the capital needed to cover:
+                      <strong>DAYHAAT is funded by private investors</strong> who share our vision of fantasy sports as an educational tool. These investors provide the capital needed to cover:
                     </p>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
                       <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
@@ -162,7 +162,7 @@ export default function WhyFree() {
                     <h3 className="text-2xl font-bold text-slate-900 mb-4">3. Who Are These Investors?</h3>
                     <p className="text-slate-700 leading-relaxed mb-4">
                       Our investors are <strong>private individuals and family offices</strong> who believe in the social impact of educational technology. 
-                      They are not venture capital firms demanding aggressive monetization or user exploitation. Instead, they view RIVOAURA as:
+                      They are not venture capital firms demanding aggressive monetization or user exploitation. Instead, they view DAYHAAT as:
                     </p>
                     <ul className="space-y-3 mb-6">
                       <li className="flex items-start gap-3">
@@ -326,7 +326,7 @@ export default function WhyFree() {
             {[
               {
                 q: "Is this too good to be true?",
-                a: "We understand the skepticism—most 'free' platforms have hidden costs. But RIVOAURA is genuinely free because we're funded by investors who view this as a social investment, not a profit-maximizing business. Think of us like Wikipedia or Khan Academy for fantasy cricket."
+                a: "We understand the skepticism—most 'free' platforms have hidden costs. But DAYHAAT is genuinely free because we're funded by investors who view this as a social investment, not a profit-maximizing business. Think of us like Wikipedia or Khan Academy for fantasy cricket."
               },
               {
                 q: "How do I know you won't suddenly start charging?",
@@ -345,7 +345,7 @@ export default function WhyFree() {
                 a: "We have multi-year funding commitments. If funding becomes uncertain, we'll communicate transparently with users and explore ethical alternatives (new investors, sponsorships, or open-sourcing). We will never surprise users with sudden fees or gambling features."
               },
               {
-                q: "Can I donate or support RIVOAURA?",
+                q: "Can I donate or support DAYHAAT?",
                 a: "We appreciate the sentiment, but we're not accepting donations at this time. Our investors have committed to funding operations. The best way to support us is to use the platform, share it with friends, and provide feedback to help us improve."
               }
             ].map((faq, i) => (
