@@ -46,7 +46,7 @@ export function useNotifications() {
           if (Notification.permission === 'granted') {
             new Notification('Match Starting Soon!', {
               body: `${notification.matchName} starts in 30 minutes`,
-              icon: '/images/logo-dayhaat.png',
+              icon: '/images/logo-dayhaat.webp',
               tag: notification.matchId,
             });
           }

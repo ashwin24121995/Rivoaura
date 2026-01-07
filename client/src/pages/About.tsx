@@ -8,7 +8,7 @@ export default function About() {
       <section className="relative w-full min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-about.png" 
+            src="/images/hero-about.webp" 
             alt="DAYHAAT Team" 
             className="w-full h-full object-cover opacity-30"
           />

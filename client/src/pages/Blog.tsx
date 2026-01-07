@@ -10,7 +10,7 @@ const blogPosts = [
     date: "December 10, 2024",
     category: "Strategy",
     readTime: "8 min read",
-    image: "/images/hero-blog.png"
+    image: "/images/hero-blog.webp"
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const blogPosts = [
     date: "December 8, 2024",
     category: "Analytics",
     readTime: "12 min read",
-    image: "/images/hero-blog.png"
+    image: "/images/hero-blog.webp"
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const blogPosts = [
     date: "December 5, 2024",
     category: "Beginner Guide",
     readTime: "6 min read",
-    image: "/images/hero-blog.png"
+    image: "/images/hero-blog.webp"
   },
   {
     id: 4,
@@ -40,7 +40,7 @@ const blogPosts = [
     date: "December 3, 2024",
     category: "Strategy",
     readTime: "10 min read",
-    image: "/images/hero-blog.png"
+    image: "/images/hero-blog.webp"
   },
   {
     id: 5,
@@ -50,7 +50,7 @@ const blogPosts = [
     date: "December 1, 2024",
     category: "Tips & Tricks",
     readTime: "7 min read",
-    image: "/images/hero-blog.png"
+    image: "/images/hero-blog.webp"
   },
   {
     id: 6,
@@ -60,7 +60,7 @@ const blogPosts = [
     date: "November 28, 2024",
     category: "Psychology",
     readTime: "9 min read",
-    image: "/images/hero-blog.png"
+    image: "/images/hero-blog.webp"
   }
 ];
 
@@ -73,7 +73,7 @@ export default function Blog() {
       <section className="relative w-full min-h-[400px] flex items-center justify-center overflow-hidden bg-slate-900 text-white">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/images/hero-blog.png" 
+            src="/images/hero-blog.webp" 
             alt="Cricket Analysis Desk" 
             className="w-full h-full object-cover opacity-30"
           />

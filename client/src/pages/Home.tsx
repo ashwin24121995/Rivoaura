@@ -108,7 +108,7 @@ export default function Home() {
               <Card className="relative z-10 bg-slate-800/50 backdrop-blur-xl border-slate-700 shadow-2xl">
                 <CardContent className="p-8 space-y-6">
                   <div className="flex items-center gap-4 pb-6 border-b border-slate-700">
-                    <img src="/logo-dayhaat.png" alt="DAYHAAT" className="w-16 h-16" />
+                    <img src="/logo-dayhaat.webp" alt="DAYHAAT" className="w-16 h-16" />
                     <div>
                       <div className="text-2xl font-bold text-white">DAYHAAT</div>
                       <div className="text-sm text-slate-400">Educational Fantasy Cricket</div>
@@ -117,7 +117,7 @@ export default function Home() {
 
                   <div className="space-y-4">
                     <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
-                      <img src="/badge-nomoney-dayhaat.png" alt="No Money" className="w-14 h-14" />
+                      <img src="/badge-nomoney-dayhaat.webp" alt="No Money" className="w-14 h-14" />
                       <div>
                         <div className="font-bold text-white">100% Free to Play</div>
                         <div className="text-sm text-slate-400">No deposits, no withdrawals</div>
@@ -125,7 +125,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
-                      <img src="/badge-18plus-dayhaat.png" alt="18+" className="w-14 h-14" />
+                      <img src="/badge-18plus-dayhaat.webp" alt="18+" className="w-14 h-14" />
                       <div>
                         <div className="font-bold text-white">Age Verified Platform</div>
                         <div className="text-sm text-slate-400">Strictly 18+ community</div>
@@ -133,7 +133,7 @@ export default function Home() {
                     </div>
 
                     <div className="flex items-center gap-4 p-4 bg-slate-900/50 rounded-xl border border-slate-700">
-                      <img src="/badge-fairplay-dayhaat.png" alt="Fair Play" className="w-14 h-14" />
+                      <img src="/badge-fairplay-dayhaat.webp" alt="Fair Play" className="w-14 h-14" />
                       <div>
                         <div className="font-bold text-white">Fair Play Certified</div>
                         <div className="text-sm text-slate-400">Transparent & ethical</div>
@@ -325,7 +325,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-blue-500/20 blur-2xl rounded-3xl"></div>
                 <img 
-                  src="/images/home-team-builder.png" 
+                  src="/images/home-team-builder.webp" 
                   alt="Fantasy Cricket Team Builder" 
                   className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
                 />
@@ -499,7 +499,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-red-500/20 to-orange-500/20 blur-2xl rounded-3xl"></div>
                 <img 
-                  src="/images/home-live-scoring.png" 
+                  src="/images/home-live-scoring.webp" 
                   alt="Live Fantasy Cricket Scoring" 
                   className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
                 />
@@ -520,7 +520,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-purple-500/20 to-pink-500/20 blur-2xl rounded-3xl"></div>
                 <img 
-                  src="/images/home-strategy.png" 
+                  src="/images/home-strategy.webp" 
                   alt="Fantasy Cricket Strategy & Analytics" 
                   className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
                 />
@@ -708,7 +708,7 @@ export default function Home() {
               <div className="relative">
                 <div className="absolute -inset-4 bg-gradient-to-r from-amber-500/20 to-yellow-500/20 blur-2xl rounded-3xl"></div>
                 <img 
-                  src="/images/home-leaderboard.png" 
+                  src="/images/home-leaderboard.webp" 
                   alt="Fantasy Cricket Leaderboard" 
                   className="relative z-10 rounded-2xl shadow-2xl border-4 border-slate-200"
                 />

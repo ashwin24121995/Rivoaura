@@ -14,7 +14,7 @@ export default function SEO({
   title,
   description,
   keywords = 'fantasy cricket, free fantasy cricket, cricket game, fantasy sports, DAYHAAT, cricket contest',
-  ogImage = 'https://dayhaatlive.com/og-image.jpg',
+  ogImage = 'https://dayhaatlive.com/og-image.webp',
   ogType = 'website',
   canonical,
   noindex = false,

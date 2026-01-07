@@ -55,7 +55,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl blur opacity-40 group-hover:opacity-60 transition-opacity"></div>
                 <img 
-                  src="/logo-dayhaat.png" 
+                  src="/logo-dayhaat.webp" 
                   alt="DAYHAAT" 
                   className="relative h-12 w-12 object-contain"
                 />
@@ -228,7 +228,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {/* Brand Column */}
             <div className="lg:col-span-1">
               <div className="flex items-center gap-3 mb-6">
-                <img src="/logo-dayhaat.png" alt="DAYHAAT" className="h-12 w-12" />
+                <img src="/logo-dayhaat.webp" alt="DAYHAAT" className="h-12 w-12" />
                 <div>
                   <div className="font-bold text-xl text-white">DAYHAAT</div>
                   <div className="text-xs text-yellow-400 font-semibold">FANTASY CRICKET EXCELLENCE</div>
@@ -356,9 +356,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               {/* Trust Badges */}
               <div className="mt-6 pt-6 border-t border-slate-700">
                 <div className="flex items-center gap-3">
-                  <img src="/images/badge-18plus-dayhaat.png" alt="18+" className="h-10 w-10 object-contain" />
-                  <img src="/images/badge-fairplay-dayhaat.png" alt="Fair Play" className="h-10 w-10 object-contain" />
-                  <img src="/images/badge-nomoney-dayhaat.png" alt="No Real Money" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-18plus-dayhaat.webp" alt="18+" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-fairplay-dayhaat.webp" alt="Fair Play" className="h-10 w-10 object-contain" />
+                  <img src="/images/badge-nomoney-dayhaat.webp" alt="No Real Money" className="h-10 w-10 object-contain" />
                 </div>
               </div>
             </div>
